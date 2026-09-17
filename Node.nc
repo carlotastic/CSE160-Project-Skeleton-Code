@@ -12,6 +12,7 @@
 #include "includes/CommandMsg.h"
 #include "includes/sendInfo.h"
 #include "includes/channels.h"
+#include <AM.h>
 
 module Node{
    uses interface Boot;
@@ -26,6 +27,8 @@ module Node{
 
 implementation{
    pack sendPackage;
+   uint16_t seqCounter = 0;
+
 
    // Prototypes
    void makePack(pack *Package, uint16_t src, uint16_t dest, uint16_t TTL, uint16_t Protocol, uint16_t seq, uint8_t *payload, uint8_t length);
@@ -51,6 +54,28 @@ implementation{
       dbg(GENERAL_CHANNEL, "Packet Received\n");
       if(len==sizeof(pack)){
          pack* myMsg=(pack*) payload;
+         if(myMsg->dest == myMsg->src){
+            logPack(myMsg);
+         }
+         else {
+            if(myMsg->TTL == 0){
+               dbg(FLOODING_CHANNEL, "SOURCE: %hhu SEQ: %hhu TTL: %hhu Dropped because TTL expired", myMsg->src, myMsg->seq, myMsg->TTL);
+               return msg;
+            }
+            sendPackage = *myMsg; // reuse the already allocated sendPackage variable to store local package
+            sendPackage.TTL--;
+
+            if(sendPackage.TTL == 0){
+               dbg(FLOODING_CHANNEL, "SOURCE: %hhu SEQ: %hhu TTL: %hhu Dropped because TTL expired after decrementing", sendPackage.src, sendPackage.seq, sendPackage.TTL);
+               return msg;
+            }
+            else {
+               call Sender.send(sendPackage, AM_BROADCAST_ADDR);
+            }
+
+
+         }
+
          dbg(GENERAL_CHANNEL, "Package Payload: %s\n", myMsg->payload);
          return msg;
       }
@@ -61,8 +86,8 @@ implementation{
 
    event void CommandHandler.ping(uint16_t destination, uint8_t *payload){
       dbg(GENERAL_CHANNEL, "PING EVENT \n");
-      makePack(&sendPackage, TOS_NODE_ID, destination, 0, 0, 0, payload, PACKET_MAX_PAYLOAD_SIZE);
-      call Sender.send(sendPackage, destination);
+      makePack(&sendPackage, TOS_NODE_ID, destination, MAX_TTL, PROTOCOL_PING, ++seqCounter, payload, PACKET_MAX_PAYLOAD_SIZE);
+      call Sender.send(sendPackage, AM_BROADCAST_ADDR);
    }
 
    event void CommandHandler.printNeighbors(){}
