@@ -129,4 +129,90 @@ agrees on:
 
 - `packet.h` — defines the `pack` struct (what a network packet looks
   like: src, dest, seq, TTL, protocol, payload) and `AM_PACK = 6`.
-- `CommandMsg.h` —
+- `CommandMsg.h` — defines the `CommandMsg` struct (dest, command id,
+  payload) and `AM_COMMANDMSG = 99`.
+- `command.h` — the list of command IDs: `CMD_PING=0`,
+  `CMD_NEIGHBOR_DUMP=1`, `CMD_LINKSTATE_DUMP=2`, etc.
+- `channels.h` — numbers for debug print channels, e.g.
+  `GENERAL_CHANNEL`, `COMMAND_CHANNEL` — these are what you turn on/off
+  in your Python test script to control what gets printed.
+- `sendInfo.h`, `socket.h`, `am_types.h` — smaller support definitions
+  used inside `SimpleSendC`/`Transport`.
+
+---
+
+## 5. The pretend world: `topo/` and `noise/`
+
+- `topo/*.topo` — the fake map. Each line is `source dest gain`, e.g.
+  `1 2 -54.0` means mote 1 can send to mote 2 with signal strength -54.
+  It's one-directional unless you also add the reverse line
+  (`2 1 -54.0`). `long_line.topo` = 19 motes in a line;
+  `example.topo` = a more tangled map.
+- `noise/no_noise.txt` — a long list of noise readings (all `-98` here,
+  meaning basically silent/no interference). Swap this file for a
+  noisier one to test packet loss.
+
+---
+
+## 6. Running it: `TestSim.py`, `pingTest.py`, `CommandMsg.py`, `packet.py`
+
+`TestSim.py` is the remote control for the whole simulation. A typical
+script (like `pingTest.py`) does, in order:
+```python
+s = TestSim()                       # start the simulator
+s.runTime(1)                        # let time pass with everything off
+s.loadTopo("long_line.topo")        # load the fake map
+s.loadNoise("no_noise.txt")         # load the fake interference
+s.bootAll()                         # boot every mote (fires Boot.booted on each)
+s.addChannel(s.COMMAND_CHANNEL)     # turn on this debug channel's prints
+s.addChannel(s.GENERAL_CHANNEL)
+s.runTime(1)
+s.ping(2, 3, "Hello, World")        # tell mote 2 to ping mote 3
+s.runTime(1)
+```
+`s.ping(2, 3, "Hello, World")` sends a `CommandMsg` (command id =
+`CMD_PING`) to mote 2. That triggers `CommandHandlerP.nc`'s
+`Receive.receive`, which decodes it and fires
+`signal CommandHandler.ping(3, "Hello, World")`, which lands in your
+`Node.nc`'s `CommandHandler.ping` event, which builds a packet and
+sends it toward mote 3 — following whatever path the `.topo` file
+allows.
+
+`CommandMsg.py` and `packet.py` are auto-generated (see the Makefile
+rules below) — they're Python versions of the `CommandMsg` and `pack`
+C structs, so `TestSim.py` can build messages that your C code will
+understand.
+
+---
+
+## 7. Building it: `Makefile`
+
+```make
+COMPONENT=NodeC          # the top-level configuration to build
+INCLUDE=-IdataStructures -Ilib/interfaces -Ilib/modules ...
+include $(TINYOS_ROOT_DIR)/Makefile.include   # the real TinyOS build magic
+
+CommandMsg.py: CommandMsg.h
+    nescc-mig python ... CommandMsg.h CommandMsg -o $@   # regenerate CommandMsg.py from the .h
+
+packet.py: packet.h
+    nescc-mig python ... packet.h pack -o packet.py      # regenerate packet.py from the .h
+```
+Running `make micaz sim` (or similar, per your course instructions)
+compiles `NodeC` and everything it's wired to. The last two rules are
+how `CommandMsg.py`/`packet.py` get (re)created automatically whenever
+you change the matching `.h` file.
+
+---
+
+## 8. The full flow, start to finish
+
+1. You edit `Node.nc` (the logic) — this is most of your actual work.
+2. `NodeC.nc` wires that logic to the real radio, timer, and command
+   listener.
+3. `make` compiles everything into a simulation binary.
+4. A Python script (`pingTest.py` style) loads a `.topo` map and a
+   `noise` file, boots every mote, then sends test commands like pings.
+5. Those commands travel in through `CommandHandlerC` → fire events in
+   `Node.nc` → your logic sends real packets → `dbg()` prints show you
+   what's happening on whichever channels you turned on.
