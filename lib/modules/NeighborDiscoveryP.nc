@@ -7,13 +7,21 @@
 module NeighborDiscoveryP{
     provides interface NeighborDiscovery;
 
-    uses SimpleSend as Sender;
-    uses interface Receive;
-    uses interface Timer<TMilli> as beaconTimer;
-    uses interface Hashmap<uint16_t> as NeighborMap;
+    uses interface Timer<TMilli> as neighborTimer;
+    uses interface Random;
 
 }
 
 implementation{
+    command void NeighborDiscovery.start(){
+        call neighborTimer.startPeriodic(500 + (uint16_t) call Random.rand16()%500);
+    }
 
+    event void neighborTimer.fired() {
+        dbg(NEIGHBOR_CHANNEL, "Neighbor Discovery Started\n");
+    }
+
+    command void NeighborDiscovery.printNeighbors(){
+        
+    }
 }
