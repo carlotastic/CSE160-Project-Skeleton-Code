@@ -1,0 +1,167 @@
+Creating Topo!
+Number of Motes 19
+  1   2   -54.0
+  2   3   -54.0
+  3   4   -54.0
+  4   5   -54.0
+  5   6   -54.0
+  6   7   -54.0
+  7   8   -54.0
+  8   9   -54.0
+  9   10   -54.0
+  10   11   -54.0
+  11   12   -54.0
+  12   13   -54.0
+  13   14   -54.0
+  14   15   -54.0
+  15   16   -54.0
+  16   17   -54.0
+  17   18   -54.0
+  18   19   -54.0
+  2   1   -54.0
+  3   2   -54.0
+  4   3   -54.0
+  5   4   -54.0
+  6   5   -54.0
+  7   6   -54.0
+  8   7   -54.0
+  9   8   -54.0
+  10   9   -54.0
+  11   10   -54.0
+  12   11   -54.0
+  13   12   -54.0
+  14   13   -54.0
+  15   14   -54.0
+  16   15   -54.0
+  17   16   -54.0
+  18   17   -54.0
+  19   18   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Creating noise model for  5
+Creating noise model for  6
+Creating noise model for  7
+Creating noise model for  8
+Creating noise model for  9
+Creating noise model for  10
+Creating noise model for  11
+Creating noise model for  12
+Creating noise model for  13
+Creating noise model for  14
+Creating noise model for  15
+Creating noise model for  16
+Creating noise model for  17
+Creating noise model for  18
+Creating noise model for  19
+Adding Channel command
+Adding Channel general
+Adding Channel flooding
+0:0:0.000000133 DEBUG (1): Booted
+0:0:0.000000143 DEBUG (1): Radio On
+0:0:0.000000266 DEBUG (2): Booted
+0:0:0.000000276 DEBUG (2): Radio On
+0:0:0.000000399 DEBUG (3): Booted
+0:0:0.000000409 DEBUG (3): Radio On
+0:0:0.000000533 DEBUG (4): Booted
+0:0:0.000000543 DEBUG (4): Radio On
+0:0:0.000000666 DEBUG (5): Booted
+0:0:0.000000676 DEBUG (5): Radio On
+0:0:0.000000799 DEBUG (6): Booted
+0:0:0.000000809 DEBUG (6): Radio On
+0:0:0.000000933 DEBUG (7): Booted
+0:0:0.000000943 DEBUG (7): Radio On
+0:0:0.000001066 DEBUG (8): Booted
+0:0:0.000001076 DEBUG (8): Radio On
+0:0:0.000001199 DEBUG (9): Booted
+0:0:0.000001209 DEBUG (9): Radio On
+0:0:0.000001333 DEBUG (10): Booted
+0:0:0.000001343 DEBUG (10): Radio On
+0:0:0.000001466 DEBUG (11): Booted
+0:0:0.000001476 DEBUG (11): Radio On
+0:0:0.000001599 DEBUG (12): Booted
+0:0:0.000001609 DEBUG (12): Radio On
+0:0:0.000001732 DEBUG (13): Booted
+0:0:0.000001742 DEBUG (13): Radio On
+0:0:0.000001866 DEBUG (14): Booted
+0:0:0.000001876 DEBUG (14): Radio On
+0:0:0.000001999 DEBUG (15): Booted
+0:0:0.000002009 DEBUG (15): Radio On
+0:0:0.000002132 DEBUG (16): Booted
+0:0:0.000002142 DEBUG (16): Radio On
+0:0:0.000002266 DEBUG (17): Booted
+0:0:0.000002276 DEBUG (17): Radio On
+0:0:0.000002399 DEBUG (18): Booted
+0:0:0.000002409 DEBUG (18): Radio On
+0:0:0.000002532 DEBUG (19): Booted
+0:0:0.000002542 DEBUG (19): Radio On
+
+======================================================================
+  1 -> 19 (18 hops vs MAX_TTL=15; packet must die in transit)
+======================================================================
+
+Expect: TTL-drop messages around nodes 15-16, no delivery at 19,
+        and no PINGREPLY at node 1.
+0:0:58.276369197 DEBUG (1): A Command has been Issued.
+0:0:58.276369197 DEBUG (1): Command Type: Ping
+0:0:58.276369197 DEBUG (1): PING EVENT 
+0:0:58.276369197 DEBUG (1): Sent PING to 19 (seq 1)
+0:0:58.320892449 DEBUG (2): Received from 1 (src 1, dest 19, seq 1, TTL: 15)
+0:0:58.320892449 DEBUG (2): Forwarded (src 1, seq 1, TTL now 14)
+0:0:58.397186544 DEBUG (1): Received from 2 (src 1, dest 19, seq 1, TTL: 14)
+0:0:58.397186544 DEBUG (1): Duplicate (src 1, seq 1), dropping
+0:0:58.397186544 DEBUG (3): Received from 2 (src 1, dest 19, seq 1, TTL: 14)
+0:0:58.397186544 DEBUG (3): Forwarded (src 1, seq 1, TTL now 13)
+0:0:58.439087284 DEBUG (2): Received from 3 (src 1, dest 19, seq 1, TTL: 13)
+0:0:58.439087284 DEBUG (2): Duplicate (src 1, seq 1), dropping
+0:0:58.439087284 DEBUG (4): Received from 3 (src 1, dest 19, seq 1, TTL: 13)
+0:0:58.439087284 DEBUG (4): Forwarded (src 1, seq 1, TTL now 12)
+0:0:58.670761639 DEBUG (3): Received from 4 (src 1, dest 19, seq 1, TTL: 12)
+0:0:58.670761639 DEBUG (3): Duplicate (src 1, seq 1), dropping
+0:0:58.670761639 DEBUG (5): Received from 4 (src 1, dest 19, seq 1, TTL: 12)
+0:0:58.670761639 DEBUG (5): Forwarded (src 1, seq 1, TTL now 11)
+0:0:58.712235136 DEBUG (4): Received from 5 (src 1, dest 19, seq 1, TTL: 11)
+0:0:58.712235136 DEBUG (4): Duplicate (src 1, seq 1), dropping
+0:0:58.712235136 DEBUG (6): Received from 5 (src 1, dest 19, seq 1, TTL: 11)
+0:0:58.712235136 DEBUG (6): Forwarded (src 1, seq 1, TTL now 10)
+0:0:58.897278595 DEBUG (5): Received from 6 (src 1, dest 19, seq 1, TTL: 10)
+0:0:58.897278595 DEBUG (5): Duplicate (src 1, seq 1), dropping
+0:0:58.897278595 DEBUG (7): Received from 6 (src 1, dest 19, seq 1, TTL: 10)
+0:0:58.897278595 DEBUG (7): Forwarded (src 1, seq 1, TTL now 9)
+0:0:59.079178763 DEBUG (6): Received from 7 (src 1, dest 19, seq 1, TTL: 9)
+0:0:59.079178763 DEBUG (6): Duplicate (src 1, seq 1), dropping
+0:0:59.079178763 DEBUG (8): Received from 7 (src 1, dest 19, seq 1, TTL: 9)
+0:0:59.079178763 DEBUG (8): Forwarded (src 1, seq 1, TTL now 8)
+0:0:59.275498476 DEBUG (7): Received from 8 (src 1, dest 19, seq 1, TTL: 8)
+0:0:59.275498476 DEBUG (7): Duplicate (src 1, seq 1), dropping
+0:0:59.275498476 DEBUG (9): Received from 8 (src 1, dest 19, seq 1, TTL: 8)
+0:0:59.275498476 DEBUG (9): Forwarded (src 1, seq 1, TTL now 7)
+0:0:59.426820021 DEBUG (8): Received from 9 (src 1, dest 19, seq 1, TTL: 7)
+0:0:59.426820021 DEBUG (8): Duplicate (src 1, seq 1), dropping
+0:0:59.426820021 DEBUG (10): Received from 9 (src 1, dest 19, seq 1, TTL: 7)
+0:0:59.426820021 DEBUG (10): Forwarded (src 1, seq 1, TTL now 6)
+0:0:59.572785756 DEBUG (9): Received from 10 (src 1, dest 19, seq 1, TTL: 6)
+0:0:59.572785756 DEBUG (9): Duplicate (src 1, seq 1), dropping
+0:0:59.572785756 DEBUG (11): Received from 10 (src 1, dest 19, seq 1, TTL: 6)
+0:0:59.572785756 DEBUG (11): Forwarded (src 1, seq 1, TTL now 5)
+0:0:59.719193977 DEBUG (10): Received from 11 (src 1, dest 19, seq 1, TTL: 5)
+0:0:59.719193977 DEBUG (10): Duplicate (src 1, seq 1), dropping
+0:0:59.719193977 DEBUG (12): Received from 11 (src 1, dest 19, seq 1, TTL: 5)
+0:0:59.719193977 DEBUG (12): Forwarded (src 1, seq 1, TTL now 4)
+0:0:59.962800629 DEBUG (11): Received from 12 (src 1, dest 19, seq 1, TTL: 4)
+0:0:59.962800629 DEBUG (11): Duplicate (src 1, seq 1), dropping
+0:0:59.962800629 DEBUG (13): Received from 12 (src 1, dest 19, seq 1, TTL: 4)
+0:0:59.962800629 DEBUG (13): Forwarded (src 1, seq 1, TTL now 3)
+0:1:0.182832522 DEBUG (12): Received from 13 (src 1, dest 19, seq 1, TTL: 3)
+0:1:0.182832522 DEBUG (12): Duplicate (src 1, seq 1), dropping
+0:1:0.182832522 DEBUG (14): Received from 13 (src 1, dest 19, seq 1, TTL: 3)
+0:1:0.182832522 DEBUG (14): Forwarded (src 1, seq 1, TTL now 2)
+0:1:0.212755125 DEBUG (13): Received from 14 (src 1, dest 19, seq 1, TTL: 2)
+0:1:0.212755125 DEBUG (13): Duplicate (src 1, seq 1), dropping
+0:1:0.212755125 DEBUG (15): Received from 14 (src 1, dest 19, seq 1, TTL: 2)
+0:1:0.212755125 DEBUG (15): Forwarded (src 1, seq 1, TTL now 1)
+0:1:0.306810461 DEBUG (14): Received from 15 (src 1, dest 19, seq 1, TTL: 1)
+0:1:0.306810461 DEBUG (14): Duplicate (src 1, seq 1), dropping
+0:1:0.306810461 DEBUG (16): Received from 15 (src 1, dest 19, seq 1, TTL: 1)
+0:1:0.306810461 DEBUG (16): TTL expired (src 1, seq 1), dropping

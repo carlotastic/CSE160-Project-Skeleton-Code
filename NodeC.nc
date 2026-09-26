@@ -30,4 +30,16 @@ implementation {
 
     components CommandHandlerC;
     Node.CommandHandler -> CommandHandlerC;
+
+    // added code
+    // stores the previous hop address for flooding logs
+   Node.AMPacket -> ActiveMessageC;
+
+    // seen packet cache: key = src and value = highest sequence seen
+   components new HashmapC(uint16_t, 20) as SeenMapC; 
+   Node.SeenMap -> SeenMapC;
+
+    // neighbor disc module
+   components NeighborDiscoveryC;
+   Node.NeighborDiscovery -> NeighborDiscoveryC;
 }

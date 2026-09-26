@@ -1,0 +1,115 @@
+Creating Topo!
+Number of Motes 19
+  1   2   -54.0
+  2   3   -54.0
+  3   4   -54.0
+  4   5   -54.0
+  5   6   -54.0
+  6   7   -54.0
+  7   8   -54.0
+  8   9   -54.0
+  9   10   -54.0
+  10   11   -54.0
+  11   12   -54.0
+  12   13   -54.0
+  13   14   -54.0
+  14   15   -54.0
+  15   16   -54.0
+  16   17   -54.0
+  17   18   -54.0
+  18   19   -54.0
+  2   1   -54.0
+  3   2   -54.0
+  4   3   -54.0
+  5   4   -54.0
+  6   5   -54.0
+  7   6   -54.0
+  8   7   -54.0
+  9   8   -54.0
+  10   9   -54.0
+  11   10   -54.0
+  12   11   -54.0
+  13   12   -54.0
+  14   13   -54.0
+  15   14   -54.0
+  16   15   -54.0
+  17   16   -54.0
+  18   17   -54.0
+  19   18   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Creating noise model for  5
+Creating noise model for  6
+Creating noise model for  7
+Creating noise model for  8
+Creating noise model for  9
+Creating noise model for  10
+Creating noise model for  11
+Creating noise model for  12
+Creating noise model for  13
+Creating noise model for  14
+Creating noise model for  15
+Creating noise model for  16
+Creating noise model for  17
+Creating noise model for  18
+Creating noise model for  19
+Adding Channel command
+Adding Channel neighbor
+0:0:3.172532448 DEBUG (9): New neighbor: 10
+0:0:3.273805010 DEBUG (11): New neighbor: 10
+0:0:3.290787802 DEBUG (9): New neighbor: 8
+0:0:3.452972909 DEBUG (5): New neighbor: 4
+0:0:3.488815939 DEBUG (6): New neighbor: 5
+0:0:3.502610840 DEBUG (11): New neighbor: 12
+0:0:3.539873619 DEBUG (19): New neighbor: 18
+0:0:3.560425208 DEBUG (4): New neighbor: 3
+0:0:3.576157280 DEBUG (4): New neighbor: 5
+0:0:3.586823313 DEBUG (5): New neighbor: 6
+0:0:3.615572468 DEBUG (17): New neighbor: 18
+0:0:3.652085404 DEBUG (7): New neighbor: 8
+0:0:3.724062568 DEBUG (18): New neighbor: 19
+0:0:3.727754675 DEBUG (14): New neighbor: 15
+0:0:3.745439849 DEBUG (18): New neighbor: 17
+0:0:3.759812609 DEBUG (8): New neighbor: 9
+0:0:3.774948636 DEBUG (3): New neighbor: 4
+0:0:3.786774480 DEBUG (7): New neighbor: 6
+0:0:3.803284607 DEBUG (6): New neighbor: 7
+0:0:3.818375546 DEBUG (8): New neighbor: 7
+0:0:3.849565300 DEBUG (14): New neighbor: 13
+0:0:3.896730471 DEBUG (16): New neighbor: 15
+0:0:3.900575535 DEBUG (15): New neighbor: 14
+0:0:3.910860280 DEBUG (17): New neighbor: 16
+0:0:3.911346791 DEBUG (2): New neighbor: 3
+0:0:3.934509535 DEBUG (3): New neighbor: 2
+0:0:3.964157227 DEBUG (2): New neighbor: 1
+0:0:3.974991112 DEBUG (1): New neighbor: 2
+0:0:3.990723856 DEBUG (10): New neighbor: 9
+0:0:4.007494302 DEBUG (16): New neighbor: 17
+0:0:4.055025304 DEBUG (15): New neighbor: 16
+0:0:4.161241075 DEBUG (10): New neighbor: 11
+0:0:4.218354992 DEBUG (12): New neighbor: 13
+0:0:4.233812268 DEBUG (13): New neighbor: 14
+0:0:4.311433337 DEBUG (12): New neighbor: 11
+0:0:4.327912980 DEBUG (13): New neighbor: 12
+0:1:16.720703412 DEBUG (4): A Command has been Issued.
+0:1:16.720703412 DEBUG (4): Command Type: Neighbor Dump
+0:1:16.720703412 DEBUG (4): Neighbor list (2):
+0:1:16.720703412 DEBUG (4):    3
+0:1:16.720703412 DEBUG (4):    5
+0:1:20.432617997 DEBUG (5): A Command has been Issued.
+0:1:20.432617997 DEBUG (5): Command Type: Neighbor Dump
+0:1:20.432617997 DEBUG (5): Neighbor list (2):
+0:1:20.432617997 DEBUG (5):    4
+0:1:20.432617997 DEBUG (5):    6
+0:1:35.771485184 DEBUG (6): Neighbor 5 dropped (no reply in 3 rounds)
+0:1:37.152344293 DEBUG (4): Neighbor 5 dropped (no reply in 3 rounds)
+0:2:15.203127409 DEBUG (4): A Command has been Issued.
+0:2:15.203127409 DEBUG (4): Command Type: Neighbor Dump
+0:2:15.203127409 DEBUG (4): Neighbor list (1):
+0:2:15.203127409 DEBUG (4):    3
+0:2:19.278413596 DEBUG (6): A Command has been Issued.
+0:2:19.278413596 DEBUG (6): Command Type: Neighbor Dump
+0:2:19.278413596 DEBUG (6): Neighbor list (1):
+0:2:19.278413596 DEBUG (6):    7

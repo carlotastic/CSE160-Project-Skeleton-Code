@@ -146,6 +146,7 @@ def concurrent():
 
     banner("1 -> 8 and 15 -> 5 back to back (both must complete)")
     s.ping(1, 8, "first")
+    s.runTime(1)
     s.ping(15, 5, "second")
     s.runTime(40)
 
