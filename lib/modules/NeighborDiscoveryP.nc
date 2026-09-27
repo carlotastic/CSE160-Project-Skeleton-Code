@@ -9,7 +9,8 @@ module NeighborDiscoveryP{
 
     uses interface Timer<TMilli> as neighborTimer;
     uses interface Random;
-    uses interface SimpleSend as Sender;
+    uses interface LinkLayer;
+    uses interface LinkReceive;
     uses interface Hashmap<uint16_t> as NeighborMap; // key=neighbor id and value=missed rounds
 }
 
@@ -18,19 +19,27 @@ implementation{
         MAX_MISSED = 3 //drops a neighbor after this many rounds of no reply
     };
 
-    pack ndPackage;
     uint16_t ndSeq = 0;
 
-    // when header dest = AM_BROADCAST_ADDR it marks the packet as a neighbor discovery
-    // linkDest is who actually receives it over the radio
+    // Setting the header dest to AM_BROADCAST_ADDR marks the packet as neighbor
+    // discovery, which is how the link layer knows to route it here instead of
+    // into flooding. TTL is 1 because these must never travel past one hop.
+    // linkDest is who actually receives it over the radio.
     void sendNDPacket(uint8_t protocol, uint16_t linkDest) {
+        pack ndPackage;
+
         ndPackage.src = TOS_NODE_ID;
         ndPackage.dest = AM_BROADCAST_ADDR;
         ndPackage.TTL = 1;
         ndPackage.protocol = protocol;
         ndPackage.seq = ++ndSeq;
         memset(ndPackage.payload, 0, PACKET_MAX_PAYLOAD_SIZE);
-        call Sender.send(ndPackage, linkDest);
+
+        if(linkDest == AM_BROADCAST_ADDR){
+            call LinkLayer.broadcast(&ndPackage);
+        } else{
+            call LinkLayer.unicast(&ndPackage, linkDest);
+        }
     }
 
     // called every round to increment neighbor's missed count and drop dead ones
@@ -40,6 +49,8 @@ implementation{
         uint16_t i;
         uint16_t missed;
 
+        // getKeys hands back the live array, and remove() shuffles it, so take
+        // a copy before iterating.
         count = call NeighborMap.size();
         memcpy(keysCopy, call NeighborMap.getKeys(), count * sizeof(uint32_t));
 
@@ -55,7 +66,9 @@ implementation{
         }
     }
 
-    command void NeighborDiscovery.start(){
+    // The radio is up, so start the roll call. Nothing above this module has to
+    // remember to start the service or wait for the radio itself.
+    event void LinkLayer.ready(){
         call neighborTimer.startPeriodic(3000 + call Random.rand16()%997);
     }
 
@@ -64,15 +77,19 @@ implementation{
         sendNDPacket(PROTOCOL_PING, AM_BROADCAST_ADDR);
     }
 
-    command void NeighborDiscovery.handle(pack* msg) {
+    // prevHop rather than msg->src: a neighbor is by definition whoever
+    // transmitted to us. For these packets the two are always equal, since
+    // TTL 1 means they are never forwarded, but prevHop is what we actually
+    // mean and it cannot be spoofed by a stale src field.
+    event void LinkReceive.receive(pack* msg, uint16_t prevHop) {
         if(msg->protocol == PROTOCOL_PING) {
             // someone is asking who is there, so answer only to them
-            sendNDPacket(PROTOCOL_PINGREPLY, msg->src);
+            sendNDPacket(PROTOCOL_PINGREPLY, prevHop);
         } else if(msg->protocol == PROTOCOL_PINGREPLY) {
-            if(call NeighborMap.contains(msg->src) == FALSE) {
-                dbg(NEIGHBOR_CHANNEL, "New neighbor: %hu\n", msg->src);
+            if(call NeighborMap.contains(prevHop) == FALSE) {
+                dbg(NEIGHBOR_CHANNEL, "New neighbor: %hu\n", prevHop);
             }
-            call NeighborMap.insert(msg->src, 0); // reset missed count
+            call NeighborMap.insert(prevHop, 0); // reset missed count
         }
     }
 

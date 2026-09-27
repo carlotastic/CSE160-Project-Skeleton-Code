@@ -7,8 +7,6 @@
  *
  */
 
-#include <Timer.h>
-#include "includes/CommandMsg.h"
 #include "includes/packet.h"
 
 configuration NodeC{
@@ -16,30 +14,17 @@ configuration NodeC{
 implementation {
     components MainC;
     components Node;
-    components new AMReceiverC(AM_PACK) as GeneralReceive;
-
     Node -> MainC.Boot;
-
-    Node.Receive -> GeneralReceive;
-
-    components ActiveMessageC;
-    Node.AMControl -> ActiveMessageC;
-
-    components new SimpleSendC(AM_PACK);
-    Node.Sender -> SimpleSendC;
 
     components CommandHandlerC;
     Node.CommandHandler -> CommandHandlerC;
 
-    // added code
-    // stores the previous hop address for flooding logs
-   Node.AMPacket -> ActiveMessageC;
+    // The two network services. Both sit on the shared LinkLayerC, which owns
+    // the radio, the AM receiver and the send queue, so nothing is wired to
+    // ActiveMessageC from here.
+    components FloodingC;
+    Node.Flooding -> FloodingC;
 
-    // seen packet cache: key = src and value = highest sequence seen
-   components new HashmapC(uint16_t, 20) as SeenMapC; 
-   Node.SeenMap -> SeenMapC;
-
-    // neighbor disc module
-   components NeighborDiscoveryC;
-   Node.NeighborDiscovery -> NeighborDiscoveryC;
+    components NeighborDiscoveryC;
+    Node.NeighborDiscovery -> NeighborDiscoveryC;
 }

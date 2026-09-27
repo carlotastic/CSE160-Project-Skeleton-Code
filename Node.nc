@@ -6,127 +6,70 @@
  * @date   2013/09/03
  *
  */
-#include <Timer.h>
-#include "includes/command.h"
 #include "includes/packet.h"
-#include "includes/CommandMsg.h"
-#include "includes/sendInfo.h"
-#include "includes/channels.h"
-#include <AM.h>
 
+/*
+ * The application layer, and nothing else.
+ *
+ * Node decides what the ping command means and what to do with a packet that
+ * has arrived. It does not know that delivery happens by flooding, that
+ * neighbors are found by roll call, or that there is a radio at all: no
+ * message_t, no AM ids, no sequence numbers, no TTL, no duplicate cache.
+ * Everything below is reachable only through Flooding and NeighborDiscovery,
+ * so project 2 can swap flooding for real routing without touching this file.
+ */
 module Node{
    uses interface Boot;
 
-   uses interface SplitControl as AMControl;
-   uses interface Receive;
-   uses interface AMPacket;
-
-   uses interface SimpleSend as Sender;
-
    uses interface CommandHandler;
 
+   uses interface Flooding;
    uses interface NeighborDiscovery;
-   uses interface Hashmap<uint16_t> as SeenMap;
 }
 
 implementation{
-   pack sendPackage;
-   uint16_t seqCounter = 0;
-
-
-   // Prototypes
-   void makePack(pack *Package, uint16_t src, uint16_t dest, uint16_t TTL, uint16_t Protocol, uint16_t seq, uint8_t *payload, uint8_t length);
-
-   // true if this has already been handled, otherwise records it
-   bool alreadySeen(pack* p) {
-      if(call SeenMap.contains(p->src) && call SeenMap.get(p->src) >= p->seq) {
-         return TRUE;
-      }
-      call SeenMap.insert(p->src, p->seq);
-      return FALSE;
-   }
 
    event void Boot.booted(){
-      call AMControl.start();
-
+      // The link layer brings the radio up and neighbor discovery starts itself
+      // once it is, so there is nothing to kick off here.
       dbg(GENERAL_CHANNEL, "Booted\n");
    }
 
-   event void AMControl.startDone(error_t err){
-      if(err == SUCCESS){
-         dbg(GENERAL_CHANNEL, "Radio On\n");
-         call NeighborDiscovery.start();
-      } else{
-         //Retry until successful
-         call AMControl.start();
-      }
-   }
-
-   event void AMControl.stopDone(error_t err){}
-
-   event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len){
-      pack* myMsg;
-      uint16_t prevHop;
-
-      if(len != sizeof(pack)) {
-         dbg(GENERAL_CHANNEL, "Unknown Packet Type %d\n", len);
-         return msg;
-      }
-
-      myMsg = (pack*) payload;
-      prevHop = call AMPacket.source(msg);
-
-      // neighbor disc packets never get flooded
-      if(myMsg->dest == AM_BROADCAST_ADDR) {
-         call NeighborDiscovery.handle(myMsg);
-         return msg;
-      }
-
-      dbg(FLOODING_CHANNEL, "Received from %hu (src %hu, dest %hu, seq %hu, TTL: %hhu)\n", prevHop, myMsg->src, myMsg->dest, myMsg->seq, myMsg->TTL);
-      
-      // check for duplicate suppression
-      if(alreadySeen(myMsg)) {
-         dbg(FLOODING_CHANNEL, "Duplicate (src %hu, seq %hu), dropping\n", myMsg->src, myMsg->seq);
-         return msg;
-      }
-
-      // check it its for current pack
-      if(myMsg->dest == TOS_NODE_ID) {
-         if(myMsg->protocol == PROTOCOL_PING) {
-            dbg(FLOODING_CHANNEL, "PING from %hu arrived. Payload: %s\n", myMsg->src, myMsg->payload);
-            makePack(&sendPackage, TOS_NODE_ID, myMsg->src, MAX_TTL, PROTOCOL_PINGREPLY, ++seqCounter, (uint8_t*) myMsg->payload, PACKET_MAX_PAYLOAD_SIZE);
-            call SeenMap.insert(TOS_NODE_ID, seqCounter);
-            call Sender.send(sendPackage, AM_BROADCAST_ADDR);
-            dbg(FLOODING_CHANNEL, "Sent PINGREPLY to %hu (seq %hu)\n", myMsg->src, seqCounter);
-         } else if(myMsg->protocol == PROTOCOL_PINGREPLY) {
-            dbg(FLOODING_CHANNEL, "PINGREPLY from %hu arrived\n", myMsg->src);
-         }
-         return msg;
-      }
-
-      // it not for current package, forward if TTL allows
-      if(myMsg->TTL <= 1) {
-         dbg(FLOODING_CHANNEL, "TTL expired (src %hu, seq %hu), dropping\n", myMsg->src, myMsg->seq);
-         return msg;
-      }
-      sendPackage = *myMsg;
-      sendPackage.TTL--;
-      call Sender.send(sendPackage, AM_BROADCAST_ADDR);
-      dbg(FLOODING_CHANNEL, "Forwarded (src %hu, seq %hu, TTL now %hhu)\n", sendPackage.src, sendPackage.seq, sendPackage.TTL);
-      return msg;
-   }
-
-
    event void CommandHandler.ping(uint16_t destination, uint8_t *payload){
+      uint16_t seq;
+
       dbg(GENERAL_CHANNEL, "PING EVENT \n");
-      if(destination == TOS_NODE_ID) {
+
+      // Whether a node bothers to talk to itself is an application decision,
+      // not a flooding one. Answering locally avoids putting a packet on the
+      // air that every neighbor would rebroadcast and nobody would consume.
+      if(destination == TOS_NODE_ID){
          dbg(FLOODING_CHANNEL, "Ping to self, delivered locally: %s\n", payload);
          return;
       }
-      makePack(&sendPackage, TOS_NODE_ID, destination, MAX_TTL, PROTOCOL_PING, ++seqCounter, payload, PACKET_MAX_PAYLOAD_SIZE);
-      call SeenMap.insert(TOS_NODE_ID, seqCounter); // so we dont reflood our own echo
-      call Sender.send(sendPackage, AM_BROADCAST_ADDR);
-      dbg(FLOODING_CHANNEL, "Sent PING to %hu (seq %hu)\n", destination, seqCounter);
+
+      seq = call Flooding.send(destination, PROTOCOL_PING, payload, PACKET_MAX_PAYLOAD_SIZE);
+      dbg(FLOODING_CHANNEL, "Sent PING to %hu (seq %hu)\n", destination, seq);
+   }
+
+   event void Flooding.receive(pack* msg){
+      uint16_t seq;
+
+      if(msg->protocol == PROTOCOL_PING){
+         dbg(FLOODING_CHANNEL, "PING from %hu arrived. Payload: %s\n", msg->src, msg->payload);
+
+         // Answer the original sender. A reply is a fresh packet with its own
+         // sequence number, not the request sent back. Note the send happens on
+         // its own line, never inside a dbg argument: dbg compiles away outside
+         // TOSSIM, which would take the send with it.
+         seq = call Flooding.send(msg->src, PROTOCOL_PINGREPLY, (uint8_t*) msg->payload, PACKET_MAX_PAYLOAD_SIZE);
+         dbg(FLOODING_CHANNEL, "Sent PINGREPLY to %hu (seq %hu)\n", msg->src, seq);
+
+      } else if(msg->protocol == PROTOCOL_PINGREPLY){
+         // A reply ends the exchange. Replying to a reply would ping-pong
+         // between the two nodes forever.
+         dbg(FLOODING_CHANNEL, "PINGREPLY from %hu arrived\n", msg->src);
+      }
    }
 
    event void CommandHandler.printNeighbors(){
@@ -146,13 +89,4 @@ implementation{
    event void CommandHandler.setAppServer(){}
 
    event void CommandHandler.setAppClient(){}
-
-   void makePack(pack *Package, uint16_t src, uint16_t dest, uint16_t TTL, uint16_t protocol, uint16_t seq, uint8_t* payload, uint8_t length){
-      Package->src = src;
-      Package->dest = dest;
-      Package->TTL = TTL;
-      Package->seq = seq;
-      Package->protocol = protocol;
-      memcpy(Package->payload, payload, length);
-   }
 }
