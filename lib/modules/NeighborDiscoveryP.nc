@@ -4,13 +4,15 @@
 #include "../../includes/channels.h"
 #include "../../includes/protocol.h"
 
+// Neighbor discovery: finds which nodes are one hop away.
+// every round: broadcast a PING, anyone who hears it sends back a PINGREPLY
 module NeighborDiscoveryP{
     provides interface NeighborDiscovery;
 
-    uses interface Timer<TMilli> as neighborTimer;
-    uses interface Random;
-    uses interface LinkLayer;
-    uses interface LinkReceive;
+    uses interface Timer<TMilli> as neighborTimer; // fires once per round
+    uses interface Random; // randomizes the round length
+    uses interface LinkLayer; // for sending
+    uses interface LinkReceive; // for receiving (only neighbor discovery packets arrive here)
     uses interface Hashmap<uint16_t> as NeighborMap; // key=neighbor id and value=missed rounds
 }
 
@@ -19,21 +21,20 @@ implementation{
         MAX_MISSED = 3 //drops a neighbor after this many rounds of no reply
     };
 
-    uint16_t ndSeq = 0;
+    uint16_t ndSeq = 0; // separate from flooding's seqCounter
 
-    // Setting the header dest to AM_BROADCAST_ADDR marks the packet as neighbor
-    // discovery, which is how the link layer knows to route it here instead of
-    // into flooding. TTL is 1 because these must never travel past one hop.
-    // linkDest is who actually receives it over the radio.
+    // builds and sends a neighbor discovery packet.
+    // linkDest = who actually receives it over the radio (everyone for PING, one node for PINGREPLY)
     void sendNDPacket(uint8_t protocol, uint16_t linkDest) {
         pack ndPackage;
 
         ndPackage.src = TOS_NODE_ID;
+        // dest = AM_BROADCAST_ADDR is how the link layer knows to send it to us instead of flooding.
         ndPackage.dest = AM_BROADCAST_ADDR;
-        ndPackage.TTL = 1;
+        ndPackage.TTL = 1; // TTL = 1 so it never goes past one hop.
         ndPackage.protocol = protocol;
         ndPackage.seq = ++ndSeq;
-        memset(ndPackage.payload, 0, PACKET_MAX_PAYLOAD_SIZE);
+        memset(ndPackage.payload, 0, PACKET_MAX_PAYLOAD_SIZE); // no payload needed
 
         if(linkDest == AM_BROADCAST_ADDR){
             call LinkLayer.broadcast(&ndPackage);
@@ -42,15 +43,15 @@ implementation{
         }
     }
 
-    // called every round to increment neighbor's missed count and drop dead ones
+    // called every round to increment neighbor's missed count and drop dead ones.
+    // a reply resets the count to 0, so only neighbors that stopped replying get dropped.
     void ageNeighbors() {
         uint32_t keysCopy[20];
         uint16_t count;
         uint16_t i;
         uint16_t missed;
 
-        // getKeys hands back the live array, and remove() shuffles it, so take
-        // a copy before iterating.
+        // copy the keys first, since remove() changes the hashmap's key array while we loop
         count = call NeighborMap.size();
         memcpy(keysCopy, call NeighborMap.getKeys(), count * sizeof(uint32_t));
 
@@ -60,27 +61,26 @@ implementation{
                 call NeighborMap.remove(keysCopy[i]);
                 dbg(NEIGHBOR_CHANNEL, "Neighbor %hu dropped (no reply in %d rounds)\n", (uint16_t) keysCopy[i], MAX_MISSED);
             } else{
-                call NeighborMap.insert(keysCopy[i], missed);
+                call NeighborMap.insert(keysCopy[i], missed); // insert on an existing key overwrites it
             }
 
         }
     }
 
-    // The radio is up, so start the roll call. Nothing above this module has to
-    // remember to start the service or wait for the radio itself.
+    // radio is on, so start the rounds
+    // random extra time (0-996 ms) so nodes don't all broadcast at once and collide
     event void LinkLayer.ready(){
-        call neighborTimer.startPeriodic(3000 + call Random.rand16()%997);
+        call neighborTimer.startPeriodic(10000 + call Random.rand16()%997);
     }
 
+    // one round: age everyone first, then ask who's still there
     event void neighborTimer.fired() {
         ageNeighbors();
         sendNDPacket(PROTOCOL_PING, AM_BROADCAST_ADDR);
     }
 
-    // prevHop rather than msg->src: a neighbor is by definition whoever
-    // transmitted to us. For these packets the two are always equal, since
-    // TTL 1 means they are never forwarded, but prevHop is what we actually
-    // mean and it cannot be spoofed by a stale src field.
+    // a neighbor discovery packet arrived.
+    // uses prevHop (who transmitted to us) instead of msg->src, since that's what a neighbor is.
     event void LinkReceive.receive(pack* msg, uint16_t prevHop) {
         if(msg->protocol == PROTOCOL_PING) {
             // someone is asking who is there, so answer only to them
@@ -97,6 +97,7 @@ implementation{
         return call NeighborMap.size();
     }
 
+    // called by Node when the printNeighbors command is run
     command void NeighborDiscovery.printNeighbors() {
         uint32_t* keys;
         uint16_t i;

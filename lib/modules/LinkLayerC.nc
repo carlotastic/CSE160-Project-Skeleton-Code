@@ -1,16 +1,10 @@
 #include "../../includes/packet.h"
 
-/*
- * A singleton on purpose, not a generic component.
- *
- * Every upper layer names this same component, so they share one radio, one
- * AM receiver and one send queue. Making it generic would hand each client its
- * own AMReceiverC(AM_PACK), and the same AM id cannot be wired twice.
- */
+// Wiring for the link layer
 configuration LinkLayerC{
    provides interface LinkLayer;
-   provides interface LinkReceive as FloodReceive;
-   provides interface LinkReceive as NeighborReceive;
+   provides interface LinkReceive as FloodReceive; // wired to FloodingC
+   provides interface LinkReceive as NeighborReceive; // wired to NeighborDiscoveryC
 }
 
 implementation{
@@ -19,14 +13,16 @@ implementation{
    FloodReceive = LinkLayerP.FloodReceive;
    NeighborReceive = LinkLayerP.NeighborReceive;
 
-   // The link layer owns radio start-up, so no application code has to.
+   // Boot is here so the link layer can start the radio itself, Node doesn't have to
    components MainC;
    LinkLayerP.Boot -> MainC.Boot;
 
+   // ActiveMessageC = the actual radio
    components ActiveMessageC;
    LinkLayerP.AMControl -> ActiveMessageC;
    LinkLayerP.AMPacket -> ActiveMessageC;
 
+   // the one sender and one receiver for AM_PACK, shared by all upper layers
    components new SimpleSendC(AM_PACK) as PackSender;
    LinkLayerP.Sender -> PackSender;
 

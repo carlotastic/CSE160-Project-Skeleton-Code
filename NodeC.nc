@@ -19,9 +19,8 @@ implementation {
     components CommandHandlerC;
     Node.CommandHandler -> CommandHandlerC;
 
-    // The two network services. Both sit on the shared LinkLayerC, which owns
-    // the radio, the AM receiver and the send queue, so nothing is wired to
-    // ActiveMessageC from here.
+    // flooding and neighbor discovery both use LinkLayerC,
+    // so Node doesn't need to wire the radio (ActiveMessageC) itself.
     components FloodingC;
     Node.Flooding -> FloodingC;
 

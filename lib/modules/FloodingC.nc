@@ -1,5 +1,6 @@
 #include "../../includes/packet.h"
 
+// Wiring for flooding
 configuration FloodingC{
     provides interface Flooding;
 }
@@ -8,14 +9,14 @@ implementation{
     components FloodingP;
     Flooding = FloodingP.Flooding;
 
-    // The shared singleton link layer, the same instance neighbor discovery
-    // uses. FloodReceive delivers only packets with a real destination.
+    // same shared LinkLayerC that neighbor discovery uses (only one radio).
+    // FloodReceive only gets packets with a real dest, not AM_BROADCAST_ADDR.
     components LinkLayerC;
     FloodingP.LinkLayer -> LinkLayerC.LinkLayer;
     FloodingP.LinkReceive -> LinkLayerC.FloodReceive;
 
-    // The duplicate cache, owned solely by flooding. Node used to keep its own
-    // copy of this, which meant the two never agreed on what had been seen.
+    // duplicate cache, holds up to 20 source nodes.
+    // "new" = flooding gets its own private hashmap
     components new HashmapC(uint16_t, 20) as SeenMapC;
     FloodingP.SeenMap -> SeenMapC;
 }

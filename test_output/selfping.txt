@@ -101,7 +101,7 @@ Adding Channel flooding
   1 -> 1 (self-ping; decide deliberately what this should do)
 ======================================================================
 
-0:0:58.127931041 DEBUG (1): A Command has been Issued.
-0:0:58.127931041 DEBUG (1): Command Type: Ping
-0:0:58.127931041 DEBUG (1): PING EVENT 
-0:0:58.127931041 DEBUG (1): Ping to self, delivered locally: me
+0:0:58.138674161 DEBUG (1): A Command has been Issued.
+0:0:58.138674161 DEBUG (1): Command Type: Ping
+0:0:58.138674161 DEBUG (1): PING EVENT 
+0:0:58.138674161 DEBUG (1): Ping to self, delivered locally: me
