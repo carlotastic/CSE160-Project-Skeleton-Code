@@ -106,31 +106,31 @@ Adding Channel flooding
   1 -> 12 with the chain severed at 8 (expect a clean die-out)
 ======================================================================
 
-0:1:8.183596159 DEBUG (1): A Command has been Issued.
-0:1:8.183596159 DEBUG (1): Command Type: Ping
-0:1:8.183596159 DEBUG (1): PING EVENT 
-0:1:8.183596159 DEBUG (1): Sent PING to 12 (seq 1)
-0:1:8.466156117 DEBUG (2): Received from 1 (src 1, dest 12, seq 1, TTL: 15)
-0:1:8.466156117 DEBUG (2): Forwarded (src 1, seq 1, TTL now 14)
-0:1:8.506866684 DEBUG (1): Received from 2 (src 1, dest 12, seq 1, TTL: 14)
-0:1:8.506866684 DEBUG (1): Duplicate (src 1, seq 1), dropping
-0:1:8.506866684 DEBUG (3): Received from 2 (src 1, dest 12, seq 1, TTL: 14)
-0:1:8.506866684 DEBUG (3): Forwarded (src 1, seq 1, TTL now 13)
-0:1:8.518219359 DEBUG (2): Received from 3 (src 1, dest 12, seq 1, TTL: 13)
-0:1:8.518219359 DEBUG (2): Duplicate (src 1, seq 1), dropping
-0:1:8.518219359 DEBUG (4): Received from 3 (src 1, dest 12, seq 1, TTL: 13)
-0:1:8.518219359 DEBUG (4): Forwarded (src 1, seq 1, TTL now 12)
-0:1:8.722839862 DEBUG (3): Received from 4 (src 1, dest 12, seq 1, TTL: 12)
-0:1:8.722839862 DEBUG (3): Duplicate (src 1, seq 1), dropping
-0:1:8.722839862 DEBUG (5): Received from 4 (src 1, dest 12, seq 1, TTL: 12)
-0:1:8.722839862 DEBUG (5): Forwarded (src 1, seq 1, TTL now 11)
-0:1:8.785507841 DEBUG (4): Received from 5 (src 1, dest 12, seq 1, TTL: 11)
-0:1:8.785507841 DEBUG (4): Duplicate (src 1, seq 1), dropping
-0:1:8.785507841 DEBUG (6): Received from 5 (src 1, dest 12, seq 1, TTL: 11)
-0:1:8.785507841 DEBUG (6): Forwarded (src 1, seq 1, TTL now 10)
-0:1:8.818604294 DEBUG (5): Received from 6 (src 1, dest 12, seq 1, TTL: 10)
-0:1:8.818604294 DEBUG (5): Duplicate (src 1, seq 1), dropping
-0:1:8.818604294 DEBUG (7): Received from 6 (src 1, dest 12, seq 1, TTL: 10)
-0:1:8.818604294 DEBUG (7): Forwarded (src 1, seq 1, TTL now 9)
-0:1:8.953461598 DEBUG (6): Received from 7 (src 1, dest 12, seq 1, TTL: 9)
-0:1:8.953461598 DEBUG (6): Duplicate (src 1, seq 1), dropping
+0:1:8.150392675 DEBUG (1): A Command has been Issued.
+0:1:8.150392675 DEBUG (1): Command Type: Ping
+0:1:8.150392675 DEBUG (1): PING EVENT 
+0:1:8.150392675 DEBUG (1): Sent PING to 12 (seq 1)
+0:1:8.435302832 DEBUG (2): Received from 1 (src 1, dest 12, seq 1, TTL: 15)
+0:1:8.435302832 DEBUG (2): Forwarded (src 1, seq 1, TTL now 14)
+0:1:8.527878034 DEBUG (1): Received from 2 (src 1, dest 12, seq 1, TTL: 14)
+0:1:8.527878034 DEBUG (1): Duplicate (src 1, seq 1), dropping
+0:1:8.527878034 DEBUG (3): Received from 2 (src 1, dest 12, seq 1, TTL: 14)
+0:1:8.527878034 DEBUG (3): Forwarded (src 1, seq 1, TTL now 13)
+0:1:8.563537994 DEBUG (2): Received from 3 (src 1, dest 12, seq 1, TTL: 13)
+0:1:8.563537994 DEBUG (2): Duplicate (src 1, seq 1), dropping
+0:1:8.563537994 DEBUG (4): Received from 3 (src 1, dest 12, seq 1, TTL: 13)
+0:1:8.563537994 DEBUG (4): Forwarded (src 1, seq 1, TTL now 12)
+0:1:8.765518713 DEBUG (3): Received from 4 (src 1, dest 12, seq 1, TTL: 12)
+0:1:8.765518713 DEBUG (3): Duplicate (src 1, seq 1), dropping
+0:1:8.765518713 DEBUG (5): Received from 4 (src 1, dest 12, seq 1, TTL: 12)
+0:1:8.765518713 DEBUG (5): Forwarded (src 1, seq 1, TTL now 11)
+0:1:8.821610170 DEBUG (4): Received from 5 (src 1, dest 12, seq 1, TTL: 11)
+0:1:8.821610170 DEBUG (4): Duplicate (src 1, seq 1), dropping
+0:1:8.821610170 DEBUG (6): Received from 5 (src 1, dest 12, seq 1, TTL: 11)
+0:1:8.821610170 DEBUG (6): Forwarded (src 1, seq 1, TTL now 10)
+0:1:8.905579408 DEBUG (5): Received from 6 (src 1, dest 12, seq 1, TTL: 10)
+0:1:8.905579408 DEBUG (5): Duplicate (src 1, seq 1), dropping
+0:1:8.905579408 DEBUG (7): Received from 6 (src 1, dest 12, seq 1, TTL: 10)
+0:1:8.905579408 DEBUG (7): Forwarded (src 1, seq 1, TTL now 9)
+0:1:9.179749459 DEBUG (6): Received from 7 (src 1, dest 12, seq 1, TTL: 9)
+0:1:9.179749459 DEBUG (6): Duplicate (src 1, seq 1), dropping

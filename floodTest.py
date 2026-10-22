@@ -1,32 +1,15 @@
-#! /usr/bin/python
-# Flooding test driver for CSE 160 Project 1 (Receive and Rebroadcast).
-#
-# Run one scenario per invocation:
-#     python2 floodTest.py baseline
-#     python2 floodTest.py multihop
-#     python2 floodTest.py cycle
-#     python2 floodTest.py ttl
-#     python2 floodTest.py unreachable
-#     python2 floodTest.py selfping
-#     python2 floodTest.py concurrent
-#
-# With no argument it runs 'multihop'. Run `python2 floodTest.py list` to see
-# the scenarios with their descriptions.
-#
-# One scenario per process on purpose: TestSim.moteids is a CLASS attribute,
-# so it is shared and never cleared between TestSim() instances. Building two
-# topologies in a single process leaves stale mote IDs in the list and the
-# second run behaves strangely. Separate processes keep each run clean.
-
 import sys
 from TestSim import TestSim
 
+# run with: python2 floodTest.py [scenario]
+# no scenario = multihop, "list" shows all of them
 
+
+# boots every node in the topology and turns on the debug channels we want to see
 def setup(topo, channels):
-    """Boot a network and enable debug channels. Returns the TestSim."""
     s = TestSim()
 
-    # Let the simulator settle before anything is powered on.
+    # let the simulator settle before anything turns on
     s.runTime(1)
 
     s.loadTopo(topo)
@@ -36,12 +19,12 @@ def setup(topo, channels):
     for c in channels:
         s.addChannel(c)
 
-    # Motes boot at 1333*nodeID, so a 19-mote topology needs ~25s of sim time
-    # before the last one is up. Give everything room before the first ping.
+    # give room before first ping (lets neighbor discovery run a few rounds)
     s.runTime(30)
     return s
 
 
+# prints a banner to help separate sections
 def banner(text):
     print
     print "=" * 70
@@ -54,8 +37,10 @@ def banner(text):
 # Scenarios
 # ---------------------------------------------------------------------------
 
+# 2 -> 3 are neighbors so it should always work.
+# 1 -> 10 only works once flooding forwards packets.
+# FLOODING_CHANNEL is off here so the output stays short
 def baseline():
-    """Step 1: pre-flooding baseline. 2->3 should work, 1->10 should not."""
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL])
 
@@ -68,8 +53,9 @@ def baseline():
     s.runTime(20)
 
 
+# main test. 1 -> 10 on a straight line, 9 hops there and 9 back.
+# should see PING arrive at 10 and PINGREPLY arrive at 1
 def multihop():
-    """Steps 3-5: the main event. 1->10 over a 19-mote line, 9 hops each way."""
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -79,13 +65,10 @@ def multihop():
     s.runTime(40)
 
 
+# tests the duplicate cache. (1-2-3-1, 4-5-7-8-4),
+# so without SeenMap packets would circle forever.
+# should see lots of "Duplicate, dropping" and each node forwarding only once
 def cycle():
-    """Step 4: the topology that punishes missing duplicate suppression.
-
-    example.topo is a 9-mote mesh full of cycles (1-2-3-1, 4-5-7-8-4).
-    1 -> 9 is about 4 hops (1-3-4-8-9). Without a seen-packet cache this
-    produces a transmission storm; with one it should be nearly silent.
-    """
     s = setup("example.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -95,8 +78,9 @@ def cycle():
     s.runTime(40)
 
 
+# tests TTL. 1 -> 19 is 18 hops but MAX_TTL is 15,
+# so the packet should die partway and never reach 19
 def ttl():
-    """Step 6: TTL exhaustion. 1->19 needs 18 hops; MAX_TTL is 15."""
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -108,8 +92,9 @@ def ttl():
     s.runTime(40)
 
 
+# turns off node 8 so there's no path from 1 to 12.
+# the flood should just stop at node 7, no loops or crashes
 def unreachable():
-    """Step 6: no path at all. Flood must die out cleanly, not spin."""
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -123,8 +108,9 @@ def unreachable():
     s.runTime(40)
 
 
+# node pings itself. Node.nc handles this locally,
+# so should see "Ping to self, delivered locally" and nothing sent
 def selfping():
-    """Step 6: node pinging itself. Should not wedge or storm."""
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -134,12 +120,10 @@ def selfping():
     s.runTime(20)
 
 
+# two floods at the same time from different sources.
+# SeenMap is keyed by src, so both should get through.
+# if one blocks the other, the cache is keyed wrong
 def concurrent():
-    """Step 6: two floods in flight at once, from different sources.
-
-    Different src keys, so a per-source sequence cache should handle both
-    independently. If one ping kills the other, the cache is keyed wrong.
-    """
     s = setup("long_line.topo",
               [TestSim.COMMAND_CHANNEL, TestSim.GENERAL_CHANNEL,
                TestSim.FLOODING_CHANNEL])
@@ -151,6 +135,7 @@ def concurrent():
     s.runTime(40)
 
 
+# name you type, function it runs, description shown in usage()
 SCENARIOS = [
     ("baseline",    baseline,    "Step 1: pre-flooding sanity check"),
     ("multihop",    multihop,    "Steps 3-5: 1->10 multi-hop ping and reply"),
@@ -162,6 +147,7 @@ SCENARIOS = [
 ]
 
 
+# prints the list of scenarios
 def usage():
     print "Usage: python2 floodTest.py [scenario]"
     print
@@ -172,6 +158,7 @@ def usage():
     print "Default: multihop"
 
 
+# picks the scenario from the command line and runs it
 def main():
     name = sys.argv[1] if len(sys.argv) > 1 else "multihop"
 
