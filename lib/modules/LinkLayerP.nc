@@ -11,11 +11,19 @@ module LinkLayerP{
    provides interface LinkReceive as FloodReceive;
    provides interface LinkReceive as NeighborReceive;
 
+   provides interface LinkReceive as DVReceive;
+   provides interface LinkReceive as IPReceive;
+
    uses interface Boot; // tells us the node has started
    uses interface SplitControl as AMControl; // turns the radio on/off
    uses interface SimpleSend as Sender; // queues packets for the radio
    uses interface Receive; // raw incoming packets
    uses interface AMPacket; // reads the link-level sender of a packet
+
+   uses interface SimpleSend as DVSender;
+   uses interface SimpleSend as IPSender;
+   uses interface Receive as DVRadioReceive;
+   uses interface Receive as IPRadioReceive;
 }
 
 implementation{
@@ -72,4 +80,33 @@ implementation{
       // safe to return the same one since the handlers above already finished with it.
       return msg;
    }
+
+   command error_t LinkLayer.sendDV(pack* msg, uint16_t neighbor){
+      return call DVSender.send(*msg, neighbor);
+   }
+
+   command error_t LinkLayer.sendIP(pack* msg, uint16_t nextHop){
+      return call IPSender.send(*msg, nextHop);
+   }
+
+   // every AM_DV packet lands here -> hand it to DV
+   event message_t* DVRadioReceive.receive(message_t* msg, void* payload, uint8_t len){
+      if(len == sizeof(pack)){
+         signal DVReceive.receive((pack*) payload, call AMPacket.source(msg));
+      }
+      return msg;
+   }
+
+   // every AM_IP packet lands here -> hand it to IP
+   event message_t* IPRadioReceive.receive(message_t* msg, void* payload, uint8_t len){
+      if(len == sizeof(pack)){
+         signal IPReceive.receive((pack*) payload, call AMPacket.source(msg));
+      }
+      return msg;
+   }
+
+   // used only until DV and IP modules are wired in. Without these,
+   // signaling an event nobody is wired to is a compile error.
+   default event void DVReceive.receive(pack* msg, uint16_t prevHop){}
+   default event void IPReceive.receive(pack* msg, uint16_t prevHop){}
 }

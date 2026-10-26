@@ -13,6 +13,7 @@ class TestSim:
     CMD_PING = 0
     CMD_NEIGHBOR_DUMP = 1
     CMD_ROUTE_DUMP=3
+    CMD_TTL_PING = 7
 
     # CHANNELS - see includes/channels.h
     COMMAND_CHANNEL="command";
@@ -97,6 +98,22 @@ class TestSim:
 
     def moteOn(self, nodeID):
         self.t.getNode(nodeID).turnOn();
+    
+     # run until `secs` seconds of SIMULATED time have passed
+    def runSeconds(self, secs):
+        end = self.t.time() + secs * self.t.ticksPerSecond()
+        while self.t.time() < end:
+            self.t.runNextEvent()
+
+    # cut both radio directions of a link (both nodes stay ON)
+    def linkOff(self, a, b):
+        self.r.remove(a, b)
+        self.r.remove(b, a)
+
+    # restore both radio directions of a link
+    def linkOn(self, a, b, gain=-54.0):
+        self.r.add(a, b, gain)
+        self.r.add(b, a, gain)
 
     def run(self, ticks):
         for i in range(ticks):
@@ -118,6 +135,9 @@ class TestSim:
 
     def ping(self, source, dest, msg):
         self.sendCMD(self.CMD_PING, source, "{0}{1}".format(chr(dest),msg));
+    
+    def pingTTL(self, source, dest, ttl, msg):
+        self.sendCMD(self.CMD_TTL_PING, source, "{0}{1}{2}".format(chr(dest), chr(ttl), msg))
 
     def neighborDMP(self, destination):
         self.sendCMD(self.CMD_NEIGHBOR_DUMP, destination, "neighbor command");

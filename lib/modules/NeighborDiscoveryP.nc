@@ -60,7 +60,8 @@ implementation{
             if (missed > MAX_MISSED) {
                 call NeighborMap.remove(keysCopy[i]);
                 dbg(NEIGHBOR_CHANNEL, "Neighbor %hu dropped (no reply in %d rounds)\n", (uint16_t) keysCopy[i], MAX_MISSED);
-            } else{
+                signal NeighborDiscovery.neighborLost((uint16_t) keysCopy[i]);
+            } else {
                 call NeighborMap.insert(keysCopy[i], missed); // insert on an existing key overwrites it
             }
 
@@ -88,8 +89,11 @@ implementation{
         } else if(msg->protocol == PROTOCOL_PINGREPLY) {
             if(call NeighborMap.contains(prevHop) == FALSE) {
                 dbg(NEIGHBOR_CHANNEL, "New neighbor: %hu\n", prevHop);
+                call NeighborMap.insert(prevHop, 0);
+                signal NeighborDiscovery.neighborAdded(prevHop);   // NEW
+            } else {
+                call NeighborMap.insert(prevHop, 0); // reset missed count
             }
-            call NeighborMap.insert(prevHop, 0); // reset missed count
         }
     }
 
@@ -108,4 +112,25 @@ implementation{
             dbg(NEIGHBOR_CHANNEL, "   %hu\n", (uint16_t) keys[i]);
         }
     }
+
+    command bool NeighborDiscovery.isNeighbor(uint16_t id) {
+        return call NeighborMap.contains(id);
+    }
+
+    command uint16_t NeighborDiscovery.getNeighbors(uint16_t* buf, uint16_t max) {
+        uint32_t* keys;
+        uint16_t n;
+        uint16_t i;
+
+        keys = call NeighborMap.getKeys();
+        n = call NeighborMap.size();
+        if(n > max) {
+            n = max;   // never write past the caller's buffer
+        }
+        for(i = 0; i < n; i++) {
+            buf[i] = (uint16_t) keys[i];
+        }
+        return n;
+    }   
+
 }

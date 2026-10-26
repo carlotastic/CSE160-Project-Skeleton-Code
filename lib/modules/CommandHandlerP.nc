@@ -52,6 +52,12 @@ implementation{
                 dbg(COMMAND_CHANNEL, "Command Type: Ping\n");
                 signal CommandHandler.ping(buff[0], &buff[1]);
                 break;
+                
+             // like ping, but byte 0 = dest, byte 1 = TTL, rest = message
+            case CMD_TTL_PING:
+                dbg(COMMAND_CHANNEL, "Command Type: Ping with TTL\n");
+                signal CommandHandler.pingTTL(buff[0], buff[1], &buff[2]);
+                break;
 
             case CMD_NEIGHBOR_DUMP:
                 dbg(COMMAND_CHANNEL, "Command Type: Neighbor Dump\n");

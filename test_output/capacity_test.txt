@@ -1,0 +1,1325 @@
+Creating Topo!
+Number of Motes 12
+  1   2   -54.0
+  2   1   -54.0
+  2   3   -54.0
+  3   2   -54.0
+  3   4   -54.0
+  4   3   -54.0
+  4   5   -54.0
+  5   4   -54.0
+  5   6   -54.0
+  6   5   -54.0
+  6   7   -54.0
+  7   6   -54.0
+  7   8   -54.0
+  8   7   -54.0
+  8   9   -54.0
+  9   8   -54.0
+  9   10   -54.0
+  10   9   -54.0
+  10   11   -54.0
+  11   10   -54.0
+  11   12   -54.0
+  12   11   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Creating noise model for  5
+Creating noise model for  6
+Creating noise model for  7
+Creating noise model for  8
+Creating noise model for  9
+Creating noise model for  10
+Creating noise model for  11
+Creating noise model for  12
+Adding Channel command
+Adding Channel routing
+=== Phase 1: converge (120s) ===
+0:0:9.941895041 DEBUG (5): Route set: dest 4 via 4 cost 1
+0:0:9.968384942 DEBUG (10): Route set: dest 9 via 9 cost 1
+0:0:9.994874471 DEBUG (10): Route set: dest 11 via 11 cost 1
+0:0:10.101120777 DEBUG (5): Route set: dest 6 via 6 cost 1
+0:0:10.273499830 DEBUG (11): Route set: dest 10 via 10 cost 1
+0:0:10.314378266 DEBUG (12): Route set: dest 11 via 11 cost 1
+0:0:10.330750443 DEBUG (6): Route set: dest 7 via 7 cost 1
+0:0:10.379211676 DEBUG (1): Route set: dest 2 via 2 cost 1
+0:0:10.424621702 DEBUG (2): Route set: dest 1 via 1 cost 1
+0:0:10.472809245 DEBUG (2): Route set: dest 3 via 3 cost 1
+0:0:10.504425559 DEBUG (3): Route set: dest 4 via 4 cost 1
+0:0:10.523377117 DEBUG (6): Route set: dest 5 via 5 cost 1
+0:0:10.554841116 DEBUG (7): Route set: dest 8 via 8 cost 1
+0:0:10.570420068 DEBUG (7): Route set: dest 6 via 6 cost 1
+0:0:10.582185399 DEBUG (11): Route set: dest 12 via 12 cost 1
+0:0:10.632507972 DEBUG (4): Ignoring DV from non-neighbor 5
+0:0:10.640884621 DEBUG (3): Route set: dest 2 via 2 cost 1
+0:0:10.644134724 DEBUG (1): Route set: dest 3 via 2 cost 2
+0:0:10.681107228 DEBUG (6): Route set: dest 4 via 5 cost 2
+0:0:10.711120856 DEBUG (3): Route set: dest 1 via 2 cost 2
+0:0:10.717331604 DEBUG (4): Route set: dest 5 via 5 cost 1
+0:0:10.834244141 DEBUG (4): Route set: dest 3 via 3 cost 1
+0:0:10.866776584 DEBUG (9): Route set: dest 8 via 8 cost 1
+0:0:10.891374017 DEBUG (9): Route set: dest 10 via 10 cost 1
+0:0:10.925827956 DEBUG (8): Route set: dest 7 via 7 cost 1
+0:0:10.949403022 DEBUG (8): Route set: dest 9 via 9 cost 1
+0:0:11.154556670 DEBUG (4): Route set: dest 2 via 3 cost 2
+0:0:11.154556670 DEBUG (4): Route set: dest 1 via 3 cost 3
+0:0:11.251984028 DEBUG (2): Route set: dest 4 via 3 cost 2
+0:0:11.560700792 DEBUG (9): Route set: dest 11 via 10 cost 2
+0:0:11.678147695 DEBUG (11): Route set: dest 9 via 10 cost 2
+0:0:11.808350773 DEBUG (8): Route set: dest 10 via 9 cost 2
+0:0:11.808350773 DEBUG (8): Route set: dest 11 via 9 cost 3
+0:0:12.058274502 DEBUG (10): Route set: dest 8 via 9 cost 2
+0:0:14.879548566 DEBUG (10): Route set: dest 12 via 11 cost 2
+0:0:14.984010209 DEBUG (12): Route set: dest 10 via 11 cost 2
+0:0:14.984010209 DEBUG (12): Route set: dest 9 via 11 cost 3
+0:0:15.245072208 DEBUG (7): Route set: dest 5 via 6 cost 2
+0:0:15.245072208 DEBUG (7): Route set: dest 4 via 6 cost 3
+0:0:15.436631323 DEBUG (7): Route set: dest 9 via 8 cost 2
+0:0:15.436631323 DEBUG (7): Route set: dest 10 via 8 cost 3
+0:0:15.436631323 DEBUG (7): Route set: dest 11 via 8 cost 4
+0:0:15.453919232 DEBUG (5): Route set: dest 7 via 6 cost 2
+0:0:15.665009585 DEBUG (9): Route set: dest 7 via 8 cost 2
+0:0:15.684769327 DEBUG (4): Route set: dest 6 via 5 cost 2
+0:0:15.684769327 DEBUG (4): Route set: dest 7 via 5 cost 3
+0:0:15.848572685 DEBUG (8): Route set: dest 6 via 7 cost 2
+0:0:15.848572685 DEBUG (8): Route set: dest 5 via 7 cost 3
+0:0:15.848572685 DEBUG (8): Route set: dest 4 via 7 cost 4
+0:0:15.891433974 DEBUG (1): Route set: dest 4 via 2 cost 3
+0:0:15.908356619 DEBUG (6): Route set: dest 8 via 7 cost 2
+0:0:15.908356619 DEBUG (6): Route set: dest 9 via 7 cost 3
+0:0:15.908356619 DEBUG (6): Route set: dest 10 via 7 cost 4
+0:0:15.908356619 DEBUG (6): Route set: dest 11 via 7 cost 5
+0:0:16.218887870 DEBUG (5): Route set: dest 3 via 4 cost 2
+0:0:16.218887870 DEBUG (5): Route set: dest 2 via 4 cost 3
+0:0:16.218887870 DEBUG (5): Route set: dest 1 via 4 cost 4
+0:0:16.271606957 DEBUG (3): Route set: dest 5 via 4 cost 2
+0:0:16.271606957 DEBUG (3): Route set: dest 6 via 4 cost 3
+0:0:16.271606957 DEBUG (3): Route set: dest 7 via 4 cost 4
+0:0:17.134126095 DEBUG (9): Route set: dest 12 via 10 cost 3
+0:0:17.171037101 DEBUG (11): Route set: dest 8 via 10 cost 3
+0:0:17.239090329 DEBUG (2): Route set: dest 5 via 3 cost 3
+0:0:17.239090329 DEBUG (2): Route set: dest 6 via 3 cost 4
+0:0:17.239090329 DEBUG (2): Route set: dest 7 via 3 cost 5
+0:0:17.833115820 DEBUG (8): Route set: dest 12 via 9 cost 4
+0:0:18.114381050 DEBUG (10): Route set: dest 7 via 9 cost 3
+0:0:20.122727883 DEBUG (12): Route set: dest 8 via 11 cost 4
+0:0:20.304261280 DEBUG (7): Route set: dest 12 via 8 cost 5
+0:0:20.460007516 DEBUG (5): Route set: dest 8 via 6 cost 3
+0:0:20.460007516 DEBUG (5): Route set: dest 9 via 6 cost 4
+0:0:20.460007516 DEBUG (5): Route set: dest 10 via 6 cost 5
+0:0:20.460007516 DEBUG (5): Route set: dest 11 via 6 cost 6
+0:0:20.495499701 DEBUG (9): Route set: dest 6 via 8 cost 3
+0:0:20.495499701 DEBUG (9): Route set: dest 5 via 8 cost 4
+0:0:20.495499701 DEBUG (9): Route set: dest 4 via 8 cost 5
+0:0:20.919235874 DEBUG (4): Route set: dest 8 via 5 cost 4
+0:0:20.919235874 DEBUG (4): Route set: dest 9 via 5 cost 5
+0:0:21.210083642 DEBUG (4): Route set: dest 10 via 5 cost 6
+0:0:21.210083642 DEBUG (4): Route set: dest 11 via 5 cost 7
+0:0:21.231918967 DEBUG (6): Route set: dest 3 via 5 cost 3
+0:0:21.231918967 DEBUG (6): Route set: dest 2 via 5 cost 4
+0:0:21.231918967 DEBUG (6): Route set: dest 1 via 5 cost 5
+0:0:21.232513651 DEBUG (1): Route set: dest 5 via 2 cost 4
+0:0:21.232513651 DEBUG (1): Route set: dest 6 via 2 cost 5
+0:0:21.232513651 DEBUG (1): Route set: dest 7 via 2 cost 6
+0:0:21.407502143 DEBUG (6): Route set: dest 12 via 7 cost 6
+0:0:21.671890800 DEBUG (3): Route set: dest 8 via 4 cost 5
+0:0:21.671890800 DEBUG (3): Route set: dest 9 via 4 cost 6
+0:0:21.900162252 DEBUG (3): Route set: dest 10 via 4 cost 7
+0:0:21.900162252 DEBUG (3): Route set: dest 11 via 4 cost 8
+0:0:22.755218883 DEBUG (2): Route set: dest 8 via 3 cost 6
+0:0:22.755218883 DEBUG (2): Route set: dest 9 via 3 cost 7
+0:0:22.962311168 DEBUG (2): Route set: dest 10 via 3 cost 8
+0:0:22.962311168 DEBUG (2): Route set: dest 11 via 3 cost 9
+0:0:22.977982895 DEBUG (11): Route set: dest 7 via 10 cost 4
+0:0:23.942338221 DEBUG (10): Route set: dest 6 via 9 cost 4
+0:0:23.942338221 DEBUG (10): Route set: dest 5 via 9 cost 5
+0:0:23.942338221 DEBUG (10): Route set: dest 4 via 9 cost 6
+0:0:25.036881257 DEBUG (7): Route set: dest 3 via 6 cost 4
+0:0:25.055664865 DEBUG (7): Route set: dest 2 via 6 cost 5
+0:0:25.055664865 DEBUG (7): Route set: dest 1 via 6 cost 6
+0:0:25.211747013 DEBUG (5): Route set: dest 12 via 6 cost 7
+0:0:25.295060678 DEBUG (12): Route set: dest 7 via 11 cost 5
+0:0:26.213669493 DEBUG (4): Route set: dest 12 via 5 cost 8
+0:0:26.658524448 DEBUG (8): Route set: dest 3 via 7 cost 5
+0:0:26.658524448 DEBUG (8): Route set: dest 2 via 7 cost 6
+0:0:26.658524448 DEBUG (8): Route set: dest 1 via 7 cost 7
+0:0:26.685760754 DEBUG (1): Route set: dest 8 via 2 cost 7
+0:0:26.685760754 DEBUG (1): Route set: dest 9 via 2 cost 8
+0:0:26.756744626 DEBUG (1): Route set: dest 10 via 2 cost 9
+0:0:26.756744626 DEBUG (1): Route set: dest 11 via 2 cost 10
+0:0:27.366257215 DEBUG (3): Route set: dest 12 via 4 cost 9
+0:0:28.832352051 DEBUG (2): Route set: dest 12 via 3 cost 10
+0:0:28.837556223 DEBUG (11): Route set: dest 6 via 10 cost 5
+0:0:28.837556223 DEBUG (11): Route set: dest 5 via 10 cost 6
+0:0:28.837556223 DEBUG (11): Route set: dest 4 via 10 cost 7
+0:0:30.151032925 DEBUG (12): Route set: dest 6 via 11 cost 6
+0:0:30.151032925 DEBUG (12): Route set: dest 5 via 11 cost 7
+0:0:30.151032925 DEBUG (12): Route set: dest 4 via 11 cost 8
+0:0:30.721482348 DEBUG (9): Route set: dest 3 via 8 cost 6
+0:0:30.721482348 DEBUG (9): Route set: dest 2 via 8 cost 7
+0:0:30.721482348 DEBUG (9): Route set: dest 1 via 8 cost 8
+0:0:31.902130363 DEBUG (1): Route set: dest 12 via 2 cost 11
+0:0:35.666184667 DEBUG (10): Route set: dest 3 via 9 cost 7
+0:0:35.666184667 DEBUG (10): Route set: dest 2 via 9 cost 8
+0:0:35.666184667 DEBUG (10): Route set: dest 1 via 9 cost 9
+0:0:40.397324933 DEBUG (11): Route set: dest 3 via 10 cost 8
+0:0:40.397324933 DEBUG (11): Route set: dest 2 via 10 cost 9
+0:0:40.397324933 DEBUG (11): Route set: dest 1 via 10 cost 10
+0:0:44.991105573 DEBUG (12): Route set: dest 3 via 11 cost 9
+0:0:44.991105573 DEBUG (12): Route set: dest 2 via 11 cost 10
+0:0:44.991105573 DEBUG (12): Route set: dest 1 via 11 cost 11
+=== Phase 2: one round of advertisements, showing packet sizes ===
+Adding Channel dvadv
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 1 cost 0
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 2 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 5 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 6 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 7 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 8 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 9 cost 16
+0:2:0.613281393 DEBUG (1): Sent DV packet to 2 with 9 entries
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 10 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 11 cost 16
+0:2:0.613281393 DEBUG (1): Adv to 2: dest 12 cost 16
+0:2:0.613281393 DEBUG (1): Sent DV packet to 2 with 3 entries
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 12 cost 0
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 11 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 10 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 9 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 8 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 7 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 6 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 5 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 4 cost 16
+0:2:0.647462547 DEBUG (12): Sent DV packet to 11 with 9 entries
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 3 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 2 cost 16
+0:2:0.647462547 DEBUG (12): Adv to 11: dest 1 cost 16
+0:2:0.647462547 DEBUG (12): Sent DV packet to 11 with 3 entries
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 7 cost 0
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 8 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 6 cost 1
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 5 cost 2
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 4 cost 3
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 9 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 10 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 11 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 12 cost 16
+0:2:0.929688443 DEBUG (7): Sent DV packet to 8 with 9 entries
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 3 cost 4
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 2 cost 5
+0:2:0.929688443 DEBUG (7): Adv to 8: dest 1 cost 6
+0:2:0.929688443 DEBUG (7): Sent DV packet to 8 with 3 entries
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 7 cost 0
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 8 cost 1
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 6 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 5 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 4 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 9 cost 2
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 10 cost 3
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 11 cost 4
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 12 cost 5
+0:2:0.929688443 DEBUG (7): Sent DV packet to 6 with 9 entries
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 3 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 2 cost 16
+0:2:0.929688443 DEBUG (7): Adv to 6: dest 1 cost 16
+0:2:0.929688443 DEBUG (7): Sent DV packet to 6 with 3 entries
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 8 cost 0
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 7 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 9 cost 1
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 10 cost 2
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 11 cost 3
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 6 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 5 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 4 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 12 cost 4
+0:2:1.664063576 DEBUG (8): Sent DV packet to 7 with 9 entries
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 3 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 2 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 7: dest 1 cost 16
+0:2:1.664063576 DEBUG (8): Sent DV packet to 7 with 3 entries
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 8 cost 0
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 7 cost 1
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 9 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 10 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 11 cost 16
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 6 cost 2
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 5 cost 3
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 4 cost 4
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 12 cost 16
+0:2:1.664063576 DEBUG (8): Sent DV packet to 9 with 9 entries
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 3 cost 5
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 2 cost 6
+0:2:1.664063576 DEBUG (8): Adv to 9: dest 1 cost 7
+0:2:1.664063576 DEBUG (8): Sent DV packet to 9 with 3 entries
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 2 cost 0
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 1 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 4 cost 2
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 5 cost 3
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 6 cost 4
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 7 cost 5
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 8 cost 6
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 9 cost 7
+0:2:1.760742464 DEBUG (2): Sent DV packet to 1 with 9 entries
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 10 cost 8
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 11 cost 9
+0:2:1.760742464 DEBUG (2): Adv to 1: dest 12 cost 10
+0:2:1.760742464 DEBUG (2): Sent DV packet to 1 with 3 entries
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 2 cost 0
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 1 cost 1
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 4 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 5 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 6 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 7 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 8 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 9 cost 16
+0:2:1.760742464 DEBUG (2): Sent DV packet to 3 with 9 entries
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 10 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 11 cost 16
+0:2:1.760742464 DEBUG (2): Adv to 3: dest 12 cost 16
+0:2:1.760742464 DEBUG (2): Sent DV packet to 3 with 3 entries
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 3 cost 0
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 4 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 2 cost 1
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 1 cost 2
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 5 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 6 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 7 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 8 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 9 cost 16
+0:2:2.289062909 DEBUG (3): Sent DV packet to 4 with 9 entries
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 10 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 11 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 4: dest 12 cost 16
+0:2:2.289062909 DEBUG (3): Sent DV packet to 4 with 3 entries
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 3 cost 0
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 4 cost 1
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 2 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 5 cost 2
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 6 cost 3
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 7 cost 4
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 8 cost 5
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 9 cost 6
+0:2:2.289062909 DEBUG (3): Sent DV packet to 2 with 9 entries
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 10 cost 7
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 11 cost 8
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 12 cost 9
+0:2:2.289062909 DEBUG (3): Sent DV packet to 2 with 3 entries
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 9 cost 0
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 8 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 10 cost 1
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 11 cost 2
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 7 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 12 cost 3
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 6 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 5 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 4 cost 16
+0:2:3.005860584 DEBUG (9): Sent DV packet to 8 with 9 entries
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 3 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 2 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 8: dest 1 cost 16
+0:2:3.005860584 DEBUG (9): Sent DV packet to 8 with 3 entries
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 9 cost 0
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 8 cost 1
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 10 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 11 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 7 cost 2
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 12 cost 16
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 6 cost 3
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 5 cost 4
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 4 cost 5
+0:2:3.005860584 DEBUG (9): Sent DV packet to 10 with 9 entries
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 3 cost 6
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 2 cost 7
+0:2:3.005860584 DEBUG (9): Adv to 10: dest 1 cost 8
+0:2:3.005860584 DEBUG (9): Sent DV packet to 10 with 3 entries
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 4 cost 0
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 5 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 3 cost 1
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 2 cost 2
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 1 cost 3
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 6 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 7 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 8 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 9 cost 16
+0:2:3.512695855 DEBUG (4): Sent DV packet to 5 with 9 entries
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 10 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 11 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 5: dest 12 cost 16
+0:2:3.512695855 DEBUG (4): Sent DV packet to 5 with 3 entries
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 4 cost 0
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 5 cost 1
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 3 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 2 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 1 cost 16
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 6 cost 2
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 7 cost 3
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 8 cost 4
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 9 cost 5
+0:2:3.512695855 DEBUG (4): Sent DV packet to 3 with 9 entries
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 10 cost 6
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 11 cost 7
+0:2:3.512695855 DEBUG (4): Adv to 3: dest 12 cost 8
+0:2:3.512695855 DEBUG (4): Sent DV packet to 3 with 3 entries
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 11 cost 0
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 10 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 12 cost 1
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 9 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 8 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 7 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 6 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 5 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 4 cost 16
+0:2:3.925782726 DEBUG (11): Sent DV packet to 10 with 9 entries
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 3 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 2 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 10: dest 1 cost 16
+0:2:3.925782726 DEBUG (11): Sent DV packet to 10 with 3 entries
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 11 cost 0
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 10 cost 1
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 12 cost 16
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 9 cost 2
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 8 cost 3
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 7 cost 4
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 6 cost 5
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 5 cost 6
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 4 cost 7
+0:2:3.925782726 DEBUG (11): Sent DV packet to 12 with 9 entries
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 3 cost 8
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 2 cost 9
+0:2:3.925782726 DEBUG (11): Adv to 12: dest 1 cost 10
+0:2:3.925782726 DEBUG (11): Sent DV packet to 12 with 3 entries
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 5 cost 0
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 4 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 6 cost 1
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 7 cost 2
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 3 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 2 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 1 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 8 cost 3
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 9 cost 4
+0:2:4.359375676 DEBUG (5): Sent DV packet to 4 with 9 entries
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 10 cost 5
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 11 cost 6
+0:2:4.359375676 DEBUG (5): Adv to 4: dest 12 cost 7
+0:2:4.359375676 DEBUG (5): Sent DV packet to 4 with 3 entries
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 5 cost 0
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 4 cost 1
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 6 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 7 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 3 cost 2
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 2 cost 3
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 1 cost 4
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 8 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 9 cost 16
+0:2:4.359375676 DEBUG (5): Sent DV packet to 6 with 9 entries
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 10 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 11 cost 16
+0:2:4.359375676 DEBUG (5): Adv to 6: dest 12 cost 16
+0:2:4.359375676 DEBUG (5): Sent DV packet to 6 with 3 entries
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 10 cost 0
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 9 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 11 cost 1
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 8 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 12 cost 2
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 7 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 6 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 5 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 4 cost 16
+0:2:4.716798218 DEBUG (10): Sent DV packet to 9 with 9 entries
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 3 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 2 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 9: dest 1 cost 16
+0:2:4.716798218 DEBUG (10): Sent DV packet to 9 with 3 entries
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 10 cost 0
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 9 cost 1
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 11 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 8 cost 2
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 12 cost 16
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 7 cost 3
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 6 cost 4
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 5 cost 5
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 4 cost 6
+0:2:4.716798218 DEBUG (10): Sent DV packet to 11 with 9 entries
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 3 cost 7
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 2 cost 8
+0:2:4.716798218 DEBUG (10): Adv to 11: dest 1 cost 9
+0:2:4.716798218 DEBUG (10): Sent DV packet to 11 with 3 entries
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 6 cost 0
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 7 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 5 cost 1
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 4 cost 2
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 8 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 9 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 10 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 11 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 3 cost 3
+0:2:4.829102372 DEBUG (6): Sent DV packet to 7 with 9 entries
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 2 cost 4
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 1 cost 5
+0:2:4.829102372 DEBUG (6): Adv to 7: dest 12 cost 16
+0:2:4.829102372 DEBUG (6): Sent DV packet to 7 with 3 entries
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 6 cost 0
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 7 cost 1
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 5 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 4 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 8 cost 2
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 9 cost 3
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 10 cost 4
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 11 cost 5
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 3 cost 16
+0:2:4.829102372 DEBUG (6): Sent DV packet to 5 with 9 entries
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 2 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 1 cost 16
+0:2:4.829102372 DEBUG (6): Adv to 5: dest 12 cost 6
+0:2:4.829102372 DEBUG (6): Sent DV packet to 5 with 3 entries
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 1 cost 0
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 2 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 5 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 6 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 7 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 8 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 9 cost 16
+0:2:6.095703268 DEBUG (1): Sent DV packet to 2 with 9 entries
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 10 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 11 cost 16
+0:2:6.095703268 DEBUG (1): Adv to 2: dest 12 cost 16
+0:2:6.095703268 DEBUG (1): Sent DV packet to 2 with 3 entries
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 7 cost 0
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 8 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 6 cost 1
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 5 cost 2
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 4 cost 3
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 9 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 10 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 11 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 12 cost 16
+0:2:6.187500943 DEBUG (7): Sent DV packet to 8 with 9 entries
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 3 cost 4
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 2 cost 5
+0:2:6.187500943 DEBUG (7): Adv to 8: dest 1 cost 6
+0:2:6.187500943 DEBUG (7): Sent DV packet to 8 with 3 entries
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 7 cost 0
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 8 cost 1
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 6 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 5 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 4 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 9 cost 2
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 10 cost 3
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 11 cost 4
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 12 cost 5
+0:2:6.187500943 DEBUG (7): Sent DV packet to 6 with 9 entries
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 3 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 2 cost 16
+0:2:6.187500943 DEBUG (7): Adv to 6: dest 1 cost 16
+0:2:6.187500943 DEBUG (7): Sent DV packet to 6 with 3 entries
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 12 cost 0
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 11 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 10 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 9 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 8 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 7 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 6 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 5 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 4 cost 16
+0:2:6.392579734 DEBUG (12): Sent DV packet to 11 with 9 entries
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 3 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 2 cost 16
+0:2:6.392579734 DEBUG (12): Adv to 11: dest 1 cost 16
+0:2:6.392579734 DEBUG (12): Sent DV packet to 11 with 3 entries
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 8 cost 0
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 7 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 9 cost 1
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 10 cost 2
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 11 cost 3
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 6 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 5 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 4 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 12 cost 4
+0:2:6.733399513 DEBUG (8): Sent DV packet to 7 with 9 entries
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 3 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 2 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 7: dest 1 cost 16
+0:2:6.733399513 DEBUG (8): Sent DV packet to 7 with 3 entries
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 8 cost 0
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 7 cost 1
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 9 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 10 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 11 cost 16
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 6 cost 2
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 5 cost 3
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 4 cost 4
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 12 cost 16
+0:2:6.733399513 DEBUG (8): Sent DV packet to 9 with 9 entries
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 3 cost 5
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 2 cost 6
+0:2:6.733399513 DEBUG (8): Adv to 9: dest 1 cost 7
+0:2:6.733399513 DEBUG (8): Sent DV packet to 9 with 3 entries
+=== Phase 3: tables + end-to-end ping ===
+0:2:7.000001610 DEBUG (1): A Command has been Issued.
+0:2:7.000001610 DEBUG (1): Command Type: Route Table Dump
+0:2:7.000001610 DEBUG (1): Routing table for node 1:
+0:2:7.000001610 DEBUG (1): Dest	NextHop	Cost	State
+0:2:7.000001610 DEBUG (1): 1	1	0	VALID
+0:2:7.000001610 DEBUG (1): 2	2	1	VALID
+0:2:7.000001610 DEBUG (1): 3	2	2	VALID
+0:2:7.000001610 DEBUG (1): 4	2	3	VALID
+0:2:7.000001610 DEBUG (1): 5	2	4	VALID
+0:2:7.000001610 DEBUG (1): 6	2	5	VALID
+0:2:7.000001610 DEBUG (1): 7	2	6	VALID
+0:2:7.000001610 DEBUG (1): 8	2	7	VALID
+0:2:7.000001610 DEBUG (1): 9	2	8	VALID
+0:2:7.000001610 DEBUG (1): 10	2	9	VALID
+0:2:7.000001610 DEBUG (1): 11	2	10	VALID
+0:2:7.000001610 DEBUG (1): 12	2	11	VALID
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 2 cost 0
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 1 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 4 cost 2
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 5 cost 3
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 6 cost 4
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 7 cost 5
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 8 cost 6
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 9 cost 7
+0:2:7.054687776 DEBUG (2): Sent DV packet to 1 with 9 entries
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 10 cost 8
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 11 cost 9
+0:2:7.054687776 DEBUG (2): Adv to 1: dest 12 cost 10
+0:2:7.054687776 DEBUG (2): Sent DV packet to 1 with 3 entries
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 2 cost 0
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 1 cost 1
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 4 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 5 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 6 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 7 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 8 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 9 cost 16
+0:2:7.054687776 DEBUG (2): Sent DV packet to 3 with 9 entries
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 10 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 11 cost 16
+0:2:7.054687776 DEBUG (2): Adv to 3: dest 12 cost 16
+0:2:7.054687776 DEBUG (2): Sent DV packet to 3 with 3 entries
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 3 cost 0
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 4 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 2 cost 1
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 1 cost 2
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 5 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 6 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 7 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 8 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 9 cost 16
+0:2:7.847656659 DEBUG (3): Sent DV packet to 4 with 9 entries
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 10 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 11 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 4: dest 12 cost 16
+0:2:7.847656659 DEBUG (3): Sent DV packet to 4 with 3 entries
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 3 cost 0
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 4 cost 1
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 2 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 5 cost 2
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 6 cost 3
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 7 cost 4
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 8 cost 5
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 9 cost 6
+0:2:7.847656659 DEBUG (3): Sent DV packet to 2 with 9 entries
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 10 cost 7
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 11 cost 8
+0:2:7.847656659 DEBUG (3): Adv to 2: dest 12 cost 9
+0:2:7.847656659 DEBUG (3): Sent DV packet to 2 with 3 entries
+0:2:8.018555364 DEBUG (12): A Command has been Issued.
+0:2:8.018555364 DEBUG (12): Command Type: Route Table Dump
+0:2:8.018555364 DEBUG (12): Routing table for node 12:
+0:2:8.018555364 DEBUG (12): Dest	NextHop	Cost	State
+0:2:8.018555364 DEBUG (12): 12	12	0	VALID
+0:2:8.018555364 DEBUG (12): 11	11	1	VALID
+0:2:8.018555364 DEBUG (12): 10	11	2	VALID
+0:2:8.018555364 DEBUG (12): 9	11	3	VALID
+0:2:8.018555364 DEBUG (12): 8	11	4	VALID
+0:2:8.018555364 DEBUG (12): 7	11	5	VALID
+0:2:8.018555364 DEBUG (12): 6	11	6	VALID
+0:2:8.018555364 DEBUG (12): 5	11	7	VALID
+0:2:8.018555364 DEBUG (12): 4	11	8	VALID
+0:2:8.018555364 DEBUG (12): 3	11	9	VALID
+0:2:8.018555364 DEBUG (12): 2	11	10	VALID
+0:2:8.018555364 DEBUG (12): 1	11	11	VALID
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 9 cost 0
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 8 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 10 cost 1
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 11 cost 2
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 7 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 12 cost 3
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 6 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 5 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 4 cost 16
+0:2:8.863282459 DEBUG (9): Sent DV packet to 8 with 9 entries
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 3 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 2 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 8: dest 1 cost 16
+0:2:8.863282459 DEBUG (9): Sent DV packet to 8 with 3 entries
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 9 cost 0
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 8 cost 1
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 10 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 11 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 7 cost 2
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 12 cost 16
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 6 cost 3
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 5 cost 4
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 4 cost 5
+0:2:8.863282459 DEBUG (9): Sent DV packet to 10 with 9 entries
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 3 cost 6
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 2 cost 7
+0:2:8.863282459 DEBUG (9): Adv to 10: dest 1 cost 8
+0:2:8.863282459 DEBUG (9): Sent DV packet to 10 with 3 entries
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 4 cost 0
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 5 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 3 cost 1
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 2 cost 2
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 1 cost 3
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 6 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 7 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 8 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 9 cost 16
+0:2:8.882813043 DEBUG (4): Sent DV packet to 5 with 9 entries
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 10 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 11 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 5: dest 12 cost 16
+0:2:8.882813043 DEBUG (4): Sent DV packet to 5 with 3 entries
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 4 cost 0
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 5 cost 1
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 3 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 2 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 1 cost 16
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 6 cost 2
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 7 cost 3
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 8 cost 4
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 9 cost 5
+0:2:8.882813043 DEBUG (4): Sent DV packet to 3 with 9 entries
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 10 cost 6
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 11 cost 7
+0:2:8.882813043 DEBUG (4): Adv to 3: dest 12 cost 8
+0:2:8.882813043 DEBUG (4): Sent DV packet to 3 with 3 entries
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 11 cost 0
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 10 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 12 cost 1
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 9 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 8 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 7 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 6 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 5 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 4 cost 16
+0:2:8.882813976 DEBUG (11): Sent DV packet to 10 with 9 entries
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 3 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 2 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 10: dest 1 cost 16
+0:2:8.882813976 DEBUG (11): Sent DV packet to 10 with 3 entries
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 11 cost 0
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 10 cost 1
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 12 cost 16
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 9 cost 2
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 8 cost 3
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 7 cost 4
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 6 cost 5
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 5 cost 6
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 4 cost 7
+0:2:8.882813976 DEBUG (11): Sent DV packet to 12 with 9 entries
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 3 cost 8
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 2 cost 9
+0:2:8.882813976 DEBUG (11): Adv to 12: dest 1 cost 10
+0:2:8.882813976 DEBUG (11): Sent DV packet to 12 with 3 entries
+0:2:9.024414872 DEBUG (1): A Command has been Issued.
+0:2:9.024414872 DEBUG (1): Command Type: Ping
+0:2:9.024414872 DEBUG (1): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 2, cost: 11
+0:2:9.096954480 DEBUG (2): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 3, cost: 10
+0:2:9.326843527 DEBUG (3): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 4, cost: 9
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 5 cost 0
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 4 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 6 cost 1
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 7 cost 2
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 3 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 2 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 1 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 8 cost 3
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 9 cost 4
+0:2:9.541016301 DEBUG (5): Sent DV packet to 4 with 9 entries
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 10 cost 5
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 11 cost 6
+0:2:9.541016301 DEBUG (5): Adv to 4: dest 12 cost 7
+0:2:9.541016301 DEBUG (5): Sent DV packet to 4 with 3 entries
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 5 cost 0
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 4 cost 1
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 6 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 7 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 3 cost 2
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 2 cost 3
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 1 cost 4
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 8 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 9 cost 16
+0:2:9.541016301 DEBUG (5): Sent DV packet to 6 with 9 entries
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 10 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 11 cost 16
+0:2:9.541016301 DEBUG (5): Adv to 6: dest 12 cost 16
+0:2:9.541016301 DEBUG (5): Sent DV packet to 6 with 3 entries
+0:2:9.611267447 DEBUG (4): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 5, cost: 8
+0:2:9.712509676 DEBUG (5): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 6, cost: 7
+0:2:9.779175429 DEBUG (6): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 7, cost: 6
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 6 cost 0
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 7 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 5 cost 1
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 4 cost 2
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 8 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 9 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 10 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 11 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 3 cost 3
+0:2:9.822266434 DEBUG (6): Sent DV packet to 7 with 9 entries
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 2 cost 4
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 1 cost 5
+0:2:9.822266434 DEBUG (6): Adv to 7: dest 12 cost 16
+0:2:9.822266434 DEBUG (6): Sent DV packet to 7 with 3 entries
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 6 cost 0
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 7 cost 1
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 5 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 4 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 8 cost 2
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 9 cost 3
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 10 cost 4
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 11 cost 5
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 3 cost 16
+0:2:9.822266434 DEBUG (6): Sent DV packet to 5 with 9 entries
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 2 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 1 cost 16
+0:2:9.822266434 DEBUG (6): Adv to 5: dest 12 cost 6
+0:2:9.822266434 DEBUG (6): Sent DV packet to 5 with 3 entries
+0:2:9.983612844 DEBUG (7): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 8, cost: 5
+0:2:10.166138619 DEBUG (8): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 9, cost: 4
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 10 cost 0
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 9 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 11 cost 1
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 8 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 12 cost 2
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 7 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 6 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 5 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 4 cost 16
+0:2:10.385743530 DEBUG (10): Sent DV packet to 9 with 9 entries
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 3 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 2 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 9: dest 1 cost 16
+0:2:10.385743530 DEBUG (10): Sent DV packet to 9 with 3 entries
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 10 cost 0
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 9 cost 1
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 11 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 8 cost 2
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 12 cost 16
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 7 cost 3
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 6 cost 4
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 5 cost 5
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 4 cost 6
+0:2:10.385743530 DEBUG (10): Sent DV packet to 11 with 9 entries
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 3 cost 7
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 2 cost 8
+0:2:10.385743530 DEBUG (10): Adv to 11: dest 1 cost 9
+0:2:10.385743530 DEBUG (10): Sent DV packet to 11 with 3 entries
+0:2:10.409714794 DEBUG (9): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 10, cost: 3
+0:2:10.526810892 DEBUG (10): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 11, cost: 2
+0:2:10.644624121 DEBUG (11): Routing Packet - src: 1, dest: 12, seq: 1, next hop: 12, cost: 1
+0:2:10.869660833 DEBUG (12): PING from 1 arrived. Payload: far
+0:2:10.869660833 DEBUG (12): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 11, cost: 11
+0:2:11.147844001 DEBUG (11): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 10, cost: 10
+0:2:11.194047474 DEBUG (10): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 9, cost: 9
+0:2:11.197862055 DEBUG (9): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 8, cost: 8
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 7 cost 0
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 8 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 6 cost 1
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 5 cost 2
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 4 cost 3
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 9 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 10 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 11 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 12 cost 16
+0:2:11.445313443 DEBUG (7): Sent DV packet to 8 with 9 entries
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 3 cost 4
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 2 cost 5
+0:2:11.445313443 DEBUG (7): Adv to 8: dest 1 cost 6
+0:2:11.445313443 DEBUG (7): Sent DV packet to 8 with 3 entries
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 7 cost 0
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 8 cost 1
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 6 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 5 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 4 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 9 cost 2
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 10 cost 3
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 11 cost 4
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 12 cost 5
+0:2:11.445313443 DEBUG (7): Sent DV packet to 6 with 9 entries
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 3 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 2 cost 16
+0:2:11.445313443 DEBUG (7): Adv to 6: dest 1 cost 16
+0:2:11.445313443 DEBUG (7): Sent DV packet to 6 with 3 entries
+0:2:11.492081891 DEBUG (8): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 7, cost: 7
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 1 cost 0
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 2 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 5 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 6 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 7 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 8 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 9 cost 16
+0:2:11.578125143 DEBUG (1): Sent DV packet to 2 with 9 entries
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 10 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 11 cost 16
+0:2:11.578125143 DEBUG (1): Adv to 2: dest 12 cost 16
+0:2:11.578125143 DEBUG (1): Sent DV packet to 2 with 3 entries
+0:2:11.618073551 DEBUG (7): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 6, cost: 6
+0:2:11.754624344 DEBUG (6): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 5, cost: 5
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 8 cost 0
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 7 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 9 cost 1
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 10 cost 2
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 11 cost 3
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 6 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 5 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 4 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 12 cost 4
+0:2:11.802735451 DEBUG (8): Sent DV packet to 7 with 9 entries
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 3 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 2 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 7: dest 1 cost 16
+0:2:11.802735451 DEBUG (8): Sent DV packet to 7 with 3 entries
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 8 cost 0
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 7 cost 1
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 9 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 10 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 11 cost 16
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 6 cost 2
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 5 cost 3
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 4 cost 4
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 12 cost 16
+0:2:11.802735451 DEBUG (8): Sent DV packet to 9 with 9 entries
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 3 cost 5
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 2 cost 6
+0:2:11.802735451 DEBUG (8): Adv to 9: dest 1 cost 7
+0:2:11.802735451 DEBUG (8): Sent DV packet to 9 with 3 entries
+0:2:11.929825585 DEBUG (5): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 4, cost: 4
+0:2:11.971542988 DEBUG (4): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 3, cost: 3
+0:2:12.011871856 DEBUG (3): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 2, cost: 2
+0:2:12.095718786 DEBUG (2): Routing Packet - src: 12, dest: 1, seq: 1, next hop: 1, cost: 1
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 12 cost 0
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 11 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 10 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 9 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 8 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 7 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 6 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 5 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 4 cost 16
+0:2:12.137696922 DEBUG (12): Sent DV packet to 11 with 9 entries
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 3 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 2 cost 16
+0:2:12.137696922 DEBUG (12): Adv to 11: dest 1 cost 16
+0:2:12.137696922 DEBUG (12): Sent DV packet to 11 with 3 entries
+0:2:12.324020656 DEBUG (1): PINGREPLY from 12 arrived
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 2 cost 0
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 1 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 4 cost 2
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 5 cost 3
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 6 cost 4
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 7 cost 5
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 8 cost 6
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 9 cost 7
+0:2:12.348633089 DEBUG (2): Sent DV packet to 1 with 9 entries
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 10 cost 8
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 11 cost 9
+0:2:12.348633089 DEBUG (2): Adv to 1: dest 12 cost 10
+0:2:12.348633089 DEBUG (2): Sent DV packet to 1 with 3 entries
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 2 cost 0
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 1 cost 1
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 4 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 5 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 6 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 7 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 8 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 9 cost 16
+0:2:12.348633089 DEBUG (2): Sent DV packet to 3 with 9 entries
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 10 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 11 cost 16
+0:2:12.348633089 DEBUG (2): Adv to 3: dest 12 cost 16
+0:2:12.348633089 DEBUG (2): Sent DV packet to 3 with 3 entries
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 3 cost 0
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 4 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 2 cost 1
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 1 cost 2
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 5 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 6 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 7 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 8 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 9 cost 16
+0:2:13.406250409 DEBUG (3): Sent DV packet to 4 with 9 entries
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 10 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 11 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 4: dest 12 cost 16
+0:2:13.406250409 DEBUG (3): Sent DV packet to 4 with 3 entries
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 3 cost 0
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 4 cost 1
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 2 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 5 cost 2
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 6 cost 3
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 7 cost 4
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 8 cost 5
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 9 cost 6
+0:2:13.406250409 DEBUG (3): Sent DV packet to 2 with 9 entries
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 10 cost 7
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 11 cost 8
+0:2:13.406250409 DEBUG (3): Adv to 2: dest 12 cost 9
+0:2:13.406250409 DEBUG (3): Sent DV packet to 2 with 3 entries
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 11 cost 0
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 10 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 12 cost 1
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 9 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 8 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 7 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 6 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 5 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 4 cost 16
+0:2:13.839845226 DEBUG (11): Sent DV packet to 10 with 9 entries
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 3 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 2 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 10: dest 1 cost 16
+0:2:13.839845226 DEBUG (11): Sent DV packet to 10 with 3 entries
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 11 cost 0
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 10 cost 1
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 12 cost 16
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 9 cost 2
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 8 cost 3
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 7 cost 4
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 6 cost 5
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 5 cost 6
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 4 cost 7
+0:2:13.839845226 DEBUG (11): Sent DV packet to 12 with 9 entries
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 3 cost 8
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 2 cost 9
+0:2:13.839845226 DEBUG (11): Adv to 12: dest 1 cost 10
+0:2:13.839845226 DEBUG (11): Sent DV packet to 12 with 3 entries
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 4 cost 0
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 5 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 3 cost 1
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 2 cost 2
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 1 cost 3
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 6 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 7 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 8 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 9 cost 16
+0:2:14.252930230 DEBUG (4): Sent DV packet to 5 with 9 entries
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 10 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 11 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 5: dest 12 cost 16
+0:2:14.252930230 DEBUG (4): Sent DV packet to 5 with 3 entries
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 4 cost 0
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 5 cost 1
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 3 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 2 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 1 cost 16
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 6 cost 2
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 7 cost 3
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 8 cost 4
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 9 cost 5
+0:2:14.252930230 DEBUG (4): Sent DV packet to 3 with 9 entries
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 10 cost 6
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 11 cost 7
+0:2:14.252930230 DEBUG (4): Adv to 3: dest 12 cost 8
+0:2:14.252930230 DEBUG (4): Sent DV packet to 3 with 3 entries
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 9 cost 0
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 8 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 10 cost 1
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 11 cost 2
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 7 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 12 cost 3
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 6 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 5 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 4 cost 16
+0:2:14.720704334 DEBUG (9): Sent DV packet to 8 with 9 entries
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 3 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 2 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 8: dest 1 cost 16
+0:2:14.720704334 DEBUG (9): Sent DV packet to 8 with 3 entries
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 9 cost 0
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 8 cost 1
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 10 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 11 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 7 cost 2
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 12 cost 16
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 6 cost 3
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 5 cost 4
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 4 cost 5
+0:2:14.720704334 DEBUG (9): Sent DV packet to 10 with 9 entries
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 3 cost 6
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 2 cost 7
+0:2:14.720704334 DEBUG (9): Adv to 10: dest 1 cost 8
+0:2:14.720704334 DEBUG (9): Sent DV packet to 10 with 3 entries
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 5 cost 0
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 4 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 6 cost 1
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 7 cost 2
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 3 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 2 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 1 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 8 cost 3
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 9 cost 4
+0:2:14.722656926 DEBUG (5): Sent DV packet to 4 with 9 entries
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 10 cost 5
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 11 cost 6
+0:2:14.722656926 DEBUG (5): Adv to 4: dest 12 cost 7
+0:2:14.722656926 DEBUG (5): Sent DV packet to 4 with 3 entries
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 5 cost 0
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 4 cost 1
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 6 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 7 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 3 cost 2
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 2 cost 3
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 1 cost 4
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 8 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 9 cost 16
+0:2:14.722656926 DEBUG (5): Sent DV packet to 6 with 9 entries
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 10 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 11 cost 16
+0:2:14.722656926 DEBUG (5): Adv to 6: dest 12 cost 16
+0:2:14.722656926 DEBUG (5): Sent DV packet to 6 with 3 entries
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 6 cost 0
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 7 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 5 cost 1
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 4 cost 2
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 8 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 9 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 10 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 11 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 3 cost 3
+0:2:14.815430497 DEBUG (6): Sent DV packet to 7 with 9 entries
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 2 cost 4
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 1 cost 5
+0:2:14.815430497 DEBUG (6): Adv to 7: dest 12 cost 16
+0:2:14.815430497 DEBUG (6): Sent DV packet to 7 with 3 entries
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 6 cost 0
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 7 cost 1
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 5 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 4 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 8 cost 2
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 9 cost 3
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 10 cost 4
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 11 cost 5
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 3 cost 16
+0:2:14.815430497 DEBUG (6): Sent DV packet to 5 with 9 entries
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 2 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 1 cost 16
+0:2:14.815430497 DEBUG (6): Adv to 5: dest 12 cost 6
+0:2:14.815430497 DEBUG (6): Sent DV packet to 5 with 3 entries
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 10 cost 0
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 9 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 11 cost 1
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 8 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 12 cost 2
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 7 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 6 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 5 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 4 cost 16
+0:2:16.054688843 DEBUG (10): Sent DV packet to 9 with 9 entries
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 3 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 2 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 9: dest 1 cost 16
+0:2:16.054688843 DEBUG (10): Sent DV packet to 9 with 3 entries
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 10 cost 0
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 9 cost 1
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 11 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 8 cost 2
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 12 cost 16
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 7 cost 3
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 6 cost 4
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 5 cost 5
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 4 cost 6
+0:2:16.054688843 DEBUG (10): Sent DV packet to 11 with 9 entries
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 3 cost 7
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 2 cost 8
+0:2:16.054688843 DEBUG (10): Adv to 11: dest 1 cost 9
+0:2:16.054688843 DEBUG (10): Sent DV packet to 11 with 3 entries
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 7 cost 0
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 8 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 6 cost 1
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 5 cost 2
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 4 cost 3
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 9 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 10 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 11 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 12 cost 16
+0:2:16.703125943 DEBUG (7): Sent DV packet to 8 with 9 entries
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 3 cost 4
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 2 cost 5
+0:2:16.703125943 DEBUG (7): Adv to 8: dest 1 cost 6
+0:2:16.703125943 DEBUG (7): Sent DV packet to 8 with 3 entries
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 7 cost 0
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 8 cost 1
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 6 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 5 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 4 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 9 cost 2
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 10 cost 3
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 11 cost 4
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 12 cost 5
+0:2:16.703125943 DEBUG (7): Sent DV packet to 6 with 9 entries
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 3 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 2 cost 16
+0:2:16.703125943 DEBUG (7): Adv to 6: dest 1 cost 16
+0:2:16.703125943 DEBUG (7): Sent DV packet to 6 with 3 entries
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 8 cost 0
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 7 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 9 cost 1
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 10 cost 2
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 11 cost 3
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 6 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 5 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 4 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 12 cost 4
+0:2:16.872071388 DEBUG (8): Sent DV packet to 7 with 9 entries
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 3 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 2 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 7: dest 1 cost 16
+0:2:16.872071388 DEBUG (8): Sent DV packet to 7 with 3 entries
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 8 cost 0
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 7 cost 1
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 9 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 10 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 11 cost 16
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 6 cost 2
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 5 cost 3
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 4 cost 4
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 12 cost 16
+0:2:16.872071388 DEBUG (8): Sent DV packet to 9 with 9 entries
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 3 cost 5
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 2 cost 6
+0:2:16.872071388 DEBUG (8): Adv to 9: dest 1 cost 7
+0:2:16.872071388 DEBUG (8): Sent DV packet to 9 with 3 entries
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 1 cost 0
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 2 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 5 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 6 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 7 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 8 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 9 cost 16
+0:2:17.060547018 DEBUG (1): Sent DV packet to 2 with 9 entries
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 10 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 11 cost 16
+0:2:17.060547018 DEBUG (1): Adv to 2: dest 12 cost 16
+0:2:17.060547018 DEBUG (1): Sent DV packet to 2 with 3 entries
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 2 cost 0
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 1 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 4 cost 2
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 5 cost 3
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 6 cost 4
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 7 cost 5
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 8 cost 6
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 9 cost 7
+0:2:17.642578401 DEBUG (2): Sent DV packet to 1 with 9 entries
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 10 cost 8
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 11 cost 9
+0:2:17.642578401 DEBUG (2): Adv to 1: dest 12 cost 10
+0:2:17.642578401 DEBUG (2): Sent DV packet to 1 with 3 entries
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 2 cost 0
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 1 cost 1
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 4 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 5 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 6 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 7 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 8 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 9 cost 16
+0:2:17.642578401 DEBUG (2): Sent DV packet to 3 with 9 entries
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 10 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 11 cost 16
+0:2:17.642578401 DEBUG (2): Adv to 3: dest 12 cost 16
+0:2:17.642578401 DEBUG (2): Sent DV packet to 3 with 3 entries
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 12 cost 0
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 11 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 10 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 9 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 8 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 7 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 6 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 5 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 4 cost 16
+0:2:17.882814109 DEBUG (12): Sent DV packet to 11 with 9 entries
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 3 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 2 cost 16
+0:2:17.882814109 DEBUG (12): Adv to 11: dest 1 cost 16
+0:2:17.882814109 DEBUG (12): Sent DV packet to 11 with 3 entries
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 11 cost 0
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 10 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 12 cost 1
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 9 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 8 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 7 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 6 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 5 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 4 cost 16
+0:2:18.796876476 DEBUG (11): Sent DV packet to 10 with 9 entries
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 3 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 2 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 10: dest 1 cost 16
+0:2:18.796876476 DEBUG (11): Sent DV packet to 10 with 3 entries
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 11 cost 0
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 10 cost 1
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 12 cost 16
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 9 cost 2
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 8 cost 3
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 7 cost 4
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 6 cost 5
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 5 cost 6
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 4 cost 7
+0:2:18.796876476 DEBUG (11): Sent DV packet to 12 with 9 entries
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 3 cost 8
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 2 cost 9
+0:2:18.796876476 DEBUG (11): Adv to 12: dest 1 cost 10
+0:2:18.796876476 DEBUG (11): Sent DV packet to 12 with 3 entries
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 3 cost 0
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 4 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 2 cost 1
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 1 cost 2
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 5 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 6 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 7 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 8 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 9 cost 16
+0:2:18.964844159 DEBUG (3): Sent DV packet to 4 with 9 entries
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 10 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 11 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 4: dest 12 cost 16
+0:2:18.964844159 DEBUG (3): Sent DV packet to 4 with 3 entries
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 3 cost 0
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 4 cost 1
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 2 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 5 cost 2
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 6 cost 3
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 7 cost 4
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 8 cost 5
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 9 cost 6
+0:2:18.964844159 DEBUG (3): Sent DV packet to 2 with 9 entries
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 10 cost 7
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 11 cost 8
+0:2:18.964844159 DEBUG (3): Adv to 2: dest 12 cost 9
+0:2:18.964844159 DEBUG (3): Sent DV packet to 2 with 3 entries

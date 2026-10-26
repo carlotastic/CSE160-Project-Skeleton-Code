@@ -16,6 +16,9 @@ module Node{
 
    uses interface Flooding;
    uses interface NeighborDiscovery;
+   uses interface DistanceVector;
+
+   uses interface IP;
 }
 
 implementation{
@@ -26,19 +29,16 @@ implementation{
    }
 
    event void CommandHandler.ping(uint16_t destination, uint8_t *payload){
-      uint16_t seq;
-
       dbg(GENERAL_CHANNEL, "PING EVENT \n");
 
-      // ping to self is handled here instead of flooding it.
-      // otherwise every node would rebroadcast a packet that nobody else needs.
+      // ping to self never goes on the radio
       if(destination == TOS_NODE_ID){
-         dbg(FLOODING_CHANNEL, "Ping to self, delivered locally: %s\n", payload);
+         dbg(ROUTING_CHANNEL, "Ping to self, delivered locally: %s\n", payload);
          return;
       }
 
-      seq = call Flooding.send(destination, PROTOCOL_PING, payload, PACKET_MAX_PAYLOAD_SIZE);
-      dbg(FLOODING_CHANNEL, "Sent PING to %hu (seq %hu)\n", destination, seq);
+      // routed, not flooded
+      call IP.send(destination, PROTOCOL_PING, payload, PACKET_MAX_PAYLOAD_SIZE);
    }
 
    event void Flooding.receive(pack* msg){
@@ -57,11 +57,34 @@ implementation{
       }
    }
 
+   event void NeighborDiscovery.neighborAdded(uint16_t id){}
+
+   event void NeighborDiscovery.neighborLost(uint16_t id){}
+
+   // a routed packet for this node arrived
+   event void IP.receive(pack* msg){
+      if(msg->protocol == PROTOCOL_PING){
+         dbg(ROUTING_CHANNEL, "PING from %hu arrived. Payload: %s\n", msg->src, msg->payload);
+         // reply is routed too
+         call IP.send(msg->src, PROTOCOL_PINGREPLY, (uint8_t*) msg->payload, PACKET_MAX_PAYLOAD_SIZE);
+
+      } else if(msg->protocol == PROTOCOL_PINGREPLY){
+         dbg(ROUTING_CHANNEL, "PINGREPLY from %hu arrived\n", msg->src);
+      }
+   }
+
+   event void CommandHandler.pingTTL(uint16_t destination, uint8_t ttl, uint8_t *payload){
+      dbg(ROUTING_CHANNEL, "PING to %hu with TTL %hhu\n", destination, ttl);
+      call IP.sendTTL(destination, PROTOCOL_PING, ttl, payload, PACKET_MAX_PAYLOAD_SIZE);
+   }
+
    event void CommandHandler.printNeighbors(){
       call NeighborDiscovery.printNeighbors();
    }
 
-   event void CommandHandler.printRouteTable(){}
+   event void CommandHandler.printRouteTable(){
+      call DistanceVector.printTable();
+   }
 
    event void CommandHandler.printLinkState(){}
 

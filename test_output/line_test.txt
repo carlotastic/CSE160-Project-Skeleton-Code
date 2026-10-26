@@ -1,0 +1,45 @@
+Creating Topo!
+Number of Motes 4
+  1   2   -54.0
+  2   1   -54.0
+  2   3   -54.0
+  3   2   -54.0
+  3   4   -54.0
+  4   3   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Adding Channel command
+Adding Channel routing
+Adding Channel flooding
+0:0:10.370178718 DEBUG (3): Route set: dest 4 via 4 cost 1
+0:0:10.376327782 DEBUG (1): Route set: dest 2 via 2 cost 1
+0:0:10.419403204 DEBUG (2): Route set: dest 1 via 1 cost 1
+0:0:10.478332917 DEBUG (2): Route set: dest 3 via 3 cost 1
+0:0:10.633423117 DEBUG (3): Route set: dest 2 via 2 cost 1
+0:0:10.645477541 DEBUG (1): Route set: dest 3 via 2 cost 2
+0:0:10.820205918 DEBUG (3): Route set: dest 1 via 2 cost 2
+0:0:10.989838051 DEBUG (4): Route set: dest 3 via 3 cost 1
+0:0:11.161423085 DEBUG (4): Route set: dest 2 via 3 cost 2
+0:0:11.161423085 DEBUG (4): Route set: dest 1 via 3 cost 3
+0:0:11.257263538 DEBUG (2): Route set: dest 4 via 3 cost 2
+0:0:15.890625263 DEBUG (1): Route set: dest 4 via 2 cost 3
+0:12:2.229492504 DEBUG (1): A Command has been Issued.
+0:12:2.229492504 DEBUG (1): Command Type: Route Table Dump
+0:12:2.229492504 DEBUG (1): Routing table for node 1:
+0:12:2.229492504 DEBUG (1): Dest	NextHop	Cost	State
+0:12:2.229492504 DEBUG (1): 1	1	0	VALID
+0:12:2.229492504 DEBUG (1): 2	2	1	VALID
+0:12:2.229492504 DEBUG (1): 3	2	2	VALID
+0:12:2.229492504 DEBUG (1): 4	2	3	VALID
+0:12:26.489121005 DEBUG (1): A Command has been Issued.
+0:12:26.489121005 DEBUG (1): Command Type: Ping
+0:12:26.489121005 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 2, cost: 3
+0:12:26.515594590 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 3, cost: 2
+0:12:26.801407120 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 4, cost: 1
+0:12:26.835373325 DEBUG (4): PING from 1 arrived. Payload: hello
+0:12:26.835373325 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 3
+0:12:26.962906414 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
+0:12:27.062820835 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
+0:12:27.286056782 DEBUG (1): PINGREPLY from 4 arrived

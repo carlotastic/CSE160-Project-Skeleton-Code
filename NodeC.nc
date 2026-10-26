@@ -26,4 +26,10 @@ implementation {
 
     components NeighborDiscoveryC;
     Node.NeighborDiscovery -> NeighborDiscoveryC;
+
+    components DistanceVectorC;
+    Node.DistanceVector -> DistanceVectorC;
+
+    components IPC;
+    Node.IP -> IPC;
 }
