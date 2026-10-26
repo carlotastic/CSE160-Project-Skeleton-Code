@@ -61,6 +61,8 @@ implementation{
 
    event void NeighborDiscovery.neighborLost(uint16_t id){}
 
+   event void NeighborDiscovery.linkCostChanged(uint16_t id, uint8_t cost){}
+
    // a routed packet for this node arrived
    event void IP.receive(pack* msg){
       if(msg->protocol == PROTOCOL_PING){

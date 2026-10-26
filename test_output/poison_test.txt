@@ -13,189 +13,229 @@ Creating noise model for  4
 Adding Channel command
 Adding Channel routing
 === Phase 1: converge (60s) ===
-0:0:10.365967294 DEBUG (3): Route set: dest 4 via 4 cost 1
-0:0:10.382965316 DEBUG (1): Route set: dest 2 via 2 cost 1
-0:0:10.421768325 DEBUG (2): Route set: dest 1 via 1 cost 1
-0:0:10.477859875 DEBUG (2): Route set: dest 3 via 3 cost 1
-0:0:10.635360972 DEBUG (3): Route set: dest 2 via 2 cost 1
-0:0:10.648910749 DEBUG (1): Route set: dest 3 via 2 cost 2
-0:0:10.817901855 DEBUG (3): Route set: dest 1 via 2 cost 2
-0:0:10.986908358 DEBUG (4): Route set: dest 3 via 3 cost 1
-0:0:11.152878213 DEBUG (4): Route set: dest 2 via 3 cost 2
-0:0:11.152878213 DEBUG (4): Route set: dest 1 via 3 cost 3
-0:0:17.239838006 DEBUG (2): Route set: dest 4 via 3 cost 2
-0:0:21.233017188 DEBUG (1): Route set: dest 4 via 2 cost 3
-0:1:0.004883089 DEBUG (2): A Command has been Issued.
-0:1:0.004883089 DEBUG (2): Command Type: Route Table Dump
-0:1:0.004883089 DEBUG (2): Routing table for node 2:
-0:1:0.004883089 DEBUG (2): Dest	NextHop	Cost	State
-0:1:0.004883089 DEBUG (2): 2	2	0	VALID
-0:1:0.004883089 DEBUG (2): 1	1	1	VALID
-0:1:0.004883089 DEBUG (2): 3	3	1	VALID
-0:1:0.004883089 DEBUG (2): 4	3	2	VALID
+0:0:10.361008222 DEBUG (3): Route set: dest 4 via 4 cost 1
+0:0:10.379104865 DEBUG (1): Route set: dest 2 via 2 cost 1
+0:0:10.425827133 DEBUG (2): Route set: dest 1 via 1 cost 1
+0:0:10.476089871 DEBUG (2): Route set: dest 3 via 3 cost 1
+0:0:10.637649777 DEBUG (3): Route set: dest 2 via 2 cost 1
+0:0:10.646454098 DEBUG (1): Route set: dest 3 via 2 cost 2
+0:0:10.820404281 DEBUG (3): Route set: dest 1 via 2 cost 2
+0:0:10.991089259 DEBUG (4): Route set: dest 3 via 3 cost 1
+0:0:11.154602446 DEBUG (4): Route set: dest 2 via 3 cost 2
+0:0:11.154602446 DEBUG (4): Route set: dest 1 via 3 cost 3
+0:0:11.248993322 DEBUG (2): Route set: dest 4 via 3 cost 2
+0:0:15.892807257 DEBUG (1): Route set: dest 4 via 2 cost 3
+0:1:0.000976839 DEBUG (2): A Command has been Issued.
+0:1:0.000976839 DEBUG (2): Command Type: Route Table Dump
+0:1:0.000976839 DEBUG (2): Routing table for node 2:
+0:1:0.000976839 DEBUG (2): Dest	NextHop	Cost	State
+0:1:0.000976839 DEBUG (2): 2	2	0	VALID
+0:1:0.000976839 DEBUG (2): 1	1	1	VALID
+0:1:0.000976839 DEBUG (2): 3	3	1	VALID
+0:1:0.000976839 DEBUG (2): 4	3	2	VALID
 === Phase 2: log ONE round of advertisements (7s) ===
 Adding Channel dvadv
 0:1:1.144531659 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:1.144531659 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:1.144531659 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:1.144531659 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:1.144531659 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:1.144531659 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:1.144531659 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:1.144531659 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:1.144531659 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:1.144531659 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:3.527344026 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:3.527344026 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:3.527344026 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:3.527344026 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:3.527344026 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:3.527344026 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:3.527344026 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:3.527344026 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:3.527344026 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:3.527344026 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:4.441406793 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:4.441406793 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:4.441406793 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:4.441406793 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:4.441406793 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:5.789062643 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:5.789062643 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:5.789062643 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:5.789062643 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:5.789062643 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:6.703125409 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:6.703125409 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:6.703125409 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:6.703125409 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:6.703125409 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:6.703125409 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:6.703125409 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:6.703125409 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:6.703125409 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:6.703125409 DEBUG (3): Sent DV packet to 2 with 4 entries
 === Phase 3: cut link 3-4. Node 3 must NOT pick node 2 as a way to 4 ===
 0:1:8.821289339 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:8.821289339 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:8.821289339 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:8.821289339 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:8.821289339 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:8.821289339 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:8.821289339 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:8.821289339 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:8.821289339 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:8.821289339 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:9.811523980 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:9.811523980 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:9.811523980 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:9.811523980 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:9.811523980 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:11.271484518 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:11.271484518 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:11.271484518 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:11.271484518 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:11.271484518 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:12.261719159 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:12.261719159 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:12.261719159 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:12.261719159 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:12.261719159 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:12.261719159 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:12.261719159 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:12.261719159 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:12.261719159 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:12.261719159 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:14.115234651 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:14.115234651 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:14.115234651 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:14.115234651 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:14.115234651 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:14.115234651 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:14.115234651 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:14.115234651 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:14.115234651 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:14.115234651 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:15.181641168 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:15.181641168 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:15.181641168 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:15.181641168 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:15.181641168 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:16.753906393 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:16.753906393 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:16.753906393 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:16.753906393 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:16.753906393 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:17.820312909 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:17.820312909 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:17.820312909 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:17.820312909 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:17.820312909 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:17.820312909 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:17.820312909 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:17.820312909 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:17.820312909 DEBUG (3): Adv to 2: dest 1 cost 16
-0:1:19.409179964 DEBUG (2): Adv to 1: dest 2 cost 0
-0:1:19.409179964 DEBUG (2): Adv to 1: dest 1 cost 16
-0:1:19.409179964 DEBUG (2): Adv to 1: dest 3 cost 1
-0:1:19.409179964 DEBUG (2): Adv to 1: dest 4 cost 2
-0:1:19.409179964 DEBUG (2): Adv to 3: dest 2 cost 0
-0:1:19.409179964 DEBUG (2): Adv to 3: dest 1 cost 1
-0:1:19.409179964 DEBUG (2): Adv to 3: dest 3 cost 16
-0:1:19.409179964 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:17.820312909 DEBUG (3): Sent DV packet to 2 with 4 entries
+0:1:19.410156526 DEBUG (2): Adv to 1: dest 2 cost 0
+0:1:19.410156526 DEBUG (2): Adv to 1: dest 1 cost 16
+0:1:19.410156526 DEBUG (2): Adv to 1: dest 3 cost 1
+0:1:19.410156526 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:19.410156526 DEBUG (2): Sent DV packet to 1 with 4 entries
+0:1:19.410156526 DEBUG (2): Adv to 3: dest 2 cost 0
+0:1:19.410156526 DEBUG (2): Adv to 3: dest 1 cost 1
+0:1:19.410156526 DEBUG (2): Adv to 3: dest 3 cost 16
+0:1:19.410156526 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:19.410156526 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:20.551758355 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:20.551758355 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:20.551758355 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:20.551758355 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:20.551758355 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:22.236328268 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:22.236328268 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:22.236328268 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:22.236328268 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:22.236328268 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:23.378906659 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:23.378906659 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:23.378906659 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:23.378906659 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:23.378906659 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:23.378906659 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:23.378906659 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:23.378906659 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:23.378906659 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:23.378906659 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:24.703125276 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:24.703125276 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:24.703125276 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:24.703125276 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:24.703125276 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:24.703125276 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:24.703125276 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:24.703125276 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:24.703125276 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:24.703125276 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:25.921875543 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:25.921875543 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:25.921875543 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:25.921875543 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:25.921875543 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:27.718750143 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:27.718750143 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:27.718750143 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:27.718750143 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:27.718750143 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:28.937500409 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:28.937500409 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:28.937500409 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:28.937500409 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:28.937500409 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:28.937500409 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:28.937500409 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:28.937500409 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:28.937500409 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:28.937500409 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:29.997070589 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:29.997070589 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:29.997070589 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:29.997070589 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:29.997070589 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:29.997070589 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:29.997070589 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:29.997070589 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:29.997070589 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:29.997070589 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:31.291992730 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:31.291992730 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:31.291992730 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:31.291992730 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:31.291992730 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:33.201172018 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:33.201172018 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:33.201172018 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:33.201172018 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:33.201172018 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:34.496094159 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:34.496094159 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:34.496094159 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:34.496094159 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:34.496094159 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:34.496094159 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:34.496094159 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:34.496094159 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:34.496094159 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:34.496094159 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:35.291015901 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:35.291015901 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:35.291015901 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:35.291015901 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:35.291015901 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:35.291015901 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:35.291015901 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:35.291015901 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:35.291015901 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:35.291015901 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:36.662109918 DEBUG (4): Route to 2 expired (not refreshed)
 0:1:36.662109918 DEBUG (4): Route withdrawn: dest 2 now unreachable
 0:1:36.662109918 DEBUG (4): Route to 1 expired (not refreshed)
@@ -204,197 +244,247 @@ Adding Channel dvadv
 0:1:36.662109918 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:36.662109918 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:36.662109918 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:36.662109918 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:38.683593893 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:38.683593893 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:38.683593893 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:38.683593893 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:38.683593893 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:40.054687909 DEBUG (3): Adv to 4: dest 3 cost 0
 0:1:40.054687909 DEBUG (3): Adv to 4: dest 4 cost 16
 0:1:40.054687909 DEBUG (3): Adv to 4: dest 2 cost 1
 0:1:40.054687909 DEBUG (3): Adv to 4: dest 1 cost 2
+0:1:40.054687909 DEBUG (3): Sent DV packet to 4 with 4 entries
 0:1:40.054687909 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:40.054687909 DEBUG (3): Adv to 2: dest 4 cost 1
 0:1:40.054687909 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:40.054687909 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:40.054687909 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:40.584961214 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:40.584961214 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:40.584961214 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:40.584961214 DEBUG (2): Adv to 1: dest 4 cost 2
+0:1:40.584961214 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:40.584961214 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:40.584961214 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:40.584961214 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:40.584961214 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:40.584961214 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:42.032227105 DEBUG (4): Adv to 3: dest 4 cost 0
 0:1:42.032227105 DEBUG (4): Adv to 3: dest 3 cost 16
 0:1:42.032227105 DEBUG (4): Adv to 3: dest 2 cost 16
 0:1:42.032227105 DEBUG (4): Adv to 3: dest 1 cost 16
+0:1:42.032227105 DEBUG (4): Sent DV packet to 3 with 4 entries
 0:1:42.890625409 DEBUG (3): Route withdrawn: dest 4 now unreachable
 0:1:44.166015768 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:44.166015768 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:44.166015768 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:44.166015768 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:44.166015768 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:45.613281659 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:45.613281659 DEBUG (3): Adv to 2: dest 4 cost 16
 0:1:45.613281659 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:45.613281659 DEBUG (3): Adv to 2: dest 1 cost 16
-0:1:45.624496865 DEBUG (2): Route withdrawn: dest 4 now unreachable
+0:1:45.613281659 DEBUG (3): Sent DV packet to 2 with 4 entries
+0:1:45.627960590 DEBUG (2): Route withdrawn: dest 4 now unreachable
 0:1:45.878906526 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:45.878906526 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:45.878906526 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:45.878906526 DEBUG (2): Adv to 1: dest 4 cost 16
+0:1:45.878906526 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:45.878906526 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:45.878906526 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:45.878906526 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:45.878906526 DEBUG (2): Adv to 3: dest 4 cost 16
-0:1:45.911957017 DEBUG (1): Route withdrawn: dest 4 now unreachable
+0:1:45.878906526 DEBUG (2): Sent DV packet to 3 with 4 entries
+0:1:45.904938015 DEBUG (1): Route withdrawn: dest 4 now unreachable
 0:1:46.796875543 DEBUG (4): Route withdrawn: dest 3 now unreachable
 0:1:49.648437643 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:49.648437643 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:49.648437643 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:49.648437643 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:49.648437643 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:51.171875409 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:51.171875409 DEBUG (3): Adv to 2: dest 4 cost 16
 0:1:51.171875409 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:51.171875409 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:51.171875409 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:1:51.172851839 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:51.172851839 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:51.172851839 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:51.172851839 DEBUG (2): Adv to 1: dest 4 cost 16
+0:1:51.172851839 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:51.172851839 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:51.172851839 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:51.172851839 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:51.172851839 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:51.172851839 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:55.130859518 DEBUG (1): Adv to 2: dest 1 cost 0
 0:1:55.130859518 DEBUG (1): Adv to 2: dest 2 cost 16
 0:1:55.130859518 DEBUG (1): Adv to 2: dest 3 cost 16
 0:1:55.130859518 DEBUG (1): Adv to 2: dest 4 cost 16
+0:1:55.130859518 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:1:56.466797151 DEBUG (2): Adv to 1: dest 2 cost 0
 0:1:56.466797151 DEBUG (2): Adv to 1: dest 1 cost 16
 0:1:56.466797151 DEBUG (2): Adv to 1: dest 3 cost 1
 0:1:56.466797151 DEBUG (2): Adv to 1: dest 4 cost 16
+0:1:56.466797151 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:1:56.466797151 DEBUG (2): Adv to 3: dest 2 cost 0
 0:1:56.466797151 DEBUG (2): Adv to 3: dest 1 cost 1
 0:1:56.466797151 DEBUG (2): Adv to 3: dest 3 cost 16
 0:1:56.466797151 DEBUG (2): Adv to 3: dest 4 cost 16
+0:1:56.466797151 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:1:56.730469159 DEBUG (3): Adv to 2: dest 3 cost 0
 0:1:56.730469159 DEBUG (3): Adv to 2: dest 4 cost 16
 0:1:56.730469159 DEBUG (3): Adv to 2: dest 2 cost 16
 0:1:56.730469159 DEBUG (3): Adv to 2: dest 1 cost 16
+0:1:56.730469159 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:2:0.613281393 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:0.613281393 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:0.613281393 DEBUG (1): Adv to 2: dest 3 cost 16
 0:2:0.613281393 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:0.613281393 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:2:1.760742464 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:1.760742464 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:1.760742464 DEBUG (2): Adv to 1: dest 3 cost 1
 0:2:1.760742464 DEBUG (2): Adv to 1: dest 4 cost 16
+0:2:1.760742464 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:2:1.760742464 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:1.760742464 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:1.760742464 DEBUG (2): Adv to 3: dest 3 cost 16
 0:2:1.760742464 DEBUG (2): Adv to 3: dest 4 cost 16
-0:2:2.290039472 DEBUG (3): Adv to 2: dest 3 cost 0
-0:2:2.290039472 DEBUG (3): Adv to 2: dest 4 cost 16
-0:2:2.290039472 DEBUG (3): Adv to 2: dest 2 cost 16
-0:2:2.290039472 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:1.760742464 DEBUG (2): Sent DV packet to 3 with 4 entries
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 3 cost 0
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 4 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 2 cost 16
+0:2:2.289062909 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:2.289062909 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:2:6.095703268 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:6.095703268 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:6.095703268 DEBUG (1): Adv to 2: dest 3 cost 16
 0:2:6.095703268 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:6.095703268 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:2:7.054687776 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:7.054687776 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:7.054687776 DEBUG (2): Adv to 1: dest 3 cost 1
 0:2:7.054687776 DEBUG (2): Adv to 1: dest 4 cost 16
+0:2:7.054687776 DEBUG (2): Sent DV packet to 1 with 4 entries
 0:2:7.054687776 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:7.054687776 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:7.054687776 DEBUG (2): Adv to 3: dest 3 cost 16
 0:2:7.054687776 DEBUG (2): Adv to 3: dest 4 cost 16
+0:2:7.054687776 DEBUG (2): Sent DV packet to 3 with 4 entries
 0:2:7.847656659 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:7.847656659 DEBUG (3): Adv to 2: dest 4 cost 16
 0:2:7.847656659 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:7.847656659 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:7.847656659 DEBUG (3): Sent DV packet to 2 with 4 entries
 0:2:8.882813043 DEBUG (4): Route to 2 reclaimed
 0:2:8.882813043 DEBUG (4): Route to 1 reclaimed
 0:2:11.578125143 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:11.578125143 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:11.578125143 DEBUG (1): Adv to 2: dest 3 cost 16
 0:2:11.578125143 DEBUG (1): Adv to 2: dest 4 cost 16
+0:2:11.578125143 DEBUG (1): Sent DV packet to 2 with 4 entries
 0:2:12.348633089 DEBUG (2): Route to 4 reclaimed
 0:2:12.348633089 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:12.348633089 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:12.348633089 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:12.348633089 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:12.348633089 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:12.348633089 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:12.348633089 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:12.348633089 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:13.406250409 DEBUG (3): Route to 4 reclaimed
 0:2:13.406250409 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:13.406250409 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:13.406250409 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:13.406250409 DEBUG (3): Sent DV packet to 2 with 3 entries
 0:2:14.252930230 DEBUG (4): Route to 3 reclaimed
 0:2:17.060547018 DEBUG (1): Route to 4 reclaimed
 0:2:17.060547018 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:17.060547018 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:17.060547018 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:17.060547018 DEBUG (1): Sent DV packet to 2 with 3 entries
 0:2:17.642578401 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:17.642578401 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:17.642578401 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:17.642578401 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:17.642578401 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:17.642578401 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:17.642578401 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:17.642578401 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:18.964844159 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:18.964844159 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:18.964844159 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:18.964844159 DEBUG (3): Sent DV packet to 2 with 3 entries
 0:2:22.542968893 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:22.542968893 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:22.542968893 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:22.542968893 DEBUG (1): Sent DV packet to 2 with 3 entries
 0:2:22.936523714 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:22.936523714 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:22.936523714 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:22.936523714 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:22.936523714 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:22.936523714 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:22.936523714 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:22.936523714 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:24.523437909 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:24.523437909 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:24.523437909 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:24.523437909 DEBUG (3): Sent DV packet to 2 with 3 entries
 0:2:28.025390768 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:28.025390768 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:28.025390768 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:28.025390768 DEBUG (1): Sent DV packet to 2 with 3 entries
 0:2:28.230469026 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:28.230469026 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:28.230469026 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:28.230469026 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:28.230469026 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:28.230469026 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:28.230469026 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:28.230469026 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:30.082031659 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:30.082031659 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:30.082031659 DEBUG (3): Adv to 2: dest 1 cost 16
+0:2:30.082031659 DEBUG (3): Sent DV packet to 2 with 3 entries
 0:2:33.507812643 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:33.507812643 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:33.507812643 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:33.507812643 DEBUG (1): Sent DV packet to 2 with 3 entries
 0:2:33.524414339 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:33.524414339 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:33.524414339 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:33.524414339 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:33.524414339 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:33.524414339 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:33.524414339 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:33.524414339 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:35.640625409 DEBUG (3): Adv to 2: dest 3 cost 0
 0:2:35.640625409 DEBUG (3): Adv to 2: dest 2 cost 16
 0:2:35.640625409 DEBUG (3): Adv to 2: dest 1 cost 16
-0:2:38.120117464 DEBUG (3): A Command has been Issued.
-0:2:38.120117464 DEBUG (3): Command Type: Route Table Dump
-0:2:38.120117464 DEBUG (3): Routing table for node 3:
-0:2:38.120117464 DEBUG (3): Dest	NextHop	Cost	State
-0:2:38.120117464 DEBUG (3): 3	3	0	VALID
-0:2:38.120117464 DEBUG (3): 2	2	1	VALID
-0:2:38.120117464 DEBUG (3): 1	2	2	VALID
+0:2:35.640625409 DEBUG (3): Sent DV packet to 2 with 3 entries
+0:2:38.119140902 DEBUG (3): A Command has been Issued.
+0:2:38.119140902 DEBUG (3): Command Type: Route Table Dump
+0:2:38.119140902 DEBUG (3): Routing table for node 3:
+0:2:38.119140902 DEBUG (3): Dest	NextHop	Cost	State
+0:2:38.119140902 DEBUG (3): 3	3	0	VALID
+0:2:38.119140902 DEBUG (3): 2	2	1	VALID
+0:2:38.119140902 DEBUG (3): 1	2	2	VALID
 0:2:38.818359651 DEBUG (2): Adv to 1: dest 2 cost 0
 0:2:38.818359651 DEBUG (2): Adv to 1: dest 1 cost 16
 0:2:38.818359651 DEBUG (2): Adv to 1: dest 3 cost 1
+0:2:38.818359651 DEBUG (2): Sent DV packet to 1 with 3 entries
 0:2:38.818359651 DEBUG (2): Adv to 3: dest 2 cost 0
 0:2:38.818359651 DEBUG (2): Adv to 3: dest 1 cost 1
 0:2:38.818359651 DEBUG (2): Adv to 3: dest 3 cost 16
+0:2:38.818359651 DEBUG (2): Sent DV packet to 3 with 3 entries
 0:2:38.990234518 DEBUG (1): Adv to 2: dest 1 cost 0
 0:2:38.990234518 DEBUG (1): Adv to 2: dest 2 cost 16
 0:2:38.990234518 DEBUG (1): Adv to 2: dest 3 cost 16
+0:2:38.990234518 DEBUG (1): Sent DV packet to 2 with 3 entries
 0:2:39.127930231 DEBUG (2): A Command has been Issued.
 0:2:39.127930231 DEBUG (2): Command Type: Route Table Dump
 0:2:39.127930231 DEBUG (2): Routing table for node 2:

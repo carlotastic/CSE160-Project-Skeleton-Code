@@ -72,18 +72,21 @@ implementation{
     void processEntry(uint8_t neighbor, uint8_t dest, uint8_t advCost){
         uint8_t newCost;
         int16_t idx;
+        uint8_t lc;
 
         // never replace our own self-route
         if(dest == TOS_NODE_ID){
             return;
         }
 
-        // cost through this neighbor = their cost + 1, capped at INF.
-        // checked BEFORE adding so it can never overflow
-        if(advCost >= DV_INFINITY - 1){
+        // cost through this neighbor = their cost + link cost, capped at INF.
+        // in hop-count mode linkCost is always 1, so this is the same as before.
+        // compared BEFORE adding so it can never overflow
+        lc = call NeighborDiscovery.linkCost(neighbor);
+        if(advCost >= DV_INFINITY - lc){
             newCost = DV_INFINITY;
         } else{
-            newCost = advCost + 1;
+            newCost = advCost + lc;
         }
 
         idx = findRoute(dest);
@@ -136,10 +139,10 @@ implementation{
 
             if(table[i].state == ROUTE_VALID){
                 // direct neighbor routes are kept alive by ND, not by adverts
-                if(table[i].nextHop == table[i].dest && table[i].cost == 1
-                && call NeighborDiscovery.isNeighbor(table[i].dest)){
-                table[i].age = 0;
-                continue;
+                if(table[i].nextHop == table[i].dest
+                   && call NeighborDiscovery.isNeighbor(table[i].dest)){
+                    table[i].age = 0;
+                    continue;
                 }
                 table[i].age++;
                 if(table[i].age >= ROUTE_TIMEOUT_ROUNDS){
@@ -258,10 +261,12 @@ implementation{
         advertiseAll();
     }
 
-    // ND confirmed a new neighbor: direct route, cost 1
+    // ND confirmed a new neighbor: direct route at the link's cost
     event void NeighborDiscovery.neighborAdded(uint16_t id){
         int16_t idx;
+        uint8_t lc;
 
+        lc = call NeighborDiscovery.linkCost(id);
         idx = findRoute(id);
         if(idx == -1){
             idx = findFreeSlot();
@@ -269,9 +274,9 @@ implementation{
                 dbg(ROUTING_CHANNEL, "Table full, cannot add neighbor %hu\n", id);
                 return;
             }
-            setRoute(idx, id, id, 1);
-        } else if(table[idx].state != ROUTE_VALID || table[idx].cost > 1){
-            setRoute(idx, id, id, 1);   // direct link beats anything we had
+            setRoute(idx, id, id, lc);
+        } else if(table[idx].state != ROUTE_VALID || table[idx].cost > lc){
+            setRoute(idx, id, id, lc);   // direct link is better than what we had
         }
     }
 
@@ -283,6 +288,21 @@ implementation{
                 && table[i].dest != TOS_NODE_ID){
                 withdrawRoute(i);
             }
+        }
+    }
+
+    // ND measured a new cost for the link to neighbor id
+    event void NeighborDiscovery.linkCostChanged(uint16_t id, uint8_t cost){
+        int16_t idx;
+
+        idx = findRoute(id);
+        if(idx == -1){
+            return;
+        }
+        // update the direct route if we use it, or switch to it if it's now better.
+        // routes to OTHER destinations through id get fixed by id's next advertisement (case B).
+        if(table[idx].nextHop == id || table[idx].state != ROUTE_VALID || cost < table[idx].cost){
+            setRoute(idx, id, id, cost);
         }
     }
 

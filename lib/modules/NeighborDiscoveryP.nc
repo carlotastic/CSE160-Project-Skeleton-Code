@@ -3,6 +3,7 @@
 #include "../../includes/packet.h"
 #include "../../includes/channels.h"
 #include "../../includes/protocol.h"
+#include "../../includes/dv.h"   // for USE_LQ_METRIC
 
 // Neighbor discovery: finds which nodes are one hop away.
 // every round: broadcast a PING, anyone who hears it sends back a PINGREPLY
@@ -18,10 +19,18 @@ module NeighborDiscoveryP{
 
 implementation{
     enum{
-        MAX_MISSED = 3 //drops a neighbor after this many rounds of no reply
+        MAX_MISSED = 3, //drops a neighbor after this many rounds of no reply
+        LQ_CONFIRM_ROUNDS = 3 // a new link cost must show up this many rounds in a row
     };
 
     uint16_t ndSeq = 0; // separate from flooding's seqCounter
+
+    // link quality, indexed by neighbor id (ids are at most 255)
+    uint16_t history[256];     // last 16 rounds, 1 bit each: 1 = got a reply that round
+    bool gotReply[256];        // did we get a reply during the current round?
+    uint8_t lqCost[256];       // current link cost (1..4), 0 = never measured
+    uint8_t pendingCost[256];  // a new cost we've been seeing, not confirmed yet
+    uint8_t pendingCount[256]; // how many rounds in a row we've seen pendingCost
 
     // builds and sends a neighbor discovery packet.
     // linkDest = who actually receives it over the radio (everyone for PING, one node for PINGREPLY)
@@ -40,6 +49,70 @@ implementation{
             call LinkLayer.broadcast(&ndPackage);
         } else{
             call LinkLayer.unicast(&ndPackage, linkDest);
+        }
+    }
+
+    // how many bits are 1 (= how many of the last 16 rounds got a reply)
+    uint8_t countBits(uint16_t x) {
+        uint8_t c = 0;
+        while(x) {
+            c += x & 1;
+            x >>= 1;
+        }
+        return c;
+    }
+
+    // replies out of 16 -> link cost (rounded ETX)
+    uint8_t costFromHistory(uint16_t h) {
+        uint8_t k = countBits(h);
+        if(k >= 14) return 1;   // >= 87.5%
+        if(k >= 12) return 2;   // >= 75%
+        if(k >= 8)  return 3;   // >= 50%
+        return 4;
+    }
+
+    // called once per round: close out the round that just ended for every neighbor
+    void updateLinkQuality() {
+        uint32_t keysCopy[20];
+        uint16_t count;
+        uint16_t i;
+        uint16_t id;
+        uint8_t newCost;
+
+        count = call NeighborMap.size();
+        memcpy(keysCopy, call NeighborMap.getKeys(), count * sizeof(uint32_t));
+
+        for(i = 0; i < count; i++) {
+            id = (uint16_t) keysCopy[i];
+            if(id > 255) {
+                continue;
+            }
+
+            // shift in this round's result: 1 if they replied, 0 if not
+            history[id] = (history[id] << 1) | (gotReply[id] ? 1 : 0);
+            gotReply[id] = FALSE;
+
+            newCost = costFromHistory(history[id]);
+
+            // hysteresis: only change after seeing the same new cost several rounds in a row
+            if(newCost == lqCost[id]) {
+                pendingCount[id] = 0;                  // back to normal, forget the pending value
+            } else if(newCost == pendingCost[id]) {
+                pendingCount[id]++;                    // same new value again
+            } else {
+                pendingCost[id] = newCost;             // a different new value, start counting
+                pendingCount[id] = 1;
+            }
+
+            if(pendingCount[id] >= LQ_CONFIRM_ROUNDS) {
+                dbg(NEIGHBOR_CHANNEL, "Link cost to %hu: %hhu -> %hhu (%hhu/16 replies)\n",
+                    id, lqCost[id], newCost, countBits(history[id]));
+                lqCost[id] = newCost;
+                pendingCount[id] = 0;
+                if(USE_LQ_METRIC) {
+                    signal NeighborDiscovery.linkCostChanged(id, newCost);
+                }
+            }
         }
     }
 
@@ -74,8 +147,8 @@ implementation{
         call neighborTimer.startPeriodic(10000 + call Random.rand16()%997);
     }
 
-    // one round: age everyone first, then ask who's still there
     event void neighborTimer.fired() {
+        updateLinkQuality(); // record who replied last round
         ageNeighbors();
         sendNDPacket(PROTOCOL_PING, AM_BROADCAST_ADDR);
     }
@@ -87,10 +160,21 @@ implementation{
             // someone is asking who is there, so answer only to them
             sendNDPacket(PROTOCOL_PINGREPLY, prevHop);
         } else if(msg->protocol == PROTOCOL_PINGREPLY) {
+            // EVERY reply: mark this round as a success
+            if(prevHop <= 255) {
+                gotReply[prevHop] = TRUE;
+            }
+
             if(call NeighborMap.contains(prevHop) == FALSE) {
+                // ONLY a brand-new neighbor: start its history as "perfect"
                 dbg(NEIGHBOR_CHANNEL, "New neighbor: %hu\n", prevHop);
+                if(prevHop <= 255) {
+                    history[prevHop] = 0xFFFF;   // 16 of 16
+                    lqCost[prevHop] = 1;
+                    pendingCount[prevHop] = 0;
+                }
                 call NeighborMap.insert(prevHop, 0);
-                signal NeighborDiscovery.neighborAdded(prevHop);   // NEW
+                signal NeighborDiscovery.neighborAdded(prevHop);
             } else {
                 call NeighborMap.insert(prevHop, 0); // reset missed count
             }
@@ -117,6 +201,13 @@ implementation{
         return call NeighborMap.contains(id);
     }
 
+    command uint8_t NeighborDiscovery.linkCost(uint16_t id) {
+        if(!USE_LQ_METRIC || id > 255 || lqCost[id] == 0) {
+            return 1; // hop-count mode, or not measured yet
+        }
+        return lqCost[id];
+    }
+
     command uint16_t NeighborDiscovery.getNeighbors(uint16_t* buf, uint16_t max) {
         uint32_t* keys;
         uint16_t n;
@@ -125,7 +216,7 @@ implementation{
         keys = call NeighborMap.getKeys();
         n = call NeighborMap.size();
         if(n > max) {
-            n = max;   // never write past the caller's buffer
+            n = max; // never write past the caller's buffer
         }
         for(i = 0; i < n; i++) {
             buf[i] = (uint16_t) keys[i];

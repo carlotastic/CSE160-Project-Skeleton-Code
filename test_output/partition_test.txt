@@ -14,45 +14,45 @@ Adding Channel command
 Adding Channel routing
 Adding Channel flooding
 === Phase 1: startup, wait 60s ===
-0:0:10.369339512 DEBUG (3): Route set: dest 4 via 4 cost 1
-0:0:10.379989870 DEBUG (1): Route set: dest 2 via 2 cost 1
-0:0:10.421539427 DEBUG (2): Route set: dest 1 via 1 cost 1
-0:0:10.484756858 DEBUG (2): Route set: dest 3 via 3 cost 1
-0:0:10.637909175 DEBUG (3): Route set: dest 2 via 2 cost 1
-0:0:10.642929338 DEBUG (1): Route set: dest 3 via 2 cost 2
-0:0:10.813293727 DEBUG (3): Route set: dest 1 via 2 cost 2
-0:0:10.992905067 DEBUG (4): Route set: dest 3 via 3 cost 1
-0:0:11.158905399 DEBUG (4): Route set: dest 2 via 3 cost 2
-0:0:11.158905399 DEBUG (4): Route set: dest 1 via 3 cost 3
-0:0:11.251175317 DEBUG (2): Route set: dest 4 via 3 cost 2
-0:0:15.889755517 DEBUG (1): Route set: dest 4 via 2 cost 3
-0:1:0.000000277 DEBUG (1): A Command has been Issued.
-0:1:0.000000277 DEBUG (1): Command Type: Route Table Dump
-0:1:0.000000277 DEBUG (1): Routing table for node 1:
-0:1:0.000000277 DEBUG (1): Dest	NextHop	Cost	State
-0:1:0.000000277 DEBUG (1): 1	1	0	VALID
-0:1:0.000000277 DEBUG (1): 2	2	1	VALID
-0:1:0.000000277 DEBUG (1): 3	2	2	VALID
-0:1:0.000000277 DEBUG (1): 4	2	3	VALID
+0:0:10.373535655 DEBUG (3): Route set: dest 4 via 4 cost 1
+0:0:10.375320707 DEBUG (1): Route set: dest 2 via 2 cost 1
+0:0:10.424713231 DEBUG (2): Route set: dest 1 via 1 cost 1
+0:0:10.488067991 DEBUG (2): Route set: dest 3 via 3 cost 1
+0:0:10.636032355 DEBUG (3): Route set: dest 2 via 2 cost 1
+0:0:10.641113553 DEBUG (1): Route set: dest 3 via 2 cost 2
+0:0:10.813110623 DEBUG (3): Route set: dest 1 via 2 cost 2
+0:0:10.992782975 DEBUG (4): Route set: dest 3 via 3 cost 1
+0:0:11.154220978 DEBUG (4): Route set: dest 2 via 3 cost 2
+0:0:11.154220978 DEBUG (4): Route set: dest 1 via 3 cost 3
+0:0:11.255310424 DEBUG (2): Route set: dest 4 via 3 cost 2
+0:0:15.896103137 DEBUG (1): Route set: dest 4 via 2 cost 3
+0:1:0.004883089 DEBUG (1): A Command has been Issued.
+0:1:0.004883089 DEBUG (1): Command Type: Route Table Dump
+0:1:0.004883089 DEBUG (1): Routing table for node 1:
+0:1:0.004883089 DEBUG (1): Dest	NextHop	Cost	State
+0:1:0.004883089 DEBUG (1): 1	1	0	VALID
+0:1:0.004883089 DEBUG (1): 2	2	1	VALID
+0:1:0.004883089 DEBUG (1): 3	2	2	VALID
+0:1:0.004883089 DEBUG (1): 4	2	3	VALID
 === Phase 2: remove link 2-3. Network splits into {1,2} and {3,4} ===
 0:1:24.703125276 DEBUG (2): Route to 4 expired (not refreshed)
 0:1:24.703125276 DEBUG (2): Route withdrawn: dest 4 now unreachable
-0:1:24.871765368 DEBUG (1): Route withdrawn: dest 4 now unreachable
+0:1:24.869934324 DEBUG (1): Route withdrawn: dest 4 now unreachable
 0:1:28.937500409 DEBUG (3): Route to 1 expired (not refreshed)
 0:1:28.937500409 DEBUG (3): Route withdrawn: dest 1 now unreachable
-0:1:29.018265129 DEBUG (4): Route withdrawn: dest 1 now unreachable
+0:1:29.012787256 DEBUG (4): Route withdrawn: dest 1 now unreachable
 0:1:31.423828401 DEBUG (2): Route withdrawn: dest 3 now unreachable
 0:1:32.601562909 DEBUG (3): Route withdrawn: dest 2 now unreachable
-0:1:34.504135516 DEBUG (4): Route withdrawn: dest 2 now unreachable
-0:1:35.391586573 DEBUG (1): Route withdrawn: dest 3 now unreachable
-0:1:41.078125410 DEBUG (1): A Command has been Issued.
-0:1:41.078125410 DEBUG (1): Command Type: Route Table Dump
-0:1:41.078125410 DEBUG (1): Routing table for node 1:
-0:1:41.078125410 DEBUG (1): Dest	NextHop	Cost	State
-0:1:41.078125410 DEBUG (1): 1	1	0	VALID
-0:1:41.078125410 DEBUG (1): 2	2	1	VALID
-0:1:41.078125410 DEBUG (1): 3	-	INF	WITHDRAWN
-0:1:41.078125410 DEBUG (1): 4	-	INF	WITHDRAWN
+0:1:34.504532242 DEBUG (4): Route withdrawn: dest 2 now unreachable
+0:1:35.392608906 DEBUG (1): Route withdrawn: dest 3 now unreachable
+0:1:41.080078535 DEBUG (1): A Command has been Issued.
+0:1:41.080078535 DEBUG (1): Command Type: Route Table Dump
+0:1:41.080078535 DEBUG (1): Routing table for node 1:
+0:1:41.080078535 DEBUG (1): Dest	NextHop	Cost	State
+0:1:41.080078535 DEBUG (1): 1	1	0	VALID
+0:1:41.080078535 DEBUG (1): 2	2	1	VALID
+0:1:41.080078535 DEBUG (1): 3	-	INF	WITHDRAWN
+0:1:41.080078535 DEBUG (1): 4	-	INF	WITHDRAWN
 0:1:55.130859518 DEBUG (1): Route to 4 reclaimed
 0:1:56.466797151 DEBUG (2): Route to 4 reclaimed
 0:1:58.142578668 DEBUG (4): Route to 1 reclaimed
@@ -61,9 +61,9 @@ Adding Channel flooding
 0:2:2.289062909 DEBUG (3): Route to 1 reclaimed
 0:2:3.512695855 DEBUG (4): Route to 2 reclaimed
 0:2:6.095703268 DEBUG (1): Route to 3 reclaimed
-0:2:31.079102106 DEBUG (1): A Command has been Issued.
-0:2:31.079102106 DEBUG (1): Command Type: Ping
-0:2:31.079102106 DEBUG (1): No route to 4, dropping (src 1, seq 1)
+0:2:31.085938043 DEBUG (1): A Command has been Issued.
+0:2:31.085938043 DEBUG (1): Command Type: Ping
+0:2:31.085938043 DEBUG (1): No route to 4, dropping (src 1, seq 1)
 0:2:36.089844160 DEBUG (1): A Command has been Issued.
 0:2:36.089844160 DEBUG (1): Command Type: Route Table Dump
 0:2:36.089844160 DEBUG (1): Routing table for node 1:
@@ -71,30 +71,30 @@ Adding Channel flooding
 0:2:36.089844160 DEBUG (1): 1	1	0	VALID
 0:2:36.089844160 DEBUG (1): 2	2	1	VALID
 === Phase 3: restore link 2-3, wait 60s ===
-0:2:42.847519278 DEBUG (2): Route set: dest 3 via 3 cost 1
-0:2:44.255508694 DEBUG (1): Route set: dest 3 via 2 cost 2
-0:2:44.475097911 DEBUG (3): Ignoring DV from non-neighbor 2
-0:2:44.814972196 DEBUG (3): Route set: dest 2 via 2 cost 1
-0:2:47.037918471 DEBUG (4): Route set: dest 2 via 3 cost 2
-0:2:47.112747586 DEBUG (2): Route set: dest 4 via 3 cost 2
-0:2:49.556625641 DEBUG (1): Route set: dest 4 via 2 cost 3
-0:2:49.733734404 DEBUG (3): Route set: dest 1 via 2 cost 2
-0:2:52.507568718 DEBUG (4): Route set: dest 1 via 3 cost 3
-0:3:37.111328402 DEBUG (1): A Command has been Issued.
-0:3:37.111328402 DEBUG (1): Command Type: Route Table Dump
-0:3:37.111328402 DEBUG (1): Routing table for node 1:
-0:3:37.111328402 DEBUG (1): Dest	NextHop	Cost	State
-0:3:37.111328402 DEBUG (1): 1	1	0	VALID
-0:3:37.111328402 DEBUG (1): 2	2	1	VALID
-0:3:37.111328402 DEBUG (1): 3	2	2	VALID
-0:3:37.111328402 DEBUG (1): 4	2	3	VALID
-0:3:38.135742731 DEBUG (1): A Command has been Issued.
-0:3:38.135742731 DEBUG (1): Command Type: Ping
-0:3:38.135742731 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 2, cost: 3
-0:3:38.420532336 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 2
-0:3:38.486603016 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
-0:3:38.581695961 DEBUG (4): PING from 1 arrived. Payload: back
-0:3:38.581695961 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 3
-0:3:38.590530768 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
-0:3:38.883591056 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
-0:3:38.987579590 DEBUG (1): PINGREPLY from 4 arrived
+0:2:42.850418454 DEBUG (2): Route set: dest 3 via 3 cost 1
+0:2:44.257583877 DEBUG (1): Route set: dest 3 via 2 cost 2
+0:2:44.477829218 DEBUG (3): Ignoring DV from non-neighbor 2
+0:2:44.814544946 DEBUG (3): Route set: dest 2 via 2 cost 1
+0:2:47.038208387 DEBUG (4): Route set: dest 2 via 3 cost 2
+0:2:47.118606927 DEBUG (2): Route set: dest 4 via 3 cost 2
+0:2:49.558853411 DEBUG (1): Route set: dest 4 via 2 cost 3
+0:2:49.734527856 DEBUG (3): Route set: dest 1 via 2 cost 2
+0:2:52.500229283 DEBUG (4): Route set: dest 1 via 3 cost 3
+0:3:37.121094027 DEBUG (1): A Command has been Issued.
+0:3:37.121094027 DEBUG (1): Command Type: Route Table Dump
+0:3:37.121094027 DEBUG (1): Routing table for node 1:
+0:3:37.121094027 DEBUG (1): Dest	NextHop	Cost	State
+0:3:37.121094027 DEBUG (1): 1	1	0	VALID
+0:3:37.121094027 DEBUG (1): 2	2	1	VALID
+0:3:37.121094027 DEBUG (1): 3	2	2	VALID
+0:3:37.121094027 DEBUG (1): 4	2	3	VALID
+0:3:38.129883356 DEBUG (1): A Command has been Issued.
+0:3:38.129883356 DEBUG (1): Command Type: Ping
+0:3:38.129883356 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 2, cost: 3
+0:3:38.416854955 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 2
+0:3:38.478103898 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
+0:3:38.624740976 DEBUG (4): PING from 1 arrived. Payload: back
+0:3:38.624740976 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 3
+0:3:38.629700073 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
+0:3:38.725571047 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
+0:3:38.832229842 DEBUG (1): PINGREPLY from 4 arrived

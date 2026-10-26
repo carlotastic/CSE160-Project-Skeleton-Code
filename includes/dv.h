@@ -2,6 +2,7 @@
 #define DV_H
 
 #include "packet.h"
+#define USE_LQ_METRIC 0
 
 enum{
    DV_INFINITY = 16, // "unreachable". Finite costs are 0..15
@@ -14,7 +15,7 @@ enum{
    DV_PERIOD = 5000,// ms between periodic advertisements
    DV_JITTER = 1000, // + random 0..999 ms so nodes don't collide
    ROUTE_TIMEOUT_ROUNDS = 6, // not refreshed for 6 rounds (~30s) -> unreachable
-   WITHDRAW_ROUNDS = 6 // keep advertising INF for 4 rounds, then delete
+   WITHDRAW_ROUNDS = 6 // keep advertising INF for 6 rounds, then delete
 };
 
 // what a slot in the routing table is currently doing

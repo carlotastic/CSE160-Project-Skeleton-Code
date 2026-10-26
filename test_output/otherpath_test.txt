@@ -18,102 +18,106 @@ Creating noise model for  5
 Adding Channel command
 Adding Channel routing
 === Phase 1: startup, wait 60s. Expect 1->4 via 2, cost 2 ===
-0:0:9.928589253 DEBUG (5): Route set: dest 3 via 3 cost 1
-0:0:9.946045413 DEBUG (5): Route set: dest 4 via 4 cost 1
-0:0:10.338882831 DEBUG (1): Route set: dest 3 via 3 cost 1
-0:0:10.384277564 DEBUG (1): Route set: dest 2 via 2 cost 1
-0:0:10.425537212 DEBUG (2): Route set: dest 1 via 1 cost 1
-0:0:10.521362830 DEBUG (2): Route set: dest 4 via 4 cost 1
-0:0:10.586868961 DEBUG (3): Ignoring DV from non-neighbor 5
-0:0:10.642151145 DEBUG (1): Route set: dest 4 via 2 cost 2
-0:0:10.715118636 DEBUG (4): Ignoring DV from non-neighbor 2
-0:0:10.735626854 DEBUG (3): Route set: dest 5 via 5 cost 1
-0:0:10.745957056 DEBUG (4): Route set: dest 5 via 5 cost 1
-0:0:11.024505844 DEBUG (4): Route set: dest 2 via 2 cost 1
-0:0:11.065429823 DEBUG (3): Ignoring DV from non-neighbor 1
-0:0:11.086471667 DEBUG (2): Route set: dest 3 via 1 cost 2
-0:0:15.687714257 DEBUG (3): Route set: dest 4 via 5 cost 2
-0:0:15.968765916 DEBUG (4): Route set: dest 3 via 5 cost 2
-0:0:16.076874027 DEBUG (4): Route set: dest 1 via 2 cost 2
-0:0:16.306519063 DEBUG (5): Route set: dest 2 via 4 cost 2
-0:0:16.306519063 DEBUG (5): Route set: dest 1 via 4 cost 3
-0:0:16.499298607 DEBUG (2): Route set: dest 5 via 4 cost 2
-0:0:16.558548070 DEBUG (3): Ignoring DV from non-neighbor 1
-0:0:20.985504796 DEBUG (3): Route set: dest 2 via 5 cost 3
-0:0:20.985504796 DEBUG (3): Route set: dest 1 via 5 cost 4
-0:0:20.992324953 DEBUG (3): Route set: dest 1 via 1 cost 1
-0:0:21.228668458 DEBUG (1): Route set: dest 5 via 2 cost 3
-0:0:21.952789404 DEBUG (3): Route set: dest 2 via 1 cost 2
-0:0:22.431991938 DEBUG (5): Route set: dest 1 via 3 cost 2
-0:0:22.511551261 DEBUG (1): Route set: dest 5 via 3 cost 2
-0:1:0.015625677 DEBUG (1): A Command has been Issued.
-0:1:0.015625677 DEBUG (1): Command Type: Route Table Dump
-0:1:0.015625677 DEBUG (1): Routing table for node 1:
-0:1:0.015625677 DEBUG (1): Dest	NextHop	Cost	State
-0:1:0.015625677 DEBUG (1): 1	1	0	VALID
-0:1:0.015625677 DEBUG (1): 3	3	1	VALID
-0:1:0.015625677 DEBUG (1): 2	2	1	VALID
-0:1:0.015625677 DEBUG (1): 4	2	2	VALID
-0:1:0.015625677 DEBUG (1): 5	3	2	VALID
-0:1:1.019531793 DEBUG (1): A Command has been Issued.
-0:1:1.019531793 DEBUG (1): Command Type: Ping
-0:1:1.019531793 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 2, cost: 2
+0:0:9.930984858 DEBUG (5): Route set: dest 3 via 3 cost 1
+0:0:9.941956070 DEBUG (5): Route set: dest 4 via 4 cost 1
+0:0:10.340896986 DEBUG (1): Route set: dest 3 via 3 cost 1
+0:0:10.384323340 DEBUG (1): Route set: dest 2 via 2 cost 1
+0:0:10.420639175 DEBUG (2): Route set: dest 1 via 1 cost 1
+0:0:10.527863036 DEBUG (2): Route set: dest 4 via 4 cost 1
+0:0:10.590470014 DEBUG (3): Ignoring DV from non-neighbor 5
+0:0:10.637787539 DEBUG (4): Ignoring DV from non-neighbor 5
+0:0:10.643326065 DEBUG (1): Route set: dest 4 via 2 cost 2
+0:0:10.646377654 DEBUG (3): Route set: dest 1 via 1 cost 1
+0:0:10.710968269 DEBUG (4): Ignoring DV from non-neighbor 2
+0:0:10.726029097 DEBUG (3): Route set: dest 5 via 5 cost 1
+0:0:10.742981604 DEBUG (4): Route set: dest 5 via 5 cost 1
+0:0:11.028137443 DEBUG (4): Route set: dest 2 via 2 cost 1
+0:0:11.066940435 DEBUG (3): Route set: dest 2 via 1 cost 2
+0:0:11.066940435 DEBUG (3): Route set: dest 4 via 1 cost 3
+0:0:11.088485816 DEBUG (2): Route set: dest 3 via 1 cost 2
+0:0:11.158264534 DEBUG (1): Route set: dest 5 via 3 cost 2
+0:0:11.249725740 DEBUG (5): Route set: dest 1 via 3 cost 2
+0:0:11.249725740 DEBUG (5): Route set: dest 2 via 3 cost 3
+0:0:15.683472338 DEBUG (3): Route set: dest 4 via 5 cost 2
+0:0:15.973145163 DEBUG (4): Route set: dest 3 via 5 cost 2
+0:0:15.973145163 DEBUG (4): Route set: dest 1 via 5 cost 3
+0:0:16.077713256 DEBUG (4): Route set: dest 1 via 2 cost 2
+0:0:16.305771386 DEBUG (5): Route set: dest 2 via 4 cost 2
+0:0:16.497147130 DEBUG (2): Route set: dest 5 via 4 cost 2
+0:1:0.016602239 DEBUG (1): A Command has been Issued.
+0:1:0.016602239 DEBUG (1): Command Type: Route Table Dump
+0:1:0.016602239 DEBUG (1): Routing table for node 1:
+0:1:0.016602239 DEBUG (1): Dest	NextHop	Cost	State
+0:1:0.016602239 DEBUG (1): 1	1	0	VALID
+0:1:0.016602239 DEBUG (1): 3	3	1	VALID
+0:1:0.016602239 DEBUG (1): 2	2	1	VALID
+0:1:0.016602239 DEBUG (1): 4	2	2	VALID
+0:1:0.016602239 DEBUG (1): 5	3	2	VALID
+0:1:1.018555231 DEBUG (1): A Command has been Issued.
+0:1:1.018555231 DEBUG (1): Command Type: Ping
+0:1:1.018555231 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 2, cost: 2
+0:1:1.060836920 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 4, cost: 1
+0:1:1.298874164 DEBUG (4): PING from 1 arrived. Payload: before
+0:1:1.298874164 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
+0:1:1.347382106 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
+0:1:1.365570335 DEBUG (1): PINGREPLY from 4 arrived
 === Phase 2: remove link 2-4 (node 2 stays on), wait 90s. Expect 1->4 via 3, cost 3 ===
 0:1:31.291992730 DEBUG (4): Route to 1 expired (not refreshed)
 0:1:31.291992730 DEBUG (4): Route withdrawn: dest 1 now unreachable
-0:1:31.423828401 DEBUG (2): Route withdrawn: dest 4 now unreachable
-0:1:31.423828401 DEBUG (2): Route withdrawn: dest 5 now unreachable
-0:1:33.599380625 DEBUG (2): Route set: dest 5 via 1 cost 3
-0:1:33.654434855 DEBUG (4): Route set: dest 1 via 5 cost 3
-0:1:35.326355243 DEBUG (1): Route withdrawn: dest 4 now unreachable
-0:1:40.145019891 DEBUG (1): Route set: dest 4 via 3 cost 3
-0:1:44.490738008 DEBUG (2): Route set: dest 4 via 1 cost 4
+0:1:33.510346102 DEBUG (4): Route set: dest 1 via 5 cost 3
+0:1:35.291015901 DEBUG (2): Route to 5 expired (not refreshed)
+0:1:35.291015901 DEBUG (2): Route withdrawn: dest 5 now unreachable
+0:1:38.940689215 DEBUG (2): Route set: dest 5 via 1 cost 3
+0:1:41.582031526 DEBUG (2): Route withdrawn: dest 4 now unreachable
+0:1:46.117706565 DEBUG (1): Route withdrawn: dest 4 now unreachable
 0:1:46.796875543 DEBUG (4): Route withdrawn: dest 2 now unreachable
-0:1:47.429367603 DEBUG (5): Route withdrawn: dest 2 now unreachable
-0:1:51.337387485 DEBUG (5): Route set: dest 2 via 3 cost 3
-0:1:54.377182680 DEBUG (4): Route set: dest 2 via 5 cost 4
-0:2:36.029297285 DEBUG (1): A Command has been Issued.
-0:2:36.029297285 DEBUG (1): Command Type: Route Table Dump
-0:2:36.029297285 DEBUG (1): Routing table for node 1:
-0:2:36.029297285 DEBUG (1): Dest	NextHop	Cost	State
-0:2:36.029297285 DEBUG (1): 1	1	0	VALID
-0:2:36.029297285 DEBUG (1): 3	3	1	VALID
-0:2:36.029297285 DEBUG (1): 2	2	1	VALID
-0:2:36.029297285 DEBUG (1): 4	3	3	VALID
-0:2:36.029297285 DEBUG (1): 5	3	2	VALID
-0:2:37.035156527 DEBUG (1): A Command has been Issued.
-0:2:37.035156527 DEBUG (1): Command Type: Ping
-0:2:37.035156527 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 3
-0:2:37.168533452 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 5, cost: 2
-0:2:37.362396614 DEBUG (5): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
-0:2:37.641052890 DEBUG (4): PING from 1 arrived. Payload: after
-0:2:37.641052890 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 5, cost: 3
-0:2:37.874680092 DEBUG (5): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 2
-0:2:38.026917164 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
-0:2:38.231903442 DEBUG (1): PINGREPLY from 4 arrived
+0:1:47.455246472 DEBUG (5): Route withdrawn: dest 2 now unreachable
+0:1:51.344009760 DEBUG (1): Route set: dest 4 via 3 cost 3
+0:1:51.369903934 DEBUG (5): Route set: dest 2 via 3 cost 3
+0:1:54.328278216 DEBUG (4): Route set: dest 2 via 5 cost 4
+0:1:55.471405132 DEBUG (2): Route set: dest 4 via 1 cost 4
+0:2:36.039063043 DEBUG (1): A Command has been Issued.
+0:2:36.039063043 DEBUG (1): Command Type: Route Table Dump
+0:2:36.039063043 DEBUG (1): Routing table for node 1:
+0:2:36.039063043 DEBUG (1): Dest	NextHop	Cost	State
+0:2:36.039063043 DEBUG (1): 1	1	0	VALID
+0:2:36.039063043 DEBUG (1): 3	3	1	VALID
+0:2:36.039063043 DEBUG (1): 2	2	1	VALID
+0:2:36.039063043 DEBUG (1): 4	3	3	VALID
+0:2:36.039063043 DEBUG (1): 5	3	2	VALID
+0:2:37.055664339 DEBUG (1): A Command has been Issued.
+0:2:37.055664339 DEBUG (1): Command Type: Ping
+0:2:37.055664339 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 3
+0:2:37.192474472 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 5, cost: 2
+0:2:37.389252068 DEBUG (5): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
+0:2:37.671448351 DEBUG (4): PING from 1 arrived. Payload: after
+0:2:37.671448351 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 5, cost: 3
+0:2:37.720657839 DEBUG (5): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 3, cost: 2
+0:2:37.874802294 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 1, cost: 1
+0:2:38.073791903 DEBUG (1): PINGREPLY from 4 arrived
 === Phase 3: restore link 2-4, wait 60s. Expect 1->4 via 2, cost 2 again ===
-0:2:43.016251148 DEBUG (2): Route set: dest 4 via 4 cost 1
-0:2:44.145889526 DEBUG (1): Route set: dest 4 via 2 cost 2
-0:2:44.278274811 DEBUG (4): Ignoring DV from non-neighbor 2
-0:2:49.744766495 DEBUG (4): Ignoring DV from non-neighbor 2
-0:2:50.996979018 DEBUG (4): Route set: dest 2 via 2 cost 1
-0:2:51.912781293 DEBUG (5): Route set: dest 2 via 4 cost 2
-0:2:52.013779199 DEBUG (2): Route set: dest 5 via 4 cost 2
-0:2:54.941253926 DEBUG (4): Route set: dest 1 via 2 cost 2
-0:3:42.051758489 DEBUG (1): A Command has been Issued.
-0:3:42.051758489 DEBUG (1): Command Type: Route Table Dump
-0:3:42.051758489 DEBUG (1): Routing table for node 1:
-0:3:42.051758489 DEBUG (1): Dest	NextHop	Cost	State
-0:3:42.051758489 DEBUG (1): 1	1	0	VALID
-0:3:42.051758489 DEBUG (1): 3	3	1	VALID
-0:3:42.051758489 DEBUG (1): 2	2	1	VALID
-0:3:42.051758489 DEBUG (1): 4	2	2	VALID
-0:3:42.051758489 DEBUG (1): 5	3	2	VALID
-0:3:43.060547552 DEBUG (1): A Command has been Issued.
-0:3:43.060547552 DEBUG (1): Command Type: Ping
-0:3:43.060547552 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 2, cost: 2
-0:3:43.085617157 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 4, cost: 1
-0:3:43.208023335 DEBUG (4): PING from 1 arrived. Payload: restored
-0:3:43.208023335 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 2, cost: 2
-0:3:43.305573029 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 1, cost: 1
-0:3:43.365890740 DEBUG (1): PINGREPLY from 4 arrived
+0:2:42.989563477 DEBUG (2): Route set: dest 4 via 4 cost 1
+0:2:44.262497190 DEBUG (1): Route set: dest 4 via 2 cost 2
+0:2:44.311416873 DEBUG (4): Ignoring DV from non-neighbor 2
+0:2:49.753708150 DEBUG (4): Ignoring DV from non-neighbor 2
+0:2:51.137024199 DEBUG (4): Route set: dest 2 via 2 cost 1
+0:2:51.893402613 DEBUG (5): Route set: dest 2 via 4 cost 2
+0:2:52.141586834 DEBUG (2): Route set: dest 5 via 4 cost 2
+0:2:55.061447373 DEBUG (4): Route set: dest 1 via 2 cost 2
+0:3:42.109375143 DEBUG (1): A Command has been Issued.
+0:3:42.109375143 DEBUG (1): Command Type: Route Table Dump
+0:3:42.109375143 DEBUG (1): Routing table for node 1:
+0:3:42.109375143 DEBUG (1): Dest	NextHop	Cost	State
+0:3:42.109375143 DEBUG (1): 1	1	0	VALID
+0:3:42.109375143 DEBUG (1): 3	3	1	VALID
+0:3:42.109375143 DEBUG (1): 2	2	1	VALID
+0:3:42.109375143 DEBUG (1): 4	2	2	VALID
+0:3:42.109375143 DEBUG (1): 5	3	2	VALID
+0:3:43.144531660 DEBUG (1): A Command has been Issued.
+0:3:43.144531660 DEBUG (1): Command Type: Ping
+0:3:43.144531660 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 2, cost: 2
+0:3:43.169815154 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 4, cost: 1
+0:3:43.301941169 DEBUG (4): PING from 1 arrived. Payload: restored
+0:3:43.301941169 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 3, next hop: 2, cost: 2
+0:3:43.570389301 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 3, next hop: 1, cost: 1
+0:3:43.852462992 DEBUG (1): PINGREPLY from 4 arrived

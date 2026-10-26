@@ -16,6 +16,9 @@ def main():
     s.routeDMP(1)
     s.runTime(2)
 
+    s.routeDMP(4)
+    s.runTime(2)
+
     s.ping(1, 4, "hello")
     s.runTime(10)
 

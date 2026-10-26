@@ -12,4 +12,10 @@ interface NeighborDiscovery{
    // ND tells everyone wired to it when the neighbor list changes
    event void neighborAdded(uint16_t id);
    event void neighborLost(uint16_t id);
+
+   // current cost of the link to this neighbor (always 1 in hop-count mode)
+   command uint8_t linkCost(uint16_t id);
+
+   // the measured cost of a link changed (only signaled when USE_LQ_METRIC is 1)
+   event void linkCostChanged(uint16_t id, uint8_t cost);
 }
