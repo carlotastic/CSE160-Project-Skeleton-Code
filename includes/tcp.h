@@ -40,6 +40,17 @@ enum{
     TCP_TIME_WAIT
 };
 
+typedef nx_struct tcpSegment{
+   nx_uint8_t  srcPort;
+   nx_uint8_t  destPort;
+   nx_uint8_t  flags;
+   nx_uint16_t seq;     // first byte of this segment (or the SYN/FIN's number)
+   nx_uint16_t ack;     // next byte we expect from the other side
+   nx_uint8_t  window;  // free space in our receive buffer
+   nx_uint8_t  len;     // number of data bytes
+   nx_uint8_t  data[TCP_MAX_DATA];
+} tcpSegment;
+
 typedef struct cpConn{
     uint8_t state;
     uint8_t localPort;

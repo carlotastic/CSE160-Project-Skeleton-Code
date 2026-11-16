@@ -7,6 +7,7 @@
  *
  */
 #include "includes/packet.h"
+#include "includes/tcp.h"
 
 //The application layer, and nothing else
 module Node{
@@ -19,6 +20,7 @@ module Node{
    uses interface DistanceVector;
 
    uses interface IP;
+   uses interface TCP;
 }
 
 implementation{
@@ -92,9 +94,25 @@ implementation{
 
    event void CommandHandler.printDistanceVector(){}
 
-   event void CommandHandler.setTestServer(){}
+   // cmdTestServer: listen on a port
+   event void CommandHandler.setTestServer(uint8_t port){
+      dbg(TRANSPORT_CHANNEL, "Test server: listening on port %hhu\n", port);
+      call TCP.listen(port);
+   }
 
-   event void CommandHandler.setTestClient(){}
+   // cmdTestClient: open a connection (sending data comes in M3)
+   event void CommandHandler.setTestClient(uint16_t server, uint8_t srcPort, uint8_t destPort, uint16_t transferBytes){
+      dbg(TRANSPORT_CHANNEL, "Test client: %hu:%hhu -> %hu:%hhu, %hu bytes\n",
+          TOS_NODE_ID, srcPort, server, destPort, transferBytes);
+      call TCP.connect(srcPort, server, destPort);
+   }
+
+   // cmdClientClose (M4)
+   event void CommandHandler.clientClose(uint16_t server, uint8_t srcPort, uint8_t destPort){}
+
+   event void TCP.connectDone(uint8_t id, error_t result){}
+   event void TCP.accepted(uint8_t id){}
+   event void TCP.closed(uint8_t id, error_t result){}
 
    event void CommandHandler.setAppServer(){}
 

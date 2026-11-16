@@ -14,6 +14,9 @@ class TestSim:
     CMD_NEIGHBOR_DUMP = 1
     CMD_ROUTE_DUMP=3
     CMD_TTL_PING = 7
+    CMD_TEST_CLIENT = 4
+    CMD_TEST_SERVER = 5
+    CMD_CLIENT_CLOSE = 8
 
     # CHANNELS - see includes/channels.h
     COMMAND_CHANNEL="command";
@@ -138,6 +141,20 @@ class TestSim:
     
     def pingTTL(self, source, dest, ttl, msg):
         self.sendCMD(self.CMD_TTL_PING, source, "{0}{1}{2}".format(chr(dest), chr(ttl), msg))
+
+    def cmdTestServer(self, serverAddress, listenPort):
+        self.sendCMD(self.CMD_TEST_SERVER, serverAddress, chr(listenPort))
+
+    # at clientAddress: connect srcPort -> (serverAddress, destPort), then send transferBytes
+    def cmdTestClient(self, clientAddress, serverAddress, srcPort, destPort, transferBytes):
+        self.sendCMD(self.CMD_TEST_CLIENT, clientAddress,
+                     chr(serverAddress) + chr(srcPort) + chr(destPort) +
+                     chr(transferBytes >> 8) + chr(transferBytes & 0xFF))
+
+    # at clientAddress: gracefully close that connection
+    def cmdClientClose(self, clientAddress, serverAddress, srcPort, destPort):
+        self.sendCMD(self.CMD_CLIENT_CLOSE, clientAddress,
+                     chr(serverAddress) + chr(srcPort) + chr(destPort))
 
     def neighborDMP(self, destination):
         self.sendCMD(self.CMD_NEIGHBOR_DUMP, destination, "neighbor command");

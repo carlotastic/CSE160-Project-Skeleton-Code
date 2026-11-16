@@ -32,4 +32,7 @@ implementation {
 
     components IPC;
     Node.IP -> IPC;
+
+    components TransportC;
+    Node.TCP -> TransportC;
 }
