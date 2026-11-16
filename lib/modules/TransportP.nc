@@ -151,6 +151,160 @@ implementation{
       // SYN_RCVD: a half-open server record the app never saw, nothing to report
    }
 
+
+
+   // sender side 
+
+   // an ACK from the other side: free the bytes it covers
+   void handleAck(uint8_t id, tcpSegment* seg){
+      tcpConn* c;
+      uint16_t ack;
+
+      c = &conns[id];
+      ack = seg->ack;
+
+      // only trust ACKs between what's already ACKed and what we actually sent
+      if(ack >= c->sndUna && ack <= c->sndNxt){
+         c->peerWindow = seg->window; // newest valid window
+         if(ack > c->sndUna){
+            c->sndUna = ack; // bytes before ack are confirmed: space is free
+            stopTimer(id); // what we waited for arrived
+            dbg(TRANSPORT_CHANNEL, "conn=%hhu ACK %hu accepted, in flight=%hu, peer wnd=%hhu\n",
+                id, ack, (uint16_t)(c->sndNxt - c->sndUna), c->peerWindow);
+            if(c->sndNxt != c->sndUna){
+               startTimer(id); // still something in flight
+            }
+         }
+      } else{
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu ignoring impossible ACK %hu (una=%hu nxt=%hu)\n",
+             id, ack, c->sndUna, c->sndNxt);
+      }
+   }
+
+   // once all data is ACKed and the app asked to close, send our FIN
+   void maybeSendFin(uint8_t id){
+      tcpConn* c;
+
+      c = &conns[id];
+      if(!c->closeAsked || c->sndUna != c->sndEnd){
+         return; // not asked to close, or data still unACKed
+      }
+      if(c->state == TCP_ESTABLISHED){
+         setState(id, TCP_FIN_WAIT_1); // we close first (client)
+      } else if(c->state == TCP_CLOSE_WAIT && c->rcvCount == 0){
+         setState(id, TCP_LAST_ACK); // they closed first, our app read everything
+      } else{
+         return;
+      }
+      c->finSeq = c->sndEnd; // the FIN uses the next sequence number
+      c->sndNxt = c->finSeq + 1;
+      sendSegment(id, TCP_FLAG_FIN, c->finSeq, NULL, 0);
+      startTimer(id);
+   }
+
+   // send the next data segment if allowed. STOP-AND-WAIT: only when nothing is in flight.
+   void trySend(uint8_t id){
+      tcpConn* c;
+      uint16_t queued;
+      uint8_t len;
+      uint8_t i;
+      uint8_t data[TCP_MAX_DATA];
+
+      c = &conns[id];
+      if(c->state != TCP_ESTABLISHED && c->state != TCP_CLOSE_WAIT){
+         return;
+      }
+      if(c->sndNxt != c->sndUna){
+         return; // stop-and-wait: wait for the ACK first
+      }
+
+      queued = c->sndEnd - c->sndNxt;
+      if(queued == 0){
+         maybeSendFin(id);  // nothing left to send: maybe it's time to close
+         return;
+      }
+      if(c->peerWindow == 0){
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu peer window is 0, waiting\n", id);
+         return;
+      }
+
+      // segment size = smallest of: what's queued, what fits in a segment, what they have room for
+      len = TCP_MAX_DATA;
+      if(queued < len)          len = queued;
+      if(c->peerWindow < len)   len = c->peerWindow;
+
+      for(i = 0; i < len; i++){
+         data[i] = c->sendBuf[(c->sndNxt + i) % TCP_BUFFER_SIZE];
+      }
+      sendSegment(id, TCP_FLAG_DATA, c->sndNxt, data, len);
+      c->sndNxt += len;
+      startTimer(id);
+   }
+
+
+
+
+   // receiver side 
+
+   // a data segment: keep it only if it's exactly the next byte we expect
+   void handleData(uint8_t id, tcpSegment* seg){
+      tcpConn* c;
+      uint8_t i;
+
+      c = &conns[id];
+      if(seg->seq != c->rcvNxt){
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu DATA seq=%hu but expected %hu: discarding (duplicate or out of order)\n",
+             id, (uint16_t) seg->seq, c->rcvNxt);
+      } else if(seg->len > freeRecvSpace(id)){
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu DATA seq=%hu len=%hhu doesn't fit (free %hhu): discarding\n",
+             id, (uint16_t) seg->seq, (uint8_t) seg->len, freeRecvSpace(id));
+      } else{
+         for(i = 0; i < seg->len; i++){
+            c->rcvBuf[(c->rcvNxt + i) % TCP_BUFFER_SIZE] = seg->data[i];
+         }
+         c->rcvNxt   += seg->len;
+         c->rcvCount += seg->len;
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu DATA seq=%hu len=%hhu accepted, stored=%hhu\n",
+             id, (uint16_t) seg->seq, (uint8_t) seg->len, c->rcvCount);
+      }
+      // ALWAYS answer with the current cumulative ACK, even for discarded segments
+      sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+   }
+
+   // a FIN: accept it only if every earlier byte has arrived. Returns TRUE if it's new.
+   bool acceptFin(uint8_t id, tcpSegment* seg){
+      tcpConn* c;
+
+      c = &conns[id];
+      if(seg->seq == c->rcvNxt){
+         c->rcvNxt++;                                       // the FIN uses one number
+         sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+         return TRUE;
+      }
+      // a repeated FIN (our ACK was lost) or an early FIN (data missing): repeat our ACK
+      dbg(TRANSPORT_CHANNEL, "conn=%hhu FIN seq=%hu not new (expected %hu), re-ACKing\n",
+          id, (uint16_t) seg->seq, c->rcvNxt);
+      sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+      return FALSE;
+   }
+
+
+
+
+   //  finishing a close 
+
+   void enterTimeWait(uint8_t id){
+      setState(id, TCP_TIME_WAIT);
+      conns[id].retries = 0;
+      conns[id].deadline = call tickTimer.getNow() + TCP_TIME_WAIT_MS;
+   }
+
+   void finishClose(uint8_t id){
+      dbg(TRANSPORT_CHANNEL, "conn=%hhu closed cleanly, releasing record\n", id);
+      setState(id, TCP_CLOSED);
+      signal TCP.closed(id, SUCCESS);
+   }
+
    //the server side of a new connection
 
    // a SYN reached a listening port, so make a NEW record (the listener stays LISTEN)
@@ -169,6 +323,7 @@ implementation{
       c->remoteAddr = fromAddr;
       c->remotePort = seg->srcPort;
       c->rcvNxt     = seg->seq + 1; // their SYN used one number
+      c->rcvRead = c->rcvNxt;
       c->peerWindow = seg->window;
       c->sndUna     = TCP_ISN_SERVER; // our SYN uses this number
       c->sndNxt     = TCP_ISN_SERVER + 1;
@@ -179,57 +334,108 @@ implementation{
       startTimer(id);
    }
 
-   //a segment for an existing connection
    void handleSegment(uint8_t id, tcpSegment* seg){
       tcpConn* c;
 
       c = &conns[id];
 
+      // handshake
+
+      // client: waiting for a SYN-ACK that acknowledges our SYN
+      if(c->state == TCP_SYN_SENT){
+         if((seg->flags & TCP_FLAG_SYN) && (seg->flags & TCP_FLAG_ACK)
+            && seg->ack == c->sndUna + 1){
+            c->rcvNxt     = seg->seq + 1; // their SYN used one number
+            c->rcvRead    = c->rcvNxt;
+            c->sndUna     = seg->ack; // our SYN is acknowledged
+            c->peerWindow = seg->window;
+            stopTimer(id);
+            setState(id, TCP_ESTABLISHED);
+            sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+            signal TCP.connectDone(id, SUCCESS);
+         } else{
+            dbg(TRANSPORT_CHANNEL, "conn=%hhu unexpected segment in SYN_SENT, ignoring\n", id);
+         }
+         return;
+      }
+
+      // server: waiting for the final handshake ACK
+      if(c->state == TCP_SYN_RCVD){
+         if(seg->flags == TCP_FLAG_SYN){
+            dbg(TRANSPORT_CHANNEL, "conn=%hhu duplicate SYN, resending SYN+ACK\n", id);
+            sendSegment(id, TCP_FLAG_SYN | TCP_FLAG_ACK, c->sndUna, NULL, 0);
+         } else if((seg->flags & TCP_FLAG_ACK) && seg->ack == c->sndUna + 1){
+            c->sndUna     = seg->ack;
+            c->peerWindow = seg->window;
+            stopTimer(id);
+            setState(id, TCP_ESTABLISHED);
+            signal TCP.accepted(id);
+         }
+         // data arriving before setup finishes is ignored; the client will resend it
+         return;
+      }
+
+      // after the handshake
+
+      // a repeated SYN-ACK means our final handshake ACK was lost
+      if((seg->flags & TCP_FLAG_SYN) && (seg->flags & TCP_FLAG_ACK)){
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu duplicate SYN+ACK, resending ACK\n", id);
+         sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+         return;
+      }
+
+      handleAck(id, seg);
+
+      if(seg->flags & TCP_FLAG_DATA){
+         handleData(id, seg);
+      }
+
       switch(c->state){
-
-         // client: waiting for a SYN-ACK that acknowledges our SYN
-         case TCP_SYN_SENT:
-            if((seg->flags & TCP_FLAG_SYN) && (seg->flags & TCP_FLAG_ACK)
-               && seg->ack == c->sndUna + 1){
-               c->rcvNxt     = seg->seq + 1; // their SYN used one number
-               c->sndUna     = seg->ack; // our SYN is acknowledged
-               c->peerWindow = seg->window;
-               stopTimer(id);
-               setState(id, TCP_ESTABLISHED);
-               sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0); // final handshake ACK
-               signal TCP.connectDone(id, SUCCESS);
-            } else{
-               dbg(TRANSPORT_CHANNEL, "conn=%hhu unexpected segment in SYN_SENT, ignoring\n", id);
-            }
-            break;
-
-         // server is waiting for the final ACK
-         case TCP_SYN_RCVD:
-            if(seg->flags == TCP_FLAG_SYN){
-               // the client resent its SYN, so our SYN-ACK was lost, so resend it, NO new record
-               dbg(TRANSPORT_CHANNEL, "conn=%hhu duplicate SYN, resending SYN+ACK\n", id);
-               sendSegment(id, TCP_FLAG_SYN | TCP_FLAG_ACK, c->sndUna, NULL, 0);
-            } else if((seg->flags & TCP_FLAG_ACK) && seg->ack == c->sndUna + 1){
-               c->sndUna     = seg->ack;       // our SYN is acknowledged
-               c->peerWindow = seg->window;
-               stopTimer(id);
-               setState(id, TCP_ESTABLISHED);
-               signal TCP.accepted(id);
-            }
-            break;
-
          case TCP_ESTABLISHED:
-            // a repeated SYN-ACK means our final ACK was lost, so send it again
-            if((seg->flags & TCP_FLAG_SYN) && (seg->flags & TCP_FLAG_ACK)){
-               dbg(TRANSPORT_CHANNEL, "conn=%hhu duplicate SYN+ACK, resending ACK\n", id);
-               sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
-               break;
+            if((seg->flags & TCP_FLAG_FIN) && acceptFin(id, seg)){
+               // the other side is done. Our test server closes too,
+               // but only after its app reads everything still buffered.
+               setState(id, TCP_CLOSE_WAIT);
+               c->closeAsked = TRUE;
             }
             break;
 
-         default:
+         case TCP_FIN_WAIT_1:
+            if(c->sndUna == c->finSeq + 1) { // our FIN was ACKed
+               setState(id, TCP_FIN_WAIT_2);
+               stopTimer(id);
+               startTimer(id); // bounded wait for their FIN
+            }
+            if((seg->flags & TCP_FLAG_FIN) && c->state == TCP_FIN_WAIT_2 && acceptFin(id, seg)) {
+               enterTimeWait(id);
+            }
+            break;
+
+         case TCP_FIN_WAIT_2:
+            if((seg->flags & TCP_FLAG_FIN) && acceptFin(id, seg)) {
+               enterTimeWait(id);
+            }
+            break;
+
+         case TCP_LAST_ACK:
+            if(c->sndUna == c->finSeq + 1) { // the final ACK
+               finishClose(id);
+               return;
+            }
+            if(seg->flags & TCP_FLAG_FIN) {
+               acceptFin(id, seg); // repeated FIN: re-ACK it
+            }
+            break;
+
+         case TCP_CLOSE_WAIT:
+         case TCP_TIME_WAIT:
+            if(seg->flags & TCP_FLAG_FIN) {
+               acceptFin(id, seg);  // repeated FIN: re-ACK it
+            }
             break;
       }
+
+      trySend(id);
    }
 
    // what happens when a connection's timer runs out
@@ -237,16 +443,21 @@ implementation{
       tcpConn* c;
 
       c = &conns[id];
-      c->retries++;
 
+      // the end of TIME_WAIT is the normal end of a close, not a failure
+      if(c->state == TCP_TIME_WAIT){
+         finishClose(id);
+         return;
+      }
+
+      c->retries++;
       if(c->retries > TCP_MAX_RETRIES){
          dbg(TRANSPORT_CHANNEL, "conn=%hhu no answer after %d retries, giving up\n", id, TCP_MAX_RETRIES);
          failConn(id);
          return;
       }
 
-      dbg(TRANSPORT_CHANNEL, "conn=%hhu TIMEOUT #%hhu in %s, retransmitting\n",
-          id, c->retries, stateName(c->state));
+      dbg(TRANSPORT_CHANNEL, "conn=%hhu TIMEOUT #%hhu in %s\n", id, c->retries, stateName(c->state));
 
       switch(c->state){
          case TCP_SYN_SENT:
@@ -255,9 +466,20 @@ implementation{
          case TCP_SYN_RCVD:
             sendSegment(id, TCP_FLAG_SYN | TCP_FLAG_ACK, c->sndUna, NULL, 0);
             break;
-         // M3: resend data. M4: resend FIN, end TIME_WAIT.
-         default:
+         case TCP_ESTABLISHED:
+         case TCP_CLOSE_WAIT:
+            if(c->sndNxt != c->sndUna) {
+               dbg(TRANSPORT_CHANNEL, "conn=%hhu resending from seq %hu\n", id, c->sndUna);
+               c->sndNxt = c->sndUna; // go back to the oldest unACKed byte
+               trySend(id);
+            }
             break;
+         case TCP_FIN_WAIT_1:
+         case TCP_LAST_ACK:
+            sendSegment(id, TCP_FLAG_FIN, c->finSeq, NULL, 0);
+            break;
+         default:
+            break; // FIN_WAIT_2: nothing to resend, just a bounded wait
       }
       startTimer(id);
    }
@@ -367,16 +589,81 @@ implementation{
       return id;
    }
 
+   // queue bytes to send. Returns how many fit (may be fewer than len).
    command uint16_t TCP.write(uint8_t id, uint8_t* buf, uint16_t len){
-      return 0;   // M3
+      tcpConn* c;
+      uint16_t space;
+      uint16_t n;
+      uint16_t i;
+
+      if(id >= MAX_CONNECTIONS) {
+         return 0;
+      }
+      c = &conns[id];
+      if(c->state != TCP_ESTABLISHED || c->closeAsked) {
+         return 0; // not connected yet, or closing: no new bytes
+      }
+
+      // stored bytes (sent-not-ACKed + queued) can never be more than 128
+      space = TCP_BUFFER_SIZE - (uint16_t)(c->sndEnd - c->sndUna);
+      n = (len < space) ? len : space;
+
+      for(i = 0; i < n; i++){
+         c->sendBuf[(c->sndEnd + i) % TCP_BUFFER_SIZE] = buf[i];
+      }
+      c->sndEnd += n;
+      if(n > 0){
+         trySend(id);
+      }
+      return n;
    }
 
+   // take received bytes out of the buffer. Returns how many were read.
    command uint16_t TCP.read(uint8_t id, uint8_t* buf, uint16_t len){
-      return 0;   // M3
+      tcpConn* c;
+      uint16_t n;
+      uint16_t i;
+      uint8_t freeBefore;
+
+      if(id >= MAX_CONNECTIONS) {
+         return 0;
+      }
+      c = &conns[id];
+      if(c->state == TCP_CLOSED || c->state == TCP_LISTEN) {
+         return 0;
+      }
+
+      n = (len < c->rcvCount) ? len : c->rcvCount;
+      freeBefore = freeRecvSpace(id);
+      for(i = 0; i < n; i++) {
+         buf[i] = c->rcvBuf[(c->rcvRead + i) % TCP_BUFFER_SIZE];
+      }
+      c->rcvRead  += n;
+      c->rcvCount -= n;
+
+      // if our window was too small for the sender, tell it about the new space
+      if(n > 0 && freeBefore < TCP_MAX_DATA && c->state == TCP_ESTABLISHED) {
+         dbg(TRANSPORT_CHANNEL, "conn=%hhu window reopened to %hhu, sending update\n", id, freeRecvSpace(id));
+         sendSegment(id, TCP_FLAG_ACK, c->sndNxt, NULL, 0);
+      }
+      if(n > 0){
+         trySend(id);   // server in CLOSE_WAIT: once everything is read, send our FIN
+      }
+      return n;
    }
 
+   // graceful close: no new bytes, send what's queued, then FIN
    command error_t TCP.close(uint8_t id){
-      return FAIL;   // M4
+      if(id >= MAX_CONNECTIONS){
+         return FAIL;
+      }
+      if(conns[id].state != TCP_ESTABLISHED && conns[id].state != TCP_CLOSE_WAIT){
+         return FAIL;
+      }
+      dbg(TRANSPORT_CHANNEL, "conn=%hhu close requested: FIN after queued data is ACKed\n", id);
+      conns[id].closeAsked = TRUE;
+      trySend(id); // sends the FIN right away if nothing is left
+      return SUCCESS;
    }
 
    command int8_t TCP.findConn(uint8_t localPort, uint16_t remoteAddr, uint8_t remotePort){

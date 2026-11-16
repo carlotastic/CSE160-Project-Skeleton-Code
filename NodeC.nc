@@ -35,4 +35,7 @@ implementation {
 
     components TransportC;
     Node.TCP -> TransportC;
+
+    components new TimerMilliC() as appTimer;
+    Node.appTimer -> appTimer;
 }

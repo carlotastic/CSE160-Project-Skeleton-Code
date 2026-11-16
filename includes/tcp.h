@@ -70,6 +70,7 @@ typedef struct cpConn{
     uint16_t rcvNxt;
     uint8_t rcvBuf[TCP_BUFFER_SIZE];
     uint8_t rcvCount;
+    uint8_t rcvRead;
 
     // timer 
     uint32_t deadline;
