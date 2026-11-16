@@ -13,15 +13,22 @@ def main():
     s.runSeconds(60)
     s.addChannel(s.ROUTING_CHANNEL)
     s.ping(1, 4, "check")
-    s.runSeconds(5)
-
+    
     print "=== node 4 listens on port 20 ==="
     s.cmdTestServer(4, 20)
     s.runSeconds(1)
 
-    print "=== node 1 port 10 connects to node 4 port 20 ==="
+    print "=== connection 1: node 1 port 10 -> node 4 port 20 ==="
     s.cmdTestClient(1, 4, 10, 20, 300)
-    s.runSeconds(5)
+    s.runSeconds(15)
+
+    print "=== connection 2: node 2 port 12 -> node 4 port 20 (listener must still work) ==="
+    s.cmdTestClient(2, 4, 12, 20, 300)
+    s.runSeconds(15)
+
+    print "=== failure: node 1 port 11 -> node 4 port 99 (nobody listening) ==="
+    s.cmdTestClient(1, 4, 11, 99, 300)
+    s.runSeconds(35)
 
 if __name__ == '__main__':
     main()

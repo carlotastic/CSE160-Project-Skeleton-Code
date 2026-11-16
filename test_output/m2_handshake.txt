@@ -1,0 +1,145 @@
+Creating Topo!
+Number of Motes 4
+  1   2   -54.0
+  2   1   -54.0
+  2   3   -54.0
+  3   2   -54.0
+  3   4   -54.0
+  4   3   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Adding Channel command
+Adding Channel transport
+=== routes converge (60s), check with a ping ===
+Adding Channel routing
+=== node 4 listens on port 20 ===
+0:1:0.019531393 DEBUG (4): A Command has been Issued.
+0:1:0.019531393 DEBUG (4): Command Type: Test Server
+0:1:0.019531393 DEBUG (4): Test server: listening on port 20
+0:1:0.019531393 DEBUG (4): conn=0 allocated
+0:1:0.019531393 DEBUG (4): conn=0 4:20->0:0 CLOSED -> LISTEN
+=== connection 1: node 1 port 10 -> node 4 port 20 ===
+0:1:1.021484652 DEBUG (1): A Command has been Issued.
+0:1:1.021484652 DEBUG (1): Command Type: Client
+0:1:1.021484652 DEBUG (1): Test client: 1:10 -> 4:20, 300 bytes
+0:1:1.021484652 DEBUG (1): conn=0 allocated
+0:1:1.021484652 DEBUG (1): conn=0 1:10->4:20 CLOSED -> SYN_SENT
+0:1:1.021484652 DEBUG (1): conn=0 1:10->4:20 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:1.021484652 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 2, cost: 3
+0:1:1.243332004 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 3, cost: 2
+0:1:1.387024170 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 4, cost: 1
+0:1:1.616775883 DEBUG (4): RX SYN from 1:10 to port 20 seq=100 ack=0 len=0 wnd=128
+0:1:1.616775883 DEBUG (4): conn=1 allocated
+0:1:1.616775883 DEBUG (4): conn=1 4:20->1:10 CLOSED -> SYN_RCVD
+0:1:1.616775883 DEBUG (4): conn=1 4:20->1:10 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:1:1.616775883 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 3
+0:1:1.891968267 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
+0:1:2.018585573 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
+0:1:2.062515494 DEBUG (1): RX SYN+ACK from 4:20 to port 10 seq=500 ack=101 len=0 wnd=128
+0:1:2.062515494 DEBUG (1): conn=0 1:10->4:20 SYN_SENT -> ESTABLISHED
+0:1:2.062515494 DEBUG (1): conn=0 1:10->4:20 TX ACK seq=101 ack=501 len=0 wnd=128
+0:1:2.062515494 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 2, cost: 3
+0:1:2.062515494 DEBUG (1): Test client: conn=0 CONNECTED
+0:1:2.173645111 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 2
+0:1:2.303924806 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
+0:1:2.390381257 DEBUG (4): RX ACK from 1:10 to port 20 seq=101 ack=501 len=0 wnd=128
+0:1:2.390381257 DEBUG (4): conn=1 4:20->1:10 SYN_RCVD -> ESTABLISHED
+0:1:2.390381257 DEBUG (4): Test server: ACCEPTED conn=1
+=== connection 2: node 2 port 12 -> node 4 port 20 (listener must still work) ===
+0:1:16.132812643 DEBUG (2): A Command has been Issued.
+0:1:16.132812643 DEBUG (2): Command Type: Client
+0:1:16.132812643 DEBUG (2): Test client: 2:12 -> 4:20, 300 bytes
+0:1:16.132812643 DEBUG (2): conn=0 allocated
+0:1:16.132812643 DEBUG (2): conn=0 2:12->4:20 CLOSED -> SYN_SENT
+0:1:16.132812643 DEBUG (2): conn=0 2:12->4:20 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:16.132812643 DEBUG (2): Routing Packet - src: 2, dest: 4, seq: 1, next hop: 3, cost: 2
+0:1:16.219024897 DEBUG (3): Routing Packet - src: 2, dest: 4, seq: 1, next hop: 4, cost: 1
+0:1:16.300339099 DEBUG (4): RX SYN from 2:12 to port 20 seq=100 ack=0 len=0 wnd=128
+0:1:16.300339099 DEBUG (4): conn=2 allocated
+0:1:16.300339099 DEBUG (4): conn=2 4:20->2:12 CLOSED -> SYN_RCVD
+0:1:16.300339099 DEBUG (4): conn=2 4:20->2:12 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:1:16.300339099 DEBUG (4): Routing Packet - src: 4, dest: 2, seq: 2, next hop: 3, cost: 2
+0:1:16.527969870 DEBUG (3): Routing Packet - src: 4, dest: 2, seq: 2, next hop: 2, cost: 1
+0:1:16.830307362 DEBUG (2): RX SYN+ACK from 4:20 to port 12 seq=500 ack=101 len=0 wnd=128
+0:1:16.830307362 DEBUG (2): conn=0 2:12->4:20 SYN_SENT -> ESTABLISHED
+0:1:16.830307362 DEBUG (2): conn=0 2:12->4:20 TX ACK seq=101 ack=501 len=0 wnd=128
+0:1:16.830307362 DEBUG (2): Routing Packet - src: 2, dest: 4, seq: 2, next hop: 3, cost: 2
+0:1:16.830307362 DEBUG (2): Test client: conn=0 CONNECTED
+0:1:17.117553966 DEBUG (3): Routing Packet - src: 2, dest: 4, seq: 2, next hop: 4, cost: 1
+0:1:17.317032219 DEBUG (4): RX ACK from 2:12 to port 20 seq=101 ack=501 len=0 wnd=128
+0:1:17.317032219 DEBUG (4): conn=2 4:20->2:12 SYN_RCVD -> ESTABLISHED
+0:1:17.317032219 DEBUG (4): Test server: ACCEPTED conn=2
+=== failure: node 1 port 11 -> node 4 port 99 (nobody listening) ===
+0:1:31.269531393 DEBUG (1): A Command has been Issued.
+0:1:31.269531393 DEBUG (1): Command Type: Client
+0:1:31.269531393 DEBUG (1): Test client: 1:11 -> 4:99, 300 bytes
+0:1:31.269531393 DEBUG (1): conn=1 allocated
+0:1:31.269531393 DEBUG (1): conn=1 1:11->4:99 CLOSED -> SYN_SENT
+0:1:31.269531393 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:31.269531393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 2, cost: 3
+0:1:31.551132296 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 3, cost: 2
+0:1:31.641525532 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 4, cost: 1
+0:1:31.664001862 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:31.664001862 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:34.238281393 DEBUG (1): conn=1 TIMEOUT #1 in SYN_SENT, retransmitting
+0:1:34.238281393 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:34.238281393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 2, cost: 3
+0:1:34.341705419 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 3, cost: 2
+0:1:34.378021509 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 4, cost: 1
+0:1:34.599853899 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:34.599853899 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:37.167968893 DEBUG (1): conn=1 TIMEOUT #2 in SYN_SENT, retransmitting
+0:1:37.167968893 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:37.167968893 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 5, next hop: 2, cost: 3
+0:1:37.290451172 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 5, next hop: 3, cost: 2
+0:1:37.535827890 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 5, next hop: 4, cost: 1
+0:1:37.729126358 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:37.729126358 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:40.097656393 DEBUG (1): conn=1 TIMEOUT #3 in SYN_SENT, retransmitting
+0:1:40.097656393 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:40.097656393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 2, cost: 3
+0:1:40.252929778 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 3, cost: 2
+0:1:40.371917983 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 4, cost: 1
+0:1:40.566086174 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:40.566086174 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:43.027343893 DEBUG (1): conn=1 TIMEOUT #4 in SYN_SENT, retransmitting
+0:1:43.027343893 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:43.027343893 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 2, cost: 3
+0:1:43.104019264 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 3, cost: 2
+0:1:43.370758299 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 4, cost: 1
+0:1:43.568039345 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:43.568039345 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:45.957031393 DEBUG (1): conn=1 TIMEOUT #5 in SYN_SENT, retransmitting
+0:1:45.957031393 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:45.957031393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 2, cost: 3
+0:1:46.107681380 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 3, cost: 2
+0:1:46.320007589 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 4, cost: 1
+0:1:46.507583988 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:46.507583988 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:48.886718893 DEBUG (1): conn=1 TIMEOUT #6 in SYN_SENT, retransmitting
+0:1:48.886718893 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:48.886718893 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 2, cost: 3
+0:1:49.117630138 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 3, cost: 2
+0:1:49.273651351 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 4, cost: 1
+0:1:49.391006824 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:49.391006824 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:51.816406393 DEBUG (1): conn=1 TIMEOUT #7 in SYN_SENT, retransmitting
+0:1:51.816406393 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:51.816406393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 2, cost: 3
+0:1:52.075607422 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 3, cost: 2
+0:1:52.259948981 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 4, cost: 1
+0:1:52.541504277 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:52.541504277 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:54.746093893 DEBUG (1): conn=1 TIMEOUT #8 in SYN_SENT, retransmitting
+0:1:54.746093893 DEBUG (1): conn=1 1:11->4:99 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:54.746093893 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 2, cost: 3
+0:1:54.811050531 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 3, cost: 2
+0:1:54.840744282 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 4, cost: 1
+0:1:54.947586454 DEBUG (4): RX SYN from 1:11 to port 99 seq=100 ack=0 len=0 wnd=128
+0:1:54.947586454 DEBUG (4): SYN for port 99 but nobody is listening, ignoring
+0:1:57.675781393 DEBUG (1): conn=1 no answer after 8 retries, giving up
+0:1:57.675781393 DEBUG (1): conn=1 FAILED in SYN_SENT, releasing record
+0:1:57.675781393 DEBUG (1): conn=1 1:11->4:99 SYN_SENT -> CLOSED
+0:1:57.675781393 DEBUG (1): Test client: conn=1 FAILED to connect

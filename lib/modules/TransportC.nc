@@ -11,5 +11,11 @@ implementation{
 
     components IPC;
     TransportP.IP -> IPC;
+
+   components new TimerMilliC() as tickTimer;
+   TransportP.tickTimer -> tickTimer;
+
+   components MainC;
+   TransportP.Boot -> MainC.Boot;
 }
 

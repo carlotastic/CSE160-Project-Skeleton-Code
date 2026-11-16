@@ -110,8 +110,19 @@ implementation{
    // cmdClientClose (M4)
    event void CommandHandler.clientClose(uint16_t server, uint8_t srcPort, uint8_t destPort){}
 
-   event void TCP.connectDone(uint8_t id, error_t result){}
-   event void TCP.accepted(uint8_t id){}
+   event void TCP.connectDone(uint8_t id, error_t result){
+   if(result == SUCCESS){
+      dbg(TRANSPORT_CHANNEL, "Test client: conn=%hhu CONNECTED\n", id);
+   } else{
+      dbg(TRANSPORT_CHANNEL, "Test client: conn=%hhu FAILED to connect\n", id);
+      }
+   }
+
+   event void TCP.accepted(uint8_t id){
+      dbg(TRANSPORT_CHANNEL, "Test server: ACCEPTED conn=%hhu\n", id);
+   }
+
+   
    event void TCP.closed(uint8_t id, error_t result){}
 
    event void CommandHandler.setAppServer(){}
