@@ -89,6 +89,24 @@ implementation{
                 signal CommandHandler.clientClose(buff[0], buff[1], buff[2]);
                 break;
 
+            // TEST ONLY. buff: [src, flags, valueHigh, valueLow, count]
+            case CMD_DROP_RULE:
+                dbg(COMMAND_CHANNEL, "Command Type: Test Drop Rule\n");
+                signal CommandHandler.setDropRule(buff[0], buff[1],
+                    ((uint16_t) buff[2] << 8) | buff[3], buff[4]);
+                break;
+            
+            // TEST ONLY: stop / restart this node's test consumer
+            case CMD_PAUSE:
+                dbg(COMMAND_CHANNEL, "Command Type: Pause Consumer\n");
+                signal CommandHandler.pauseConsumer();
+                break;
+
+            case CMD_RESUME:
+                dbg(COMMAND_CHANNEL, "Command Type: Resume Consumer\n");
+                signal CommandHandler.resumeConsumer();
+                break;
+
             default:
                 dbg(COMMAND_CHANNEL, "CMD_ERROR: \"%d\" does not match any known commands.\n", msg->id);
                 break;

@@ -17,6 +17,16 @@ class TestSim:
     CMD_TEST_CLIENT = 4
     CMD_TEST_SERVER = 5
     CMD_CLIENT_CLOSE = 8
+    CMD_DROP_RULE = 10
+    CMD_PAUSE = 11
+    CMD_RESUME = 12
+    WNDUPDATE = 128 
+
+    # TCP flag values (same as tcp.h), for drop rules
+    SYN = 1
+    ACK = 2
+    FIN = 4
+    DATA = 8
 
     # CHANNELS - see includes/channels.h
     COMMAND_CHANNEL="command";
@@ -31,6 +41,7 @@ class TestSim:
 
     # Project 3
     TRANSPORT_CHANNEL="transport";
+    TCP_DETAIL_CHANNEL="tcpdetail";
 
     # Personal Debuggin Channels for some of the additional models implemented.
     HASHMAP_CHANNEL="hashmap";
@@ -155,6 +166,33 @@ class TestSim:
     def cmdClientClose(self, clientAddress, serverAddress, srcPort, destPort):
         self.sendCMD(self.CMD_CLIENT_CLOSE, clientAddress,
                      chr(serverAddress) + chr(srcPort) + chr(destPort))
+        
+    # ---- wrappers for the course-provided scripts (testA.py, testB.py) ----
+    # They only pass node addresses, so the rest uses documented defaults:
+    # server at node 1, well-known port 123, client port 10, 1030 bytes.
+    DEFAULT_SERVER = 1
+    DEFAULT_PORT = 123
+    DEFAULT_SRC_PORT = 10
+    DEFAULT_BYTES = 1030
+
+    def testServer(self, serverAddress):
+        self.cmdTestServer(serverAddress, self.DEFAULT_PORT)
+
+    def testClient(self, clientAddress):
+        self.cmdTestClient(clientAddress, self.DEFAULT_SERVER, self.DEFAULT_SRC_PORT,
+                           self.DEFAULT_PORT, self.DEFAULT_BYTES)
+        
+    # TEST ONLY: at `node`, drop the next `count` forwarded TCP packets with these flags.
+    # value = seq for DATA/SYN/FIN, or the ack number for a pure ACK. src = 0 means any sender.
+    def setDrop(self, node, flags, value, src=0, count=1):
+        self.sendCMD(self.CMD_DROP_RULE, node,
+                     chr(src) + chr(flags) + chr(value >> 8) + chr(value & 0xFF) + chr(count))
+
+    def pauseConsumer(self, node):
+        self.sendCMD(self.CMD_PAUSE, node, "p")
+
+    def resumeConsumer(self, node):
+        self.sendCMD(self.CMD_RESUME, node, "r")
 
     def neighborDMP(self, destination):
         self.sendCMD(self.CMD_NEIGHBOR_DUMP, destination, "neighbor command");

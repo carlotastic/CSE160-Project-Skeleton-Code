@@ -16,6 +16,7 @@ char DV_ADV_CHANNEL[]="dvadv"; // logs every advertised entry (poison reverse te
 
 // Project 3
 char TRANSPORT_CHANNEL[]="transport";
+char TCP_DETAIL_CHANNEL[]="tcpdetail";
 
 // Personal Debuggin Channels for some of the additional models implemented.
 char HASHMAP_CHANNEL[]="hashmap";

@@ -1,0 +1,282 @@
+Creating Topo!
+Number of Motes 4
+  1   2   -54.0
+  2   1   -54.0
+  2   3   -54.0
+  3   2   -54.0
+  3   4   -54.0
+  4   3   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Adding Channel command
+Adding Channel transport
+=== routes converge (60s), check with a ping ===
+Adding Channel routing
+0:1:0.019531393 DEBUG (1): A Command has been Issued.
+0:1:0.019531393 DEBUG (1): Command Type: Ping
+0:1:0.019531393 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 2, cost: 3
+0:1:0.157760707 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 3, cost: 2
+0:1:0.243667863 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 1, next hop: 4, cost: 1
+0:1:0.339874670 DEBUG (4): PING from 1 arrived. Payload: check
+0:1:0.339874670 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 3, cost: 3
+0:1:0.612488305 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 2, cost: 2
+0:1:0.653549573 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 1, next hop: 1, cost: 1
+0:1:0.792892726 DEBUG (1): PINGREPLY from 4 arrived
+=== TEST 5 control loss (synack): node 3 drops flags=3 value=500 from node 4 ===
+0:1:5.146484518 DEBUG (4): A Command has been Issued.
+0:1:5.146484518 DEBUG (4): Command Type: Test Server
+0:1:5.146484518 DEBUG (4): Test server: listening on port 20
+0:1:5.146484518 DEBUG (4): conn=0 allocated
+0:1:5.146484518 DEBUG (4): conn=0 4:20->0:0 CLOSED -> LISTEN
+0:1:6.148437777 DEBUG (3): A Command has been Issued.
+0:1:6.148437777 DEBUG (3): Command Type: Test Drop Rule
+0:1:6.148437777 DEBUG (3): TEST DROP RULE at node 3: src=4 flags=3 value=500 count=1
+0:1:7.158203268 DEBUG (1): A Command has been Issued.
+0:1:7.158203268 DEBUG (1): Command Type: Test Client
+0:1:7.158203268 DEBUG (1): Test client: 1:10 -> 4:20, 100 bytes
+0:1:7.158203268 DEBUG (1): conn=0 allocated
+0:1:7.158203268 DEBUG (1): conn=0 1:10->4:20 CLOSED -> SYN_SENT
+0:1:7.158203268 DEBUG (1): conn=0 1:10->4:20 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:7.158203268 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 2, cost: 3
+0:1:7.373855705 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 3, cost: 2
+0:1:7.395630106 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 2, next hop: 4, cost: 1
+0:1:7.429169067 DEBUG (4): RX SYN from 1:10 to port 20 seq=100 ack=0 len=0 wnd=128
+0:1:7.429169067 DEBUG (4): conn=1 allocated
+0:1:7.429169067 DEBUG (4): conn=1 4:20->1:10 CLOSED -> SYN_RCVD
+0:1:7.429169067 DEBUG (4): conn=1 4:20->1:10 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:1:7.429169067 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 2, next hop: 3, cost: 3
+0:1:7.721130876 DEBUG (3): TEST DROP at node 3: discarding TCP from 4 to 1 flags=3 seq=500 ack=101
+0:1:10.312500143 DEBUG (1): conn=0 TIMEOUT #1 in SYN_SENT
+0:1:10.312500143 DEBUG (1): conn=0 1:10->4:20 TX SYN seq=100 ack=0 len=0 wnd=128
+0:1:10.312500143 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 2, cost: 3
+0:1:10.429443468 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 3, cost: 2
+0:1:10.556641168 DEBUG (4): conn=1 TIMEOUT #1 in SYN_RCVD
+0:1:10.556641168 DEBUG (4): conn=1 4:20->1:10 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:1:10.556641168 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 3, next hop: 3, cost: 3
+0:1:10.610611212 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 3, next hop: 4, cost: 1
+0:1:10.669479758 DEBUG (4): RX SYN from 1:10 to port 20 seq=100 ack=0 len=0 wnd=128
+0:1:10.669479758 DEBUG (4): conn=1 duplicate SYN, resending SYN+ACK
+0:1:10.669479758 DEBUG (4): conn=1 4:20->1:10 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:1:10.669479758 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 4, next hop: 3, cost: 3
+0:1:10.687943004 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 3, next hop: 2, cost: 2
+0:1:10.746277257 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 3, next hop: 1, cost: 1
+0:1:10.821472442 DEBUG (1): RX SYN+ACK from 4:20 to port 10 seq=500 ack=101 len=0 wnd=128
+0:1:10.821472442 DEBUG (1): conn=0 1:10->4:20 SYN_SENT -> ESTABLISHED
+0:1:10.821472442 DEBUG (1): conn=0 1:10->4:20 TX ACK seq=101 ack=501 len=0 wnd=128
+0:1:10.821472442 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 2, cost: 3
+0:1:10.821472442 DEBUG (1): Test client: conn=0 CONNECTED, sending 100 bytes
+0:1:10.876571759 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 3, cost: 2
+0:1:10.962540171 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 4, next hop: 2, cost: 2
+0:1:10.975387838 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 4, next hop: 4, cost: 1
+0:1:11.205749876 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 4, next hop: 1, cost: 1
+0:1:11.238769902 DEBUG (4): RX ACK from 1:10 to port 20 seq=101 ack=501 len=0 wnd=128
+0:1:11.238769902 DEBUG (4): conn=1 4:20->1:10 SYN_RCVD -> ESTABLISHED
+0:1:11.238769902 DEBUG (4): Test server: ACCEPTED conn=1
+0:1:11.289062653 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=101 ack=501 len=11 wnd=128
+0:1:11.289062653 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 5, next hop: 2, cost: 3
+0:1:11.289062653 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=112 ack=501 len=11 wnd=128
+0:1:11.289062653 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 2, cost: 3
+0:1:11.289062653 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=123 ack=501 len=11 wnd=128
+0:1:11.289062653 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 2, cost: 3
+0:1:11.289062653 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=134 ack=501 len=11 wnd=128
+0:1:11.289062653 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 2, cost: 3
+0:1:11.293319935 DEBUG (1): RX SYN+ACK from 4:20 to port 10 seq=500 ack=101 len=0 wnd=128
+0:1:11.293319935 DEBUG (1): conn=0 duplicate SYN+ACK, resending ACK
+0:1:11.293319935 DEBUG (1): conn=0 1:10->4:20 TX ACK seq=145 ack=501 len=0 wnd=128
+0:1:11.293319935 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 2, cost: 3
+0:1:11.422897452 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 3, cost: 2
+0:1:11.459411743 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 3, cost: 2
+0:1:11.524932948 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 3, cost: 2
+0:1:11.585556262 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 6, next hop: 4, cost: 1
+0:1:11.663254157 DEBUG (4): RX DATA from 1:10 to port 20 seq=112 ack=501 len=11 wnd=128
+0:1:11.663254157 DEBUG (4): conn=1 DATA seq=112 but expected 101: discarding (duplicate or out of order)
+0:1:11.663254157 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=101 len=0 wnd=128
+0:1:11.663254157 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 5, next hop: 3, cost: 3
+0:1:11.777343903 DEBUG (1): Test client: conn=0 all 100 bytes accepted, closing
+0:1:11.777343903 DEBUG (1): conn=0 close requested: FIN after queued data is ACKed
+0:1:11.791244624 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 3, cost: 2
+0:1:11.835281594 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 7, next hop: 4, cost: 1
+0:1:11.936966436 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 5, next hop: 2, cost: 2
+0:1:11.978805809 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 8, next hop: 4, cost: 1
+0:1:12.075119271 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 9, next hop: 4, cost: 1
+0:1:12.133835218 DEBUG (4): RX DATA from 1:10 to port 20 seq=123 ack=501 len=11 wnd=128
+0:1:12.133835218 DEBUG (4): conn=1 DATA seq=123 but expected 101: discarding (duplicate or out of order)
+0:1:12.133835218 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=101 len=0 wnd=128
+0:1:12.133835218 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 6, next hop: 3, cost: 3
+0:1:12.163620511 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 6, next hop: 2, cost: 2
+0:1:12.323654552 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 5, next hop: 1, cost: 1
+0:1:12.453674588 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=101 len=0 wnd=128
+0:1:12.527588286 DEBUG (4): RX DATA from 1:10 to port 20 seq=134 ack=501 len=11 wnd=128
+0:1:12.527588286 DEBUG (4): conn=1 DATA seq=134 but expected 101: discarding (duplicate or out of order)
+0:1:12.527588286 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=101 len=0 wnd=128
+0:1:12.527588286 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 7, next hop: 3, cost: 3
+0:1:12.566498159 DEBUG (4): RX ACK from 1:10 to port 20 seq=145 ack=501 len=0 wnd=128
+0:1:12.592010876 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 6, next hop: 1, cost: 1
+0:1:12.601822394 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 7, next hop: 2, cost: 2
+0:1:12.625549588 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=101 len=0 wnd=128
+0:1:12.650757213 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 7, next hop: 1, cost: 1
+0:1:12.737518573 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=101 len=0 wnd=128
+0:1:14.218750143 DEBUG (1): conn=0 TIMEOUT #1 in ESTABLISHED
+0:1:14.218750143 DEBUG (1): conn=0 resending from seq 101
+0:1:14.218750143 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=101 ack=501 len=11 wnd=128
+0:1:14.218750143 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 2, cost: 3
+0:1:14.218750143 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=112 ack=501 len=11 wnd=128
+0:1:14.218750143 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 2, cost: 3
+0:1:14.218750143 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=123 ack=501 len=11 wnd=128
+0:1:14.218750143 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 12, next hop: 2, cost: 3
+0:1:14.218750143 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=134 ack=501 len=11 wnd=128
+0:1:14.218750143 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 13, next hop: 2, cost: 3
+0:1:14.287231540 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 3, cost: 2
+0:1:14.311599827 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 3, cost: 2
+0:1:14.380264532 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 10, next hop: 4, cost: 1
+0:1:14.486160503 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 11, next hop: 4, cost: 1
+0:1:14.509155639 DEBUG (4): RX DATA from 1:10 to port 20 seq=101 ack=501 len=11 wnd=128
+0:1:14.509155639 DEBUG (4): conn=1 DATA seq=101 len=11 accepted, stored=11
+0:1:14.509155639 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=112 len=0 wnd=117
+0:1:14.509155639 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 8, next hop: 3, cost: 3
+0:1:14.553223195 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 8, next hop: 2, cost: 2
+0:1:14.581024277 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 12, next hop: 3, cost: 2
+0:1:14.590866485 DEBUG (4): RX DATA from 1:10 to port 20 seq=112 ack=501 len=11 wnd=128
+0:1:14.590866485 DEBUG (4): conn=1 DATA seq=112 len=11 accepted, stored=22
+0:1:14.590866485 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=123 len=0 wnd=106
+0:1:14.590866485 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 9, next hop: 3, cost: 3
+0:1:14.671188466 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 13, next hop: 3, cost: 2
+0:1:14.707031803 DEBUG (4): Test server: conn=1 read 22 bytes [0..21], total 22, mismatches 0
+0:1:14.737793218 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 12, next hop: 4, cost: 1
+0:1:14.805542395 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 8, next hop: 1, cost: 1
+0:1:14.825638061 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 13, next hop: 4, cost: 1
+0:1:14.853103875 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=112 len=0 wnd=117
+0:1:14.853103875 DEBUG (1): conn=0 ACK 112 accepted, in flight=33, peer wnd=117
+0:1:14.853103875 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=145 ack=501 len=11 wnd=128
+0:1:14.853103875 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 14, next hop: 2, cost: 3
+0:1:14.863525908 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 9, next hop: 2, cost: 2
+0:1:15.010879895 DEBUG (4): RX DATA from 1:10 to port 20 seq=123 ack=501 len=11 wnd=128
+0:1:15.010879895 DEBUG (4): conn=1 DATA seq=123 len=11 accepted, stored=11
+0:1:15.010879895 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=134 len=0 wnd=117
+0:1:15.010879895 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 10, next hop: 3, cost: 3
+0:1:15.136474712 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 14, next hop: 3, cost: 2
+0:1:15.195313053 DEBUG (4): Test server: conn=1 read 11 bytes [22..32], total 33, mismatches 0
+0:1:15.240662131 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 10, next hop: 2, cost: 2
+0:1:15.290375122 DEBUG (4): RX DATA from 1:10 to port 20 seq=134 ack=501 len=11 wnd=128
+0:1:15.290375122 DEBUG (4): conn=1 DATA seq=134 len=11 accepted, stored=11
+0:1:15.290375122 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=145 len=0 wnd=117
+0:1:15.290375122 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 11, next hop: 3, cost: 3
+0:1:15.306183249 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 9, next hop: 1, cost: 1
+0:1:15.370758421 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 10, next hop: 1, cost: 1
+0:1:15.373413359 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 14, next hop: 4, cost: 1
+0:1:15.465179688 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=123 len=0 wnd=106
+0:1:15.465179688 DEBUG (1): conn=0 ACK 123 accepted, in flight=33, peer wnd=106
+0:1:15.465179688 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=156 ack=501 len=11 wnd=128
+0:1:15.465179688 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 15, next hop: 2, cost: 3
+0:1:15.476791876 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 11, next hop: 2, cost: 2
+0:1:15.496872207 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=134 len=0 wnd=117
+0:1:15.496872207 DEBUG (1): conn=0 ACK 134 accepted, in flight=33, peer wnd=117
+0:1:15.496872207 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=167 ack=501 len=11 wnd=128
+0:1:15.496872207 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 16, next hop: 2, cost: 3
+0:1:15.589722066 DEBUG (4): RX DATA from 1:10 to port 20 seq=145 ack=501 len=11 wnd=128
+0:1:15.589722066 DEBUG (4): conn=1 DATA seq=145 len=11 accepted, stored=22
+0:1:15.589722066 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=156 len=0 wnd=106
+0:1:15.589722066 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 12, next hop: 3, cost: 3
+0:1:15.626968758 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 11, next hop: 1, cost: 1
+0:1:15.681793348 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 15, next hop: 3, cost: 2
+0:1:15.683594303 DEBUG (4): Test server: conn=1 read 22 bytes [33..54], total 55, mismatches 0
+0:1:15.764984619 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 12, next hop: 2, cost: 2
+0:1:15.767914224 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 12, next hop: 1, cost: 1
+0:1:15.776123178 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 16, next hop: 3, cost: 2
+0:1:15.785171778 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=145 len=0 wnd=117
+0:1:15.785171778 DEBUG (1): conn=0 ACK 145 accepted, in flight=33, peer wnd=117
+0:1:15.785171778 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=178 ack=501 len=11 wnd=128
+0:1:15.785171778 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 17, next hop: 2, cost: 3
+0:1:15.889709736 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 15, next hop: 4, cost: 1
+0:1:15.960891814 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 17, next hop: 3, cost: 2
+0:1:15.987732328 DEBUG (4): RX DATA from 1:10 to port 20 seq=156 ack=501 len=11 wnd=128
+0:1:15.987732328 DEBUG (4): conn=1 DATA seq=156 len=11 accepted, stored=11
+0:1:15.987732328 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=167 len=0 wnd=117
+0:1:15.987732328 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 13, next hop: 3, cost: 3
+0:1:15.990661842 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=156 len=0 wnd=106
+0:1:15.990661842 DEBUG (1): conn=0 ACK 156 accepted, in flight=33, peer wnd=106
+0:1:15.990661842 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=189 ack=501 len=11 wnd=128
+0:1:15.990661842 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 18, next hop: 2, cost: 3
+0:1:16.087875462 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 18, next hop: 3, cost: 2
+0:1:16.165405807 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 13, next hop: 2, cost: 2
+0:1:16.171875553 DEBUG (4): Test server: conn=1 read 11 bytes [55..65], total 66, mismatches 0
+0:1:16.225845587 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 16, next hop: 4, cost: 1
+0:1:16.270477675 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 13, next hop: 1, cost: 1
+0:1:16.509048851 DEBUG (4): RX DATA from 1:10 to port 20 seq=167 ack=501 len=11 wnd=128
+0:1:16.509048851 DEBUG (4): conn=1 DATA seq=167 len=11 accepted, stored=11
+0:1:16.509048851 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=178 len=0 wnd=117
+0:1:16.509048851 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 14, next hop: 3, cost: 3
+0:1:16.515701523 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 17, next hop: 4, cost: 1
+0:1:16.629318475 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 18, next hop: 4, cost: 1
+0:1:16.653091817 DEBUG (4): RX DATA from 1:10 to port 20 seq=178 ack=501 len=11 wnd=128
+0:1:16.653091817 DEBUG (4): conn=1 DATA seq=178 len=11 accepted, stored=22
+0:1:16.653091817 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=189 len=0 wnd=106
+0:1:16.653091817 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 15, next hop: 3, cost: 3
+0:1:16.660156803 DEBUG (4): Test server: conn=1 read 22 bytes [66..87], total 88, mismatches 0
+0:1:16.758423210 DEBUG (4): RX DATA from 1:10 to port 20 seq=189 ack=501 len=11 wnd=128
+0:1:16.758423210 DEBUG (4): conn=1 DATA seq=189 len=11 accepted, stored=11
+0:1:16.758423210 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=200 len=0 wnd=117
+0:1:16.758423210 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 16, next hop: 3, cost: 3
+0:1:16.806183383 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 14, next hop: 2, cost: 2
+0:1:16.904907452 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=167 len=0 wnd=117
+0:1:16.904907452 DEBUG (1): conn=0 ACK 167 accepted, in flight=33, peer wnd=117
+0:1:16.904907452 DEBUG (1): conn=0 1:10->4:20 TX DATA seq=200 ack=501 len=1 wnd=128
+0:1:16.904907452 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 19, next hop: 2, cost: 3
+0:1:16.951935351 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 15, next hop: 2, cost: 2
+0:1:16.999542624 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 14, next hop: 1, cost: 1
+0:1:17.051651137 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 19, next hop: 3, cost: 2
+0:1:17.057434619 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 16, next hop: 2, cost: 2
+0:1:17.077331950 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 15, next hop: 1, cost: 1
+0:1:17.148438053 DEBUG (4): Test server: conn=1 read 11 bytes [88..98], total 99, mismatches 0
+0:1:17.203293075 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=178 len=0 wnd=117
+0:1:17.203293075 DEBUG (1): conn=0 ACK 178 accepted, in flight=23, peer wnd=117
+0:1:17.272888544 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 16, next hop: 1, cost: 1
+0:1:17.419479608 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 19, next hop: 4, cost: 1
+0:1:17.589310064 DEBUG (4): RX DATA from 1:10 to port 20 seq=200 ack=501 len=1 wnd=128
+0:1:17.589310064 DEBUG (4): conn=1 DATA seq=200 len=1 accepted, stored=1
+0:1:17.589310064 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=201 len=0 wnd=127
+0:1:17.589310064 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 17, next hop: 3, cost: 3
+0:1:17.608963273 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=189 len=0 wnd=106
+0:1:17.608963273 DEBUG (1): conn=0 ACK 189 accepted, in flight=12, peer wnd=106
+0:1:17.636719303 DEBUG (4): Test server: conn=1 read 1 bytes [99..99], total 100, mismatches 0
+0:1:17.759430435 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 17, next hop: 2, cost: 2
+0:1:17.795410405 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=200 len=0 wnd=117
+0:1:17.795410405 DEBUG (1): conn=0 ACK 200 accepted, in flight=1, peer wnd=117
+0:1:17.862625528 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 17, next hop: 1, cost: 1
+0:1:17.873581176 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=201 len=0 wnd=127
+0:1:17.873581176 DEBUG (1): conn=0 ACK 201 accepted, in flight=0, peer wnd=127
+0:1:17.873581176 DEBUG (1): conn=0 1:10->4:20 ESTABLISHED -> FIN_WAIT_1
+0:1:17.873581176 DEBUG (1): conn=0 1:10->4:20 TX FIN seq=201 ack=501 len=0 wnd=128
+0:1:17.873581176 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 20, next hop: 2, cost: 3
+0:1:18.026886125 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 20, next hop: 3, cost: 2
+0:1:18.166748317 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 20, next hop: 4, cost: 1
+0:1:18.260101690 DEBUG (4): RX FIN from 1:10 to port 20 seq=201 ack=501 len=0 wnd=128
+0:1:18.260101690 DEBUG (4): conn=1 4:20->1:10 TX ACK seq=501 ack=202 len=0 wnd=128
+0:1:18.260101690 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 18, next hop: 3, cost: 3
+0:1:18.260101690 DEBUG (4): conn=1 4:20->1:10 ESTABLISHED -> CLOSE_WAIT
+0:1:18.260101690 DEBUG (4): conn=1 4:20->1:10 CLOSE_WAIT -> LAST_ACK
+0:1:18.260101690 DEBUG (4): conn=1 4:20->1:10 TX FIN seq=501 ack=202 len=0 wnd=128
+0:1:18.260101690 DEBUG (4): Routing Packet - src: 4, dest: 1, seq: 19, next hop: 3, cost: 3
+0:1:18.509460981 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 18, next hop: 2, cost: 2
+0:1:18.588257369 DEBUG (3): Routing Packet - src: 4, dest: 1, seq: 19, next hop: 2, cost: 2
+0:1:18.711410899 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 18, next hop: 1, cost: 1
+0:1:18.968384171 DEBUG (2): Routing Packet - src: 4, dest: 1, seq: 19, next hop: 1, cost: 1
+0:1:18.981079327 DEBUG (1): RX ACK from 4:20 to port 10 seq=501 ack=202 len=0 wnd=128
+0:1:18.981079327 DEBUG (1): conn=0 ACK 202 accepted, in flight=0, peer wnd=128
+0:1:18.981079327 DEBUG (1): conn=0 1:10->4:20 FIN_WAIT_1 -> FIN_WAIT_2
+0:1:19.233429224 DEBUG (1): RX FIN from 4:20 to port 10 seq=501 ack=202 len=0 wnd=128
+0:1:19.233429224 DEBUG (1): conn=0 1:10->4:20 TX ACK seq=202 ack=502 len=0 wnd=128
+0:1:19.233429224 DEBUG (1): Routing Packet - src: 1, dest: 4, seq: 21, next hop: 2, cost: 3
+0:1:19.233429224 DEBUG (1): conn=0 1:10->4:20 FIN_WAIT_2 -> TIME_WAIT
+0:1:19.372879159 DEBUG (2): Routing Packet - src: 1, dest: 4, seq: 21, next hop: 3, cost: 2
+0:1:19.483612288 DEBUG (3): Routing Packet - src: 1, dest: 4, seq: 21, next hop: 4, cost: 1
+0:1:19.731094742 DEBUG (4): RX ACK from 1:10 to port 20 seq=202 ack=502 len=0 wnd=128
+0:1:19.731094742 DEBUG (4): conn=1 ACK 502 accepted, in flight=0, peer wnd=128
+0:1:19.731094742 DEBUG (4): conn=1 closed cleanly, releasing record
+0:1:19.731094742 DEBUG (4): conn=1 4:20->1:10 LAST_ACK -> CLOSED
+0:1:19.731094742 DEBUG (4): Test server: conn=1 closed OK, consumed 100 bytes, 0 mismatches
+0:1:31.064453268 DEBUG (1): conn=0 closed cleanly, releasing record
+0:1:31.064453268 DEBUG (1): conn=0 1:10->4:20 TIME_WAIT -> CLOSED
+0:1:31.064453268 DEBUG (1): Test client: conn=0 closed OK, 100 of 100 bytes accepted

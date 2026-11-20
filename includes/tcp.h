@@ -9,7 +9,8 @@ enum{
     TCP_FLAG_SYN = 0x01,
     TCP_FLAG_ACK = 0x02,
     TCP_FLAG_FIN = 0x04,
-    TCP_FLAG_DATA = 0x08
+    TCP_FLAG_DATA = 0x08,
+    TCP_DROP_WINDOW_UPDATE = 0x80  // TEST ONLY drop rule: a pure ACK whose window is > 0
 };
 
 // TCP constants
@@ -17,6 +18,7 @@ enum{
     TCP_HEADER_LENGTH = 9,
     TCP_MAX_DATA = PACKET_MAX_PAYLOAD_SIZE - TCP_HEADER_LENGTH,
     TCP_BUFFER_SIZE = 128, // What is this for?
+    TCP_SEND_WINDOW = 44, // fixed sender window size
     MAX_CONNECTIONS = 4, // What is this for?
     TCP_TICK_MS = 250,
     TCP_RTO_MS = 3000, // What is this

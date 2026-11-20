@@ -166,6 +166,7 @@ implementation{
       // only trust ACKs between what's already ACKed and what we actually sent
       if(ack >= c->sndUna && ack <= c->sndNxt){
          c->peerWindow = seg->window; // newest valid window
+         c->retries = 0;
          if(ack > c->sndUna){
             c->sndUna = ack; // bytes before ack are confirmed: space is free
             stopTimer(id); // what we waited for arrived
@@ -202,10 +203,13 @@ implementation{
       startTimer(id);
    }
 
-   // send the next data segment if allowed. STOP-AND-WAIT: only when nothing is in flight.
+   // send as many data segments as the windows allow (SLIDING WINDOW)
    void trySend(uint8_t id){
       tcpConn* c;
+      uint16_t inFlight;
       uint16_t queued;
+      uint16_t limit;
+      uint16_t room;
       uint8_t len;
       uint8_t i;
       uint8_t data[TCP_MAX_DATA];
@@ -214,31 +218,52 @@ implementation{
       if(c->state != TCP_ESTABLISHED && c->state != TCP_CLOSE_WAIT){
          return;
       }
-      if(c->sndNxt != c->sndUna){
-         return; // stop-and-wait: wait for the ACK first
-      }
 
-      queued = c->sndEnd - c->sndNxt;
-      if(queued == 0){
-         maybeSendFin(id);  // nothing left to send: maybe it's time to close
-         return;
-      }
-      if(c->peerWindow == 0){
-         dbg(TRANSPORT_CHANNEL, "conn=%hhu peer window is 0, waiting\n", id);
-         return;
-      }
+      while(TRUE){
+         inFlight = c->sndNxt - c->sndUna; // sent, not ACKed yet
+         queued   = c->sndEnd - c->sndNxt; // written by the app, not sent yet
 
-      // segment size = smallest of: what's queued, what fits in a segment, what they have room for
-      len = TCP_MAX_DATA;
-      if(queued < len)          len = queued;
-      if(c->peerWindow < len)   len = c->peerWindow;
+         if(queued == 0){
+            maybeSendFin(id); // nothing left to send: maybe close
+            return;
+         }
 
-      for(i = 0; i < len; i++){
-         data[i] = c->sendBuf[(c->sndNxt + i) % TCP_BUFFER_SIZE];
+         // limit = the smaller of our fixed window and the receiver's free space
+         limit = TCP_SEND_WINDOW;
+         if(c->peerWindow < limit){
+            limit = c->peerWindow;
+         }
+
+         if(inFlight >= limit){
+            // window is 0 and nothing is in flight: no ACK will ever come by itself,
+            // so start the timer. When it fires, onTimeout sends a probe.
+            if(limit == 0 && c->deadline == 0){
+               dbg(TRANSPORT_CHANNEL, "conn=%hhu peer window is 0: no new data, probe timer started\n", id);
+               startTimer(id);
+            }
+            return; // window full: wait for an ACK
+         }
+         room = limit - inFlight;
+
+         // segment size = smallest of: max segment, what's queued, what the window allows
+         len = TCP_MAX_DATA;
+         if(queued < len){ len = queued; }
+         if(room < len)  { len = room; }
+
+         for(i = 0; i < len; i++){
+            data[i] = c->sendBuf[(c->sndNxt + i) % TCP_BUFFER_SIZE];
+         }
+
+         dbg(TCP_DETAIL_CHANNEL, "conn=%hhu DATA_TX seq=%hu len=%hhu outstanding=%hu peerWnd=%hhu\n",
+             id, c->sndNxt, len, (uint16_t)(inFlight + len), c->peerWindow);
+         sendSegment(id, TCP_FLAG_DATA, c->sndNxt, data, len);
+
+         // the timer tracks the OLDEST unACKed segment: start it if nothing was in flight
+         if(inFlight == 0){
+            startTimer(id);
+         }
+         c->sndNxt += len;
       }
-      sendSegment(id, TCP_FLAG_DATA, c->sndNxt, data, len);
-      c->sndNxt += len;
-      startTimer(id);
    }
 
 
@@ -441,6 +466,7 @@ implementation{
    // what happens when a connection's timer runs out
    void onTimeout(uint8_t id){
       tcpConn* c;
+      uint8_t probe[1];
 
       c = &conns[id];
 
@@ -468,7 +494,15 @@ implementation{
             break;
          case TCP_ESTABLISHED:
          case TCP_CLOSE_WAIT:
-            if(c->sndNxt != c->sndUna) {
+            if(c->peerWindow == 0 && c->sndEnd != c->sndUna){
+               // ZERO WINDOW: send 1 byte. The receiver keeps it if it has room now,
+               // and either way answers with its current window.
+               c->sndNxt = c->sndUna;
+               probe[0] = c->sendBuf[c->sndNxt % TCP_BUFFER_SIZE];
+               dbg(TRANSPORT_CHANNEL, "conn=%hhu ZERO WINDOW: sending 1-byte probe seq=%hu\n", id, c->sndNxt);
+               sendSegment(id, TCP_FLAG_DATA, c->sndNxt, probe, 1);
+               c->sndNxt += 1;
+            } else if(c->sndNxt != c->sndUna) {
                dbg(TRANSPORT_CHANNEL, "conn=%hhu resending from seq %hu\n", id, c->sndUna);
                c->sndNxt = c->sndUna; // go back to the oldest unACKed byte
                trySend(id);

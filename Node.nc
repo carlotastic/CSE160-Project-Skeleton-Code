@@ -28,7 +28,7 @@ module Node{
 implementation{
 
    enum{
-      TEST_CHUNK = 32,     // bytes per write/read attempt
+      TEST_CHUNK = 64,     // bytes per write/read attempt
       APP_TICK_MS = 500    // how often the producer/consumer runs
    };
 
@@ -40,6 +40,7 @@ implementation{
    uint16_t accepted[MAX_CONNECTIONS]; // client: bytes transport accepted
    uint16_t consumed[MAX_CONNECTIONS]; // server: bytes read and checked
    uint16_t mismatches[MAX_CONNECTIONS]; // server: bytes that weren't k mod 256
+   bool consumerPaused = FALSE;
 
    event void Boot.booted(){
       // The link layer brings the radio up and neighbor discovery starts itself
@@ -184,7 +185,7 @@ implementation{
       for(id = 0; id < MAX_CONNECTIONS; id++){
 
          // ---- producer: byte k = k mod 256, only as fast as transport accepts ----
-         if(isClient[id] && accepted[id] < toSend[id] && !closeSent[id]){
+         if(isClient[id] && accepted[id] < toSend[id] && !closeSent[id]) {
             want = toSend[id] - accepted[id];
             if(want > TEST_CHUNK){
                want = TEST_CHUNK;
@@ -203,11 +204,11 @@ implementation{
          }
 
          // ---- consumer: read and check every byte ----
-         if(isServer[id]){
+         if(isServer[id] && !consumerPaused) { 
             got = call TCP.read(id, buf, TEST_CHUNK);
             if(got > 0){
                for(i = 0; i < got; i++){
-                  if(buf[i] != (uint8_t)((consumed[id] + i) % 256)){
+                  if(buf[i] != (uint8_t)((consumed[id] + i) % 256)) {
                      mismatches[id]++;
                   }
                }
@@ -217,6 +218,21 @@ implementation{
             }
          }
       }
+   }
+
+   // TEST ONLY: set a drop rule on this node's IP forwarding path
+   event void CommandHandler.setDropRule(uint16_t src, uint8_t flags, uint16_t value, uint8_t count){
+      call IP.setTestDrop(src, flags, value, count);
+   }
+
+   event void CommandHandler.pauseConsumer(){
+      consumerPaused = TRUE;
+      dbg(TRANSPORT_CHANNEL, "Test server: consumer PAUSED (received bytes stay in the buffer)\n");
+   }
+
+   event void CommandHandler.resumeConsumer(){
+      consumerPaused = FALSE;
+      dbg(TRANSPORT_CHANNEL, "Test server: consumer RESUMED\n");
    }
 
    event void CommandHandler.setAppServer(){}

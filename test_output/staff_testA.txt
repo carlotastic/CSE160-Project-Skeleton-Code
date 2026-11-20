@@ -1,0 +1,745 @@
+Creating Topo!
+Number of Motes 6
+  1   2   -54.0
+  2   1   -54.0
+  2   3   -54.0
+  3   2   -54.0
+  3   4   -54.0
+  4   3   -54.0
+  1   5   -54.0
+  5   1   -54.0
+  5   6   -54.0
+  6   5   -54.0
+  6   4   -54.0
+  4   6   -54.0
+  2   5   -54.0
+  5   2   -54.0
+Creating noise model for  1
+Creating noise model for  2
+Creating noise model for  3
+Creating noise model for  4
+Creating noise model for  5
+Creating noise model for  6
+Adding Channel command
+Adding Channel general
+Adding Channel transport
+0:0:0.000000133 DEBUG (1): Booted
+0:0:0.000000153 DEBUG (1): Radio On
+0:0:0.000000266 DEBUG (2): Booted
+0:0:0.000000286 DEBUG (2): Radio On
+0:0:0.000000399 DEBUG (3): Booted
+0:0:0.000000419 DEBUG (3): Radio On
+0:0:0.000000533 DEBUG (4): Booted
+0:0:0.000000553 DEBUG (4): Radio On
+0:0:0.000000666 DEBUG (5): Booted
+0:0:0.000000686 DEBUG (5): Radio On
+0:0:0.000000799 DEBUG (6): Booted
+0:0:0.000000819 DEBUG (6): Radio On
+0:15:12.841797438 DEBUG (1): A Command has been Issued.
+0:15:12.841797438 DEBUG (1): Command Type: Test Server
+0:15:12.841797438 DEBUG (1): Test server: listening on port 123
+0:15:12.841797438 DEBUG (1): conn=0 allocated
+0:15:12.841797438 DEBUG (1): conn=0 1:123->0:0 CLOSED -> LISTEN
+0:18:14.482422582 DEBUG (4): A Command has been Issued.
+0:18:14.482422582 DEBUG (4): Command Type: Test Client
+0:18:14.482422582 DEBUG (4): Test client: 4:10 -> 1:123, 1030 bytes
+0:18:14.482422582 DEBUG (4): conn=0 allocated
+0:18:14.482422582 DEBUG (4): conn=0 4:10->1:123 CLOSED -> SYN_SENT
+0:18:14.482422582 DEBUG (4): conn=0 4:10->1:123 TX SYN seq=100 ack=0 len=0 wnd=128
+0:18:15.035064933 DEBUG (1): RX SYN from 4:10 to port 123 seq=100 ack=0 len=0 wnd=128
+0:18:15.035064933 DEBUG (1): conn=1 allocated
+0:18:15.035064933 DEBUG (1): conn=1 1:123->4:10 CLOSED -> SYN_RCVD
+0:18:15.035064933 DEBUG (1): conn=1 1:123->4:10 TX SYN+ACK seq=500 ack=101 len=0 wnd=128
+0:18:15.518830141 DEBUG (4): RX SYN+ACK from 1:123 to port 10 seq=500 ack=101 len=0 wnd=128
+0:18:15.518830141 DEBUG (4): conn=0 4:10->1:123 SYN_SENT -> ESTABLISHED
+0:18:15.518830141 DEBUG (4): conn=0 4:10->1:123 TX ACK seq=101 ack=501 len=0 wnd=128
+0:18:15.518830141 DEBUG (4): Test client: conn=0 CONNECTED, sending 1030 bytes
+0:18:15.703125553 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=101 ack=501 len=11 wnd=128
+0:18:15.703125553 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=112 ack=501 len=11 wnd=128
+0:18:15.703125553 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=123 ack=501 len=11 wnd=128
+0:18:15.703125553 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=134 ack=501 len=11 wnd=128
+0:18:15.889084123 DEBUG (1): RX ACK from 4:10 to port 123 seq=101 ack=501 len=0 wnd=128
+0:18:15.889084123 DEBUG (1): conn=1 1:123->4:10 SYN_RCVD -> ESTABLISHED
+0:18:15.889084123 DEBUG (1): Test server: ACCEPTED conn=1
+0:18:16.059478984 DEBUG (1): RX DATA from 4:10 to port 123 seq=101 ack=501 len=11 wnd=128
+0:18:16.059478984 DEBUG (1): conn=1 DATA seq=101 len=11 accepted, stored=11
+0:18:16.059478984 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=112 len=0 wnd=117
+0:18:16.191406403 DEBUG (1): Test server: conn=1 read 11 bytes [0..10], total 11, mismatches 0
+0:18:16.269043201 DEBUG (1): RX DATA from 4:10 to port 123 seq=112 ack=501 len=11 wnd=128
+0:18:16.269043201 DEBUG (1): conn=1 DATA seq=112 len=11 accepted, stored=11
+0:18:16.269043201 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=123 len=0 wnd=117
+0:18:16.298401105 DEBUG (1): RX DATA from 4:10 to port 123 seq=123 ack=501 len=11 wnd=128
+0:18:16.298401105 DEBUG (1): conn=1 DATA seq=123 len=11 accepted, stored=22
+0:18:16.298401105 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=134 len=0 wnd=106
+0:18:16.351242824 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=112 len=0 wnd=117
+0:18:16.351242824 DEBUG (4): conn=0 ACK 112 accepted, in flight=33, peer wnd=117
+0:18:16.351242824 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=145 ack=501 len=11 wnd=128
+0:18:16.549255621 DEBUG (1): RX DATA from 4:10 to port 123 seq=134 ack=501 len=11 wnd=128
+0:18:16.549255621 DEBUG (1): conn=1 DATA seq=134 len=11 accepted, stored=33
+0:18:16.549255621 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=145 len=0 wnd=95
+0:18:16.622208397 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=123 len=0 wnd=117
+0:18:16.622208397 DEBUG (4): conn=0 ACK 123 accepted, in flight=33, peer wnd=117
+0:18:16.622208397 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=156 ack=501 len=11 wnd=128
+0:18:16.656693282 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=134 len=0 wnd=106
+0:18:16.656693282 DEBUG (4): conn=0 ACK 134 accepted, in flight=33, peer wnd=106
+0:18:16.656693282 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=167 ack=501 len=11 wnd=128
+0:18:16.679687653 DEBUG (1): Test server: conn=1 read 33 bytes [11..43], total 44, mismatches 0
+0:18:16.754303234 DEBUG (1): RX DATA from 4:10 to port 123 seq=145 ack=501 len=11 wnd=128
+0:18:16.754303234 DEBUG (1): conn=1 DATA seq=145 len=11 accepted, stored=11
+0:18:16.754303234 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=156 len=0 wnd=117
+0:18:16.898239933 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=145 len=0 wnd=95
+0:18:16.898239933 DEBUG (4): conn=0 ACK 145 accepted, in flight=33, peer wnd=95
+0:18:16.898239933 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=178 ack=501 len=11 wnd=128
+0:18:17.016403429 DEBUG (1): RX DATA from 4:10 to port 123 seq=156 ack=501 len=11 wnd=128
+0:18:17.016403429 DEBUG (1): conn=1 DATA seq=156 len=11 accepted, stored=22
+0:18:17.016403429 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=167 len=0 wnd=106
+0:18:17.167968903 DEBUG (1): Test server: conn=1 read 22 bytes [44..65], total 66, mismatches 0
+0:18:17.278748364 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=156 len=0 wnd=117
+0:18:17.278748364 DEBUG (4): conn=0 ACK 156 accepted, in flight=33, peer wnd=117
+0:18:17.278748364 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=189 ack=501 len=11 wnd=128
+0:18:17.362564354 DEBUG (1): RX DATA from 4:10 to port 123 seq=167 ack=501 len=11 wnd=128
+0:18:17.362564354 DEBUG (1): conn=1 DATA seq=167 len=11 accepted, stored=11
+0:18:17.362564354 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=178 len=0 wnd=117
+0:18:17.541168991 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=167 len=0 wnd=106
+0:18:17.541168991 DEBUG (4): conn=0 ACK 167 accepted, in flight=33, peer wnd=106
+0:18:17.541168991 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=200 ack=501 len=11 wnd=128
+0:18:17.562561275 DEBUG (1): RX DATA from 4:10 to port 123 seq=178 ack=501 len=11 wnd=128
+0:18:17.562561275 DEBUG (1): conn=1 DATA seq=178 len=11 accepted, stored=22
+0:18:17.562561275 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=189 len=0 wnd=106
+0:18:17.656250153 DEBUG (1): Test server: conn=1 read 22 bytes [66..87], total 88, mismatches 0
+0:18:17.691711693 DEBUG (1): RX DATA from 4:10 to port 123 seq=189 ack=501 len=11 wnd=128
+0:18:17.691711693 DEBUG (1): conn=1 DATA seq=189 len=11 accepted, stored=11
+0:18:17.691711693 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=200 len=0 wnd=117
+0:18:17.818420645 DEBUG (1): RX DATA from 4:10 to port 123 seq=200 ack=501 len=11 wnd=128
+0:18:17.818420645 DEBUG (1): conn=1 DATA seq=200 len=11 accepted, stored=22
+0:18:17.818420645 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=211 len=0 wnd=106
+0:18:17.885865025 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=178 len=0 wnd=117
+0:18:17.885865025 DEBUG (4): conn=0 ACK 178 accepted, in flight=33, peer wnd=117
+0:18:17.885865025 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=211 ack=501 len=11 wnd=128
+0:18:18.071747586 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=189 len=0 wnd=106
+0:18:18.071747586 DEBUG (4): conn=0 ACK 189 accepted, in flight=33, peer wnd=106
+0:18:18.071747586 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=222 ack=501 len=11 wnd=128
+0:18:18.144531403 DEBUG (1): Test server: conn=1 read 22 bytes [88..109], total 110, mismatches 0
+0:18:18.336487598 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=200 len=0 wnd=117
+0:18:18.336487598 DEBUG (4): conn=0 ACK 200 accepted, in flight=33, peer wnd=117
+0:18:18.336487598 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=233 ack=501 len=11 wnd=128
+0:18:18.419510153 DEBUG (1): RX DATA from 4:10 to port 123 seq=211 ack=501 len=11 wnd=128
+0:18:18.419510153 DEBUG (1): conn=1 DATA seq=211 len=11 accepted, stored=11
+0:18:18.419510153 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=222 len=0 wnd=117
+0:18:18.632812653 DEBUG (1): Test server: conn=1 read 11 bytes [110..120], total 121, mismatches 0
+0:18:18.674911745 DEBUG (1): RX DATA from 4:10 to port 123 seq=222 ack=501 len=11 wnd=128
+0:18:18.674911745 DEBUG (1): conn=1 DATA seq=222 len=11 accepted, stored=11
+0:18:18.674911745 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=233 len=0 wnd=117
+0:18:18.702499622 DEBUG (1): RX DATA from 4:10 to port 123 seq=233 ack=501 len=11 wnd=128
+0:18:18.702499622 DEBUG (1): conn=1 DATA seq=233 len=11 accepted, stored=22
+0:18:18.702499622 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=244 len=0 wnd=106
+0:18:18.881928263 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=222 len=0 wnd=117
+0:18:18.881928263 DEBUG (4): conn=0 ACK 222 accepted, in flight=22, peer wnd=117
+0:18:18.881928263 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=244 ack=501 len=11 wnd=128
+0:18:18.881928263 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=255 ack=501 len=11 wnd=128
+0:18:19.121093903 DEBUG (1): Test server: conn=1 read 22 bytes [121..142], total 143, mismatches 0
+0:18:19.136200745 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=233 len=0 wnd=117
+0:18:19.136200745 DEBUG (4): conn=0 ACK 233 accepted, in flight=33, peer wnd=117
+0:18:19.136200745 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=266 ack=501 len=11 wnd=128
+0:18:19.342453245 DEBUG (1): RX DATA from 4:10 to port 123 seq=244 ack=501 len=11 wnd=128
+0:18:19.342453245 DEBUG (1): conn=1 DATA seq=244 len=11 accepted, stored=11
+0:18:19.342453245 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=255 len=0 wnd=117
+0:18:19.357926209 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=244 len=0 wnd=106
+0:18:19.357926209 DEBUG (4): conn=0 ACK 244 accepted, in flight=33, peer wnd=106
+0:18:19.357926209 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=277 ack=501 len=11 wnd=128
+0:18:19.473694116 DEBUG (1): RX DATA from 4:10 to port 123 seq=255 ack=501 len=11 wnd=128
+0:18:19.473694116 DEBUG (1): conn=1 DATA seq=255 len=11 accepted, stored=22
+0:18:19.473694116 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=266 len=0 wnd=106
+0:18:19.609375153 DEBUG (1): Test server: conn=1 read 22 bytes [143..164], total 165, mismatches 0
+0:18:19.758178938 DEBUG (1): RX DATA from 4:10 to port 123 seq=266 ack=501 len=11 wnd=128
+0:18:19.758178938 DEBUG (1): conn=1 DATA seq=266 len=11 accepted, stored=11
+0:18:19.758178938 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=277 len=0 wnd=117
+0:18:19.784073111 DEBUG (1): RX DATA from 4:10 to port 123 seq=277 ack=501 len=11 wnd=128
+0:18:19.784073111 DEBUG (1): conn=1 DATA seq=277 len=11 accepted, stored=22
+0:18:19.784073111 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=288 len=0 wnd=106
+0:18:19.942490431 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=255 len=0 wnd=117
+0:18:19.942490431 DEBUG (4): conn=0 ACK 255 accepted, in flight=33, peer wnd=117
+0:18:19.942490431 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=288 ack=501 len=11 wnd=128
+0:18:20.097656403 DEBUG (1): Test server: conn=1 read 22 bytes [165..186], total 187, mismatches 0
+0:18:20.109864046 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=266 len=0 wnd=106
+0:18:20.109864046 DEBUG (4): conn=0 ACK 266 accepted, in flight=33, peer wnd=106
+0:18:20.109864046 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=299 ack=501 len=11 wnd=128
+0:18:20.376251981 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=277 len=0 wnd=117
+0:18:20.376251981 DEBUG (4): conn=0 ACK 277 accepted, in flight=33, peer wnd=117
+0:18:20.376251981 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=310 ack=501 len=11 wnd=128
+0:18:20.462982979 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=288 len=0 wnd=106
+0:18:20.462982979 DEBUG (4): conn=0 ACK 288 accepted, in flight=33, peer wnd=106
+0:18:20.462982979 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=321 ack=501 len=11 wnd=128
+0:18:20.493026969 DEBUG (1): RX DATA from 4:10 to port 123 seq=288 ack=501 len=11 wnd=128
+0:18:20.493026969 DEBUG (1): conn=1 DATA seq=288 len=11 accepted, stored=11
+0:18:20.493026969 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=299 len=0 wnd=117
+0:18:20.585937653 DEBUG (1): Test server: conn=1 read 11 bytes [187..197], total 198, mismatches 0
+0:18:20.648453005 DEBUG (1): RX DATA from 4:10 to port 123 seq=299 ack=501 len=11 wnd=128
+0:18:20.648453005 DEBUG (1): conn=1 DATA seq=299 len=11 accepted, stored=11
+0:18:20.648453005 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=310 len=0 wnd=117
+0:18:20.958328520 DEBUG (1): RX DATA from 4:10 to port 123 seq=310 ack=501 len=11 wnd=128
+0:18:20.958328520 DEBUG (1): conn=1 DATA seq=310 len=11 accepted, stored=22
+0:18:20.958328520 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=321 len=0 wnd=106
+0:18:20.971497385 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=299 len=0 wnd=117
+0:18:20.971497385 DEBUG (4): conn=0 ACK 299 accepted, in flight=33, peer wnd=117
+0:18:20.971497385 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=332 ack=501 len=11 wnd=128
+0:18:21.074218903 DEBUG (1): Test server: conn=1 read 22 bytes [198..219], total 220, mismatches 0
+0:18:21.111786155 DEBUG (1): RX DATA from 4:10 to port 123 seq=321 ack=501 len=11 wnd=128
+0:18:21.111786155 DEBUG (1): conn=1 DATA seq=321 len=11 accepted, stored=11
+0:18:21.111786155 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=332 len=0 wnd=117
+0:18:21.204972082 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=310 len=0 wnd=117
+0:18:21.204972082 DEBUG (4): conn=0 ACK 310 accepted, in flight=33, peer wnd=117
+0:18:21.204972082 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=343 ack=501 len=11 wnd=128
+0:18:21.391449732 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=321 len=0 wnd=106
+0:18:21.391449732 DEBUG (4): conn=0 ACK 321 accepted, in flight=33, peer wnd=106
+0:18:21.391449732 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=354 ack=501 len=11 wnd=128
+0:18:21.526398507 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=332 len=0 wnd=117
+0:18:21.526398507 DEBUG (4): conn=0 ACK 332 accepted, in flight=33, peer wnd=117
+0:18:21.526398507 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=365 ack=501 len=11 wnd=128
+0:18:21.529525996 DEBUG (1): RX DATA from 4:10 to port 123 seq=332 ack=501 len=11 wnd=128
+0:18:21.529525996 DEBUG (1): conn=1 DATA seq=332 len=11 accepted, stored=22
+0:18:21.529525996 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=343 len=0 wnd=106
+0:18:21.562500153 DEBUG (1): Test server: conn=1 read 22 bytes [220..241], total 242, mismatches 0
+0:18:21.618576288 DEBUG (1): RX DATA from 4:10 to port 123 seq=343 ack=501 len=11 wnd=128
+0:18:21.618576288 DEBUG (1): conn=1 DATA seq=343 len=11 accepted, stored=11
+0:18:21.618576288 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=354 len=0 wnd=117
+0:18:21.853882091 DEBUG (1): RX DATA from 4:10 to port 123 seq=354 ack=501 len=11 wnd=128
+0:18:21.853882091 DEBUG (1): conn=1 DATA seq=354 len=11 accepted, stored=22
+0:18:21.853882091 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=365 len=0 wnd=106
+0:18:21.932846847 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=343 len=0 wnd=106
+0:18:21.932846847 DEBUG (4): conn=0 ACK 343 accepted, in flight=33, peer wnd=106
+0:18:21.932846847 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=376 ack=501 len=11 wnd=128
+0:18:22.021775081 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=354 len=0 wnd=117
+0:18:22.021775081 DEBUG (4): conn=0 ACK 354 accepted, in flight=33, peer wnd=117
+0:18:22.021775081 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=387 ack=501 len=11 wnd=128
+0:18:22.050781403 DEBUG (1): Test server: conn=1 read 22 bytes [242..7], total 264, mismatches 0
+0:18:22.286881251 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=365 len=0 wnd=106
+0:18:22.286881251 DEBUG (4): conn=0 ACK 365 accepted, in flight=33, peer wnd=106
+0:18:22.286881251 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=398 ack=501 len=11 wnd=128
+0:18:22.568832669 DEBUG (1): RX DATA from 4:10 to port 123 seq=376 ack=501 len=11 wnd=128
+0:18:22.568832669 DEBUG (1): conn=1 DATA seq=376 but expected 365: discarding (duplicate or out of order)
+0:18:22.568832669 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=365 len=0 wnd=128
+0:18:22.927749886 DEBUG (1): RX DATA from 4:10 to port 123 seq=387 ack=501 len=11 wnd=128
+0:18:22.927749886 DEBUG (1): conn=1 DATA seq=387 but expected 365: discarding (duplicate or out of order)
+0:18:22.927749886 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=365 len=0 wnd=128
+0:18:22.952469145 DEBUG (1): RX DATA from 4:10 to port 123 seq=398 ack=501 len=11 wnd=128
+0:18:22.952469145 DEBUG (1): conn=1 DATA seq=398 but expected 365: discarding (duplicate or out of order)
+0:18:22.952469145 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=365 len=0 wnd=128
+0:18:22.976929511 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=365 len=0 wnd=128
+0:18:23.055390185 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=365 len=0 wnd=128
+0:18:23.306961849 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=365 len=0 wnd=128
+0:18:25.224609918 DEBUG (4): conn=0 TIMEOUT #1 in ESTABLISHED
+0:18:25.224609918 DEBUG (4): conn=0 resending from seq 365
+0:18:25.224609918 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=365 ack=501 len=11 wnd=128
+0:18:25.224609918 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=376 ack=501 len=11 wnd=128
+0:18:25.224609918 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=387 ack=501 len=11 wnd=128
+0:18:25.224609918 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=398 ack=501 len=11 wnd=128
+0:18:25.643844855 DEBUG (1): RX DATA from 4:10 to port 123 seq=365 ack=501 len=11 wnd=128
+0:18:25.643844855 DEBUG (1): conn=1 DATA seq=365 len=11 accepted, stored=11
+0:18:25.643844855 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=376 len=0 wnd=117
+0:18:25.685775990 DEBUG (1): RX DATA from 4:10 to port 123 seq=376 ack=501 len=11 wnd=128
+0:18:25.685775990 DEBUG (1): conn=1 DATA seq=376 len=11 accepted, stored=22
+0:18:25.685775990 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=387 len=0 wnd=106
+0:18:25.927658351 DEBUG (1): RX DATA from 4:10 to port 123 seq=387 ack=501 len=11 wnd=128
+0:18:25.927658351 DEBUG (1): conn=1 DATA seq=387 len=11 accepted, stored=33
+0:18:25.927658351 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=398 len=0 wnd=95
+0:18:25.957031403 DEBUG (1): Test server: conn=1 read 33 bytes [8..40], total 297, mismatches 0
+0:18:26.169052931 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=376 len=0 wnd=117
+0:18:26.169052931 DEBUG (4): conn=0 ACK 376 accepted, in flight=33, peer wnd=117
+0:18:26.169052931 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=409 ack=501 len=11 wnd=128
+0:18:26.214188405 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=387 len=0 wnd=106
+0:18:26.214188405 DEBUG (4): conn=0 ACK 387 accepted, in flight=33, peer wnd=106
+0:18:26.214188405 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=420 ack=501 len=11 wnd=128
+0:18:26.246277089 DEBUG (1): RX DATA from 4:10 to port 123 seq=398 ack=501 len=11 wnd=128
+0:18:26.246277089 DEBUG (1): conn=1 DATA seq=398 len=11 accepted, stored=11
+0:18:26.246277089 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=409 len=0 wnd=117
+0:18:26.445312653 DEBUG (1): Test server: conn=1 read 11 bytes [41..51], total 308, mismatches 0
+0:18:26.557098649 DEBUG (1): RX DATA from 4:10 to port 123 seq=409 ack=501 len=11 wnd=128
+0:18:26.557098649 DEBUG (1): conn=1 DATA seq=409 len=11 accepted, stored=11
+0:18:26.557098649 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=420 len=0 wnd=117
+0:18:26.607254809 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=398 len=0 wnd=95
+0:18:26.607254809 DEBUG (4): conn=0 ACK 398 accepted, in flight=33, peer wnd=95
+0:18:26.607254809 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=431 ack=501 len=11 wnd=128
+0:18:26.759018717 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=420 len=0 wnd=117
+0:18:26.759018717 DEBUG (4): conn=0 ACK 420 accepted, in flight=22, peer wnd=117
+0:18:26.759018717 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=442 ack=501 len=11 wnd=128
+0:18:26.759018717 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=453 ack=501 len=11 wnd=128
+0:18:26.769561997 DEBUG (1): RX DATA from 4:10 to port 123 seq=420 ack=501 len=11 wnd=128
+0:18:26.769561997 DEBUG (1): conn=1 DATA seq=420 len=11 accepted, stored=22
+0:18:26.769561997 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=431 len=0 wnd=106
+0:18:26.933593903 DEBUG (1): Test server: conn=1 read 22 bytes [52..73], total 330, mismatches 0
+0:18:27.191116604 DEBUG (1): RX DATA from 4:10 to port 123 seq=431 ack=501 len=11 wnd=128
+0:18:27.191116604 DEBUG (1): conn=1 DATA seq=431 len=11 accepted, stored=11
+0:18:27.191116604 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=442 len=0 wnd=117
+0:18:27.203736110 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=431 len=0 wnd=106
+0:18:27.203736110 DEBUG (4): conn=0 ACK 431 accepted, in flight=33, peer wnd=106
+0:18:27.203736110 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=464 ack=501 len=11 wnd=128
+0:18:27.225799800 DEBUG (1): RX DATA from 4:10 to port 123 seq=442 ack=501 len=11 wnd=128
+0:18:27.225799800 DEBUG (1): conn=1 DATA seq=442 len=11 accepted, stored=22
+0:18:27.225799800 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=453 len=0 wnd=106
+0:18:27.421875153 DEBUG (1): Test server: conn=1 read 22 bytes [74..95], total 352, mismatches 0
+0:18:27.521835554 DEBUG (1): RX DATA from 4:10 to port 123 seq=453 ack=501 len=11 wnd=128
+0:18:27.521835554 DEBUG (1): conn=1 DATA seq=453 len=11 accepted, stored=11
+0:18:27.521835554 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=464 len=0 wnd=117
+0:18:27.670471996 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=442 len=0 wnd=117
+0:18:27.670471996 DEBUG (4): conn=0 ACK 442 accepted, in flight=33, peer wnd=117
+0:18:27.670471996 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=475 ack=501 len=11 wnd=128
+0:18:27.736130541 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=453 len=0 wnd=106
+0:18:27.736130541 DEBUG (4): conn=0 ACK 453 accepted, in flight=33, peer wnd=106
+0:18:27.736130541 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=486 ack=501 len=11 wnd=128
+0:18:27.743484770 DEBUG (1): RX DATA from 4:10 to port 123 seq=464 ack=501 len=11 wnd=128
+0:18:27.743484770 DEBUG (1): conn=1 DATA seq=464 len=11 accepted, stored=22
+0:18:27.743484770 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=475 len=0 wnd=106
+0:18:27.910156403 DEBUG (1): Test server: conn=1 read 22 bytes [96..117], total 374, mismatches 0
+0:18:27.912491100 DEBUG (1): RX DATA from 4:10 to port 123 seq=475 ack=501 len=11 wnd=128
+0:18:27.912491100 DEBUG (1): conn=1 DATA seq=475 len=11 accepted, stored=11
+0:18:27.912491100 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=486 len=0 wnd=117
+0:18:27.913025659 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=464 len=0 wnd=117
+0:18:27.913025659 DEBUG (4): conn=0 ACK 464 accepted, in flight=33, peer wnd=117
+0:18:27.913025659 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=497 ack=501 len=11 wnd=128
+0:18:28.200943241 DEBUG (1): RX DATA from 4:10 to port 123 seq=486 ack=501 len=11 wnd=128
+0:18:28.200943241 DEBUG (1): conn=1 DATA seq=486 len=11 accepted, stored=22
+0:18:28.200943241 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=106
+0:18:28.206757373 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=475 len=0 wnd=106
+0:18:28.206757373 DEBUG (4): conn=0 ACK 475 accepted, in flight=33, peer wnd=106
+0:18:28.206757373 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=508 ack=501 len=11 wnd=128
+0:18:28.398437653 DEBUG (1): Test server: conn=1 read 22 bytes [118..139], total 396, mismatches 0
+0:18:28.451874572 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=486 len=0 wnd=117
+0:18:28.451874572 DEBUG (4): conn=0 ACK 486 accepted, in flight=33, peer wnd=117
+0:18:28.451874572 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=519 ack=501 len=11 wnd=128
+0:18:28.619293986 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=106
+0:18:28.619293986 DEBUG (4): conn=0 ACK 497 accepted, in flight=33, peer wnd=106
+0:18:28.619293986 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=530 ack=501 len=11 wnd=128
+0:18:28.682083351 DEBUG (1): RX DATA from 4:10 to port 123 seq=508 ack=501 len=11 wnd=128
+0:18:28.682083351 DEBUG (1): conn=1 DATA seq=508 but expected 497: discarding (duplicate or out of order)
+0:18:28.682083351 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:28.754120118 DEBUG (1): RX DATA from 4:10 to port 123 seq=519 ack=501 len=11 wnd=128
+0:18:28.754120118 DEBUG (1): conn=1 DATA seq=519 but expected 497: discarding (duplicate or out of order)
+0:18:28.754120118 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:29.028869861 DEBUG (1): RX DATA from 4:10 to port 123 seq=530 ack=501 len=11 wnd=128
+0:18:29.028869861 DEBUG (1): conn=1 DATA seq=530 but expected 497: discarding (duplicate or out of order)
+0:18:29.028869861 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:29.059647414 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:29.341477227 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:29.575074017 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:31.572266168 DEBUG (4): conn=0 TIMEOUT #1 in ESTABLISHED
+0:18:31.572266168 DEBUG (4): conn=0 resending from seq 497
+0:18:31.572266168 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=497 ack=501 len=11 wnd=128
+0:18:31.572266168 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=508 ack=501 len=11 wnd=128
+0:18:31.572266168 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=519 ack=501 len=11 wnd=128
+0:18:31.572266168 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=530 ack=501 len=11 wnd=128
+0:18:32.105484272 DEBUG (1): RX DATA from 4:10 to port 123 seq=508 ack=501 len=11 wnd=128
+0:18:32.105484272 DEBUG (1): conn=1 DATA seq=508 but expected 497: discarding (duplicate or out of order)
+0:18:32.105484272 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:32.346542594 DEBUG (1): RX DATA from 4:10 to port 123 seq=519 ack=501 len=11 wnd=128
+0:18:32.346542594 DEBUG (1): conn=1 DATA seq=519 but expected 497: discarding (duplicate or out of order)
+0:18:32.346542594 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:32.526687878 DEBUG (1): RX DATA from 4:10 to port 123 seq=530 ack=501 len=11 wnd=128
+0:18:32.526687878 DEBUG (1): conn=1 DATA seq=530 but expected 497: discarding (duplicate or out of order)
+0:18:32.526687878 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=497 len=0 wnd=128
+0:18:32.602112581 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:32.742798656 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:33.008286322 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=497 len=0 wnd=128
+0:18:34.501953668 DEBUG (4): conn=0 TIMEOUT #1 in ESTABLISHED
+0:18:34.501953668 DEBUG (4): conn=0 resending from seq 497
+0:18:34.501953668 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=497 ack=501 len=11 wnd=128
+0:18:34.501953668 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=508 ack=501 len=11 wnd=128
+0:18:34.501953668 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=519 ack=501 len=11 wnd=128
+0:18:34.501953668 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=530 ack=501 len=11 wnd=128
+0:18:35.252426408 DEBUG (1): RX DATA from 4:10 to port 123 seq=497 ack=501 len=11 wnd=128
+0:18:35.252426408 DEBUG (1): conn=1 DATA seq=497 len=11 accepted, stored=11
+0:18:35.252426408 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=508 len=0 wnd=117
+0:18:35.308822871 DEBUG (1): RX DATA from 4:10 to port 123 seq=508 ack=501 len=11 wnd=128
+0:18:35.308822871 DEBUG (1): conn=1 DATA seq=508 len=11 accepted, stored=22
+0:18:35.308822871 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=519 len=0 wnd=106
+0:18:35.650055168 DEBUG (1): RX DATA from 4:10 to port 123 seq=519 ack=501 len=11 wnd=128
+0:18:35.650055168 DEBUG (1): conn=1 DATA seq=519 len=11 accepted, stored=33
+0:18:35.650055168 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=530 len=0 wnd=95
+0:18:35.722656403 DEBUG (1): Test server: conn=1 read 33 bytes [140..172], total 429, mismatches 0
+0:18:35.756256376 DEBUG (1): RX DATA from 4:10 to port 123 seq=530 ack=501 len=11 wnd=128
+0:18:35.756256376 DEBUG (1): conn=1 DATA seq=530 len=11 accepted, stored=11
+0:18:35.756256376 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=541 len=0 wnd=117
+0:18:35.807022872 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=508 len=0 wnd=117
+0:18:35.807022872 DEBUG (4): conn=0 ACK 508 accepted, in flight=33, peer wnd=117
+0:18:35.807022872 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=541 ack=501 len=11 wnd=128
+0:18:35.818589052 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=519 len=0 wnd=106
+0:18:35.818589052 DEBUG (4): conn=0 ACK 519 accepted, in flight=33, peer wnd=106
+0:18:35.818589052 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=552 ack=501 len=11 wnd=128
+0:18:36.078339418 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=530 len=0 wnd=95
+0:18:36.078339418 DEBUG (4): conn=0 ACK 530 accepted, in flight=33, peer wnd=95
+0:18:36.078339418 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=563 ack=501 len=11 wnd=128
+0:18:36.101654837 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=541 len=0 wnd=117
+0:18:36.101654837 DEBUG (4): conn=0 ACK 541 accepted, in flight=33, peer wnd=117
+0:18:36.101654837 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=574 ack=501 len=11 wnd=128
+0:18:36.210937653 DEBUG (1): Test server: conn=1 read 11 bytes [173..183], total 440, mismatches 0
+0:18:36.321151975 DEBUG (1): RX DATA from 4:10 to port 123 seq=541 ack=501 len=11 wnd=128
+0:18:36.321151975 DEBUG (1): conn=1 DATA seq=541 len=11 accepted, stored=11
+0:18:36.321151975 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=552 len=0 wnd=117
+0:18:36.437118756 DEBUG (1): RX DATA from 4:10 to port 123 seq=552 ack=501 len=11 wnd=128
+0:18:36.437118756 DEBUG (1): conn=1 DATA seq=552 len=11 accepted, stored=22
+0:18:36.437118756 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=563 len=0 wnd=106
+0:18:36.699218903 DEBUG (1): Test server: conn=1 read 22 bytes [184..205], total 462, mismatches 0
+0:18:36.745362095 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=552 len=0 wnd=117
+0:18:36.745362095 DEBUG (4): conn=0 ACK 552 accepted, in flight=33, peer wnd=117
+0:18:36.745362095 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=585 ack=501 len=11 wnd=128
+0:18:36.892105890 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=563 len=0 wnd=106
+0:18:36.892105890 DEBUG (4): conn=0 ACK 563 accepted, in flight=33, peer wnd=106
+0:18:36.892105890 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=596 ack=501 len=11 wnd=128
+0:18:36.962585703 DEBUG (1): RX DATA from 4:10 to port 123 seq=563 ack=501 len=11 wnd=128
+0:18:36.962585703 DEBUG (1): conn=1 DATA seq=563 len=11 accepted, stored=11
+0:18:36.962585703 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=574 len=0 wnd=117
+0:18:37.026932006 DEBUG (1): RX DATA from 4:10 to port 123 seq=574 ack=501 len=11 wnd=128
+0:18:37.026932006 DEBUG (1): conn=1 DATA seq=574 len=11 accepted, stored=22
+0:18:37.026932006 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=585 len=0 wnd=106
+0:18:37.185745467 DEBUG (1): RX DATA from 4:10 to port 123 seq=585 ack=501 len=11 wnd=128
+0:18:37.185745467 DEBUG (1): conn=1 DATA seq=585 len=11 accepted, stored=33
+0:18:37.185745467 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=596 len=0 wnd=95
+0:18:37.187500153 DEBUG (1): Test server: conn=1 read 33 bytes [206..238], total 495, mismatches 0
+0:18:37.374390454 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=574 len=0 wnd=117
+0:18:37.374390454 DEBUG (4): conn=0 ACK 574 accepted, in flight=33, peer wnd=117
+0:18:37.374390454 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=607 ack=501 len=11 wnd=128
+0:18:37.440094248 DEBUG (1): RX DATA from 4:10 to port 123 seq=596 ack=501 len=11 wnd=128
+0:18:37.440094248 DEBUG (1): conn=1 DATA seq=596 len=11 accepted, stored=11
+0:18:37.440094248 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=607 len=0 wnd=117
+0:18:37.479340380 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=585 len=0 wnd=106
+0:18:37.479340380 DEBUG (4): conn=0 ACK 585 accepted, in flight=33, peer wnd=106
+0:18:37.479340380 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=618 ack=501 len=11 wnd=128
+0:18:37.675781403 DEBUG (1): Test server: conn=1 read 11 bytes [239..249], total 506, mismatches 0
+0:18:37.679489916 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=596 len=0 wnd=95
+0:18:37.679489916 DEBUG (4): conn=0 ACK 596 accepted, in flight=33, peer wnd=95
+0:18:37.679489916 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=629 ack=501 len=11 wnd=128
+0:18:37.725921898 DEBUG (1): RX DATA from 4:10 to port 123 seq=607 ack=501 len=11 wnd=128
+0:18:37.725921898 DEBUG (1): conn=1 DATA seq=607 len=11 accepted, stored=11
+0:18:37.725921898 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=618 len=0 wnd=117
+0:18:37.892349468 DEBUG (1): RX DATA from 4:10 to port 123 seq=618 ack=501 len=11 wnd=128
+0:18:37.892349468 DEBUG (1): conn=1 DATA seq=618 len=11 accepted, stored=22
+0:18:37.892349468 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=629 len=0 wnd=106
+0:18:37.939087701 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=607 len=0 wnd=117
+0:18:37.939087701 DEBUG (4): conn=0 ACK 607 accepted, in flight=33, peer wnd=117
+0:18:37.939087701 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=640 ack=501 len=11 wnd=128
+0:18:38.151916764 DEBUG (1): RX DATA from 4:10 to port 123 seq=629 ack=501 len=11 wnd=128
+0:18:38.151916764 DEBUG (1): conn=1 DATA seq=629 len=11 accepted, stored=33
+0:18:38.151916764 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=640 len=0 wnd=95
+0:18:38.164062653 DEBUG (1): Test server: conn=1 read 33 bytes [250..26], total 539, mismatches 0
+0:18:38.232651558 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=618 len=0 wnd=117
+0:18:38.232651558 DEBUG (4): conn=0 ACK 618 accepted, in flight=33, peer wnd=117
+0:18:38.232651558 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=651 ack=501 len=11 wnd=128
+0:18:38.437836488 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=629 len=0 wnd=106
+0:18:38.437836488 DEBUG (4): conn=0 ACK 629 accepted, in flight=33, peer wnd=106
+0:18:38.437836488 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=662 ack=501 len=11 wnd=128
+0:18:38.455033106 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=640 len=0 wnd=95
+0:18:38.455033106 DEBUG (4): conn=0 ACK 640 accepted, in flight=33, peer wnd=95
+0:18:38.455033106 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=673 ack=501 len=11 wnd=128
+0:18:38.620804098 DEBUG (1): RX DATA from 4:10 to port 123 seq=640 ack=501 len=11 wnd=128
+0:18:38.620804098 DEBUG (1): conn=1 DATA seq=640 len=11 accepted, stored=11
+0:18:38.620804098 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=651 len=0 wnd=117
+0:18:38.652343903 DEBUG (1): Test server: conn=1 read 11 bytes [27..37], total 550, mismatches 0
+0:18:38.763275384 DEBUG (1): RX DATA from 4:10 to port 123 seq=651 ack=501 len=11 wnd=128
+0:18:38.763275384 DEBUG (1): conn=1 DATA seq=651 len=11 accepted, stored=11
+0:18:38.763275384 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=662 len=0 wnd=117
+0:18:38.937348170 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=651 len=0 wnd=117
+0:18:38.937348170 DEBUG (4): conn=0 ACK 651 accepted, in flight=33, peer wnd=117
+0:18:38.937348170 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=684 ack=501 len=11 wnd=128
+0:18:39.031463891 DEBUG (1): RX DATA from 4:10 to port 123 seq=662 ack=501 len=11 wnd=128
+0:18:39.031463891 DEBUG (1): conn=1 DATA seq=662 len=11 accepted, stored=22
+0:18:39.031463891 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=673 len=0 wnd=106
+0:18:39.070480598 DEBUG (1): RX DATA from 4:10 to port 123 seq=673 ack=501 len=11 wnd=128
+0:18:39.070480598 DEBUG (1): conn=1 DATA seq=673 len=11 accepted, stored=33
+0:18:39.070480598 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=684 len=0 wnd=95
+0:18:39.128647626 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=662 len=0 wnd=117
+0:18:39.128647626 DEBUG (4): conn=0 ACK 662 accepted, in flight=33, peer wnd=117
+0:18:39.128647626 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=695 ack=501 len=11 wnd=128
+0:18:39.140625153 DEBUG (1): Test server: conn=1 read 33 bytes [38..70], total 583, mismatches 0
+0:18:39.255188760 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=673 len=0 wnd=106
+0:18:39.255188760 DEBUG (4): conn=0 ACK 673 accepted, in flight=33, peer wnd=106
+0:18:39.255188760 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=706 ack=501 len=11 wnd=128
+0:18:39.415085629 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=684 len=0 wnd=95
+0:18:39.415085629 DEBUG (4): conn=0 ACK 684 accepted, in flight=33, peer wnd=95
+0:18:39.415085629 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=717 ack=501 len=11 wnd=128
+0:18:39.525909656 DEBUG (1): RX DATA from 4:10 to port 123 seq=684 ack=501 len=11 wnd=128
+0:18:39.525909656 DEBUG (1): conn=1 DATA seq=684 len=11 accepted, stored=11
+0:18:39.525909656 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=695 len=0 wnd=117
+0:18:39.602981794 DEBUG (1): RX DATA from 4:10 to port 123 seq=695 ack=501 len=11 wnd=128
+0:18:39.602981794 DEBUG (1): conn=1 DATA seq=695 len=11 accepted, stored=22
+0:18:39.602981794 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=706 len=0 wnd=106
+0:18:39.628906403 DEBUG (1): Test server: conn=1 read 22 bytes [71..92], total 605, mismatches 0
+0:18:39.734817766 DEBUG (1): RX DATA from 4:10 to port 123 seq=706 ack=501 len=11 wnd=128
+0:18:39.734817766 DEBUG (1): conn=1 DATA seq=706 len=11 accepted, stored=11
+0:18:39.734817766 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=717 len=0 wnd=117
+0:18:39.939865362 DEBUG (1): RX DATA from 4:10 to port 123 seq=717 ack=501 len=11 wnd=128
+0:18:39.939865362 DEBUG (1): conn=1 DATA seq=717 len=11 accepted, stored=22
+0:18:39.939865362 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=728 len=0 wnd=106
+0:18:40.032257871 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=695 len=0 wnd=117
+0:18:40.032257871 DEBUG (4): conn=0 ACK 695 accepted, in flight=33, peer wnd=117
+0:18:40.032257871 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=728 ack=501 len=11 wnd=128
+0:18:40.096817772 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=706 len=0 wnd=106
+0:18:40.096817772 DEBUG (4): conn=0 ACK 706 accepted, in flight=33, peer wnd=106
+0:18:40.096817772 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=739 ack=501 len=11 wnd=128
+0:18:40.117187653 DEBUG (1): Test server: conn=1 read 22 bytes [93..114], total 627, mismatches 0
+0:18:40.215836368 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=717 len=0 wnd=117
+0:18:40.215836368 DEBUG (4): conn=0 ACK 717 accepted, in flight=33, peer wnd=117
+0:18:40.215836368 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=750 ack=501 len=11 wnd=128
+0:18:40.528366891 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=728 len=0 wnd=106
+0:18:40.528366891 DEBUG (4): conn=0 ACK 728 accepted, in flight=33, peer wnd=106
+0:18:40.528366891 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=761 ack=501 len=11 wnd=128
+0:18:40.713073970 DEBUG (1): RX DATA from 4:10 to port 123 seq=728 ack=501 len=11 wnd=128
+0:18:40.713073970 DEBUG (1): conn=1 DATA seq=728 len=11 accepted, stored=11
+0:18:40.713073970 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=739 len=0 wnd=117
+0:18:40.763061790 DEBUG (1): RX DATA from 4:10 to port 123 seq=739 ack=501 len=11 wnd=128
+0:18:40.763061790 DEBUG (1): conn=1 DATA seq=739 len=11 accepted, stored=22
+0:18:40.763061790 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=750 len=0 wnd=106
+0:18:40.923935171 DEBUG (1): RX DATA from 4:10 to port 123 seq=750 ack=501 len=11 wnd=128
+0:18:40.923935171 DEBUG (1): conn=1 DATA seq=750 len=11 accepted, stored=33
+0:18:40.923935171 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=761 len=0 wnd=95
+0:18:41.093750153 DEBUG (1): Test server: conn=1 read 33 bytes [115..147], total 660, mismatches 0
+0:18:41.181855015 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=739 len=0 wnd=117
+0:18:41.181855015 DEBUG (4): conn=0 ACK 739 accepted, in flight=33, peer wnd=117
+0:18:41.181855015 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=772 ack=501 len=11 wnd=128
+0:18:41.212250000 DEBUG (1): RX DATA from 4:10 to port 123 seq=761 ack=501 len=11 wnd=128
+0:18:41.212250000 DEBUG (1): conn=1 DATA seq=761 len=11 accepted, stored=11
+0:18:41.212250000 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=772 len=0 wnd=117
+0:18:41.234986145 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=750 len=0 wnd=106
+0:18:41.234986145 DEBUG (4): conn=0 ACK 750 accepted, in flight=33, peer wnd=106
+0:18:41.234986145 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=783 ack=501 len=11 wnd=128
+0:18:41.393296046 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=761 len=0 wnd=95
+0:18:41.393296046 DEBUG (4): conn=0 ACK 761 accepted, in flight=33, peer wnd=95
+0:18:41.393296046 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=794 ack=501 len=11 wnd=128
+0:18:41.528366358 DEBUG (1): RX DATA from 4:10 to port 123 seq=772 ack=501 len=11 wnd=128
+0:18:41.528366358 DEBUG (1): conn=1 DATA seq=772 len=11 accepted, stored=22
+0:18:41.528366358 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=783 len=0 wnd=106
+0:18:41.546051832 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=772 len=0 wnd=117
+0:18:41.546051832 DEBUG (4): conn=0 ACK 772 accepted, in flight=33, peer wnd=117
+0:18:41.546051832 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=805 ack=501 len=11 wnd=128
+0:18:41.582031403 DEBUG (1): Test server: conn=1 read 22 bytes [148..169], total 682, mismatches 0
+0:18:41.583420027 DEBUG (1): RX DATA from 4:10 to port 123 seq=783 ack=501 len=11 wnd=128
+0:18:41.583420027 DEBUG (1): conn=1 DATA seq=783 len=11 accepted, stored=11
+0:18:41.583420027 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=794 len=0 wnd=117
+0:18:41.831192285 DEBUG (1): RX DATA from 4:10 to port 123 seq=794 ack=501 len=11 wnd=128
+0:18:41.831192285 DEBUG (1): conn=1 DATA seq=794 len=11 accepted, stored=22
+0:18:41.831192285 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=805 len=0 wnd=106
+0:18:42.070312653 DEBUG (1): Test server: conn=1 read 22 bytes [170..191], total 704, mismatches 0
+0:18:42.194565093 DEBUG (1): RX DATA from 4:10 to port 123 seq=805 ack=501 len=11 wnd=128
+0:18:42.194565093 DEBUG (1): conn=1 DATA seq=805 len=11 accepted, stored=11
+0:18:42.194565093 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=816 len=0 wnd=117
+0:18:42.247315225 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=783 len=0 wnd=106
+0:18:42.247315225 DEBUG (4): conn=0 ACK 783 accepted, in flight=33, peer wnd=106
+0:18:42.247315225 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=816 ack=501 len=11 wnd=128
+0:18:42.340912633 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=794 len=0 wnd=117
+0:18:42.340912633 DEBUG (4): conn=0 ACK 794 accepted, in flight=33, peer wnd=117
+0:18:42.340912633 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=827 ack=501 len=11 wnd=128
+0:18:42.479172534 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=805 len=0 wnd=106
+0:18:42.479172534 DEBUG (4): conn=0 ACK 805 accepted, in flight=33, peer wnd=106
+0:18:42.479172534 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=838 ack=501 len=11 wnd=128
+0:18:42.558593903 DEBUG (1): Test server: conn=1 read 11 bytes [192..202], total 715, mismatches 0
+0:18:42.683349834 DEBUG (1): RX DATA from 4:10 to port 123 seq=816 ack=501 len=11 wnd=128
+0:18:42.683349834 DEBUG (1): conn=1 DATA seq=816 len=11 accepted, stored=11
+0:18:42.683349834 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=827 len=0 wnd=117
+0:18:42.721268493 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=816 len=0 wnd=117
+0:18:42.721268493 DEBUG (4): conn=0 ACK 816 accepted, in flight=33, peer wnd=117
+0:18:42.721268493 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=849 ack=501 len=11 wnd=128
+0:18:42.929764057 DEBUG (1): RX DATA from 4:10 to port 123 seq=827 ack=501 len=11 wnd=128
+0:18:42.929764057 DEBUG (1): conn=1 DATA seq=827 len=11 accepted, stored=22
+0:18:42.929764057 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=838 len=0 wnd=106
+0:18:42.972077199 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=827 len=0 wnd=117
+0:18:42.972077199 DEBUG (4): conn=0 ACK 827 accepted, in flight=33, peer wnd=117
+0:18:42.972077199 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=860 ack=501 len=11 wnd=128
+0:18:43.046875153 DEBUG (1): Test server: conn=1 read 22 bytes [203..224], total 737, mismatches 0
+0:18:43.129715230 DEBUG (1): RX DATA from 4:10 to port 123 seq=838 ack=501 len=11 wnd=128
+0:18:43.129715230 DEBUG (1): conn=1 DATA seq=838 len=11 accepted, stored=11
+0:18:43.129715230 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=849 len=0 wnd=117
+0:18:43.310501890 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=838 len=0 wnd=106
+0:18:43.310501890 DEBUG (4): conn=0 ACK 838 accepted, in flight=33, peer wnd=106
+0:18:43.310501890 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=871 ack=501 len=11 wnd=128
+0:18:43.399368510 DEBUG (1): RX DATA from 4:10 to port 123 seq=849 ack=501 len=11 wnd=128
+0:18:43.399368510 DEBUG (1): conn=1 DATA seq=849 len=11 accepted, stored=22
+0:18:43.399368510 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=860 len=0 wnd=106
+0:18:43.416504172 DEBUG (1): RX DATA from 4:10 to port 123 seq=860 ack=501 len=11 wnd=128
+0:18:43.416504172 DEBUG (1): conn=1 DATA seq=860 len=11 accepted, stored=33
+0:18:43.416504172 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=871 len=0 wnd=95
+0:18:43.535156403 DEBUG (1): Test server: conn=1 read 33 bytes [225..1], total 770, mismatches 0
+0:18:43.748123965 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=849 len=0 wnd=117
+0:18:43.748123965 DEBUG (4): conn=0 ACK 849 accepted, in flight=33, peer wnd=117
+0:18:43.748123965 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=882 ack=501 len=11 wnd=128
+0:18:43.837204763 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=860 len=0 wnd=106
+0:18:43.837204763 DEBUG (4): conn=0 ACK 860 accepted, in flight=33, peer wnd=106
+0:18:43.837204763 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=893 ack=501 len=11 wnd=128
+0:18:43.866745255 DEBUG (1): RX DATA from 4:10 to port 123 seq=871 ack=501 len=11 wnd=128
+0:18:43.866745255 DEBUG (1): conn=1 DATA seq=871 len=11 accepted, stored=11
+0:18:43.866745255 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=882 len=0 wnd=117
+0:18:43.879441090 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=871 len=0 wnd=95
+0:18:43.879441090 DEBUG (4): conn=0 ACK 871 accepted, in flight=33, peer wnd=95
+0:18:43.879441090 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=904 ack=501 len=11 wnd=128
+0:18:44.023437653 DEBUG (1): Test server: conn=1 read 11 bytes [2..12], total 781, mismatches 0
+0:18:44.418259422 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=882 len=0 wnd=117
+0:18:44.418259422 DEBUG (4): conn=0 ACK 882 accepted, in flight=33, peer wnd=117
+0:18:44.418259422 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=915 ack=501 len=11 wnd=128
+0:18:44.438904052 DEBUG (1): RX DATA from 4:10 to port 123 seq=882 ack=501 len=11 wnd=128
+0:18:44.438904052 DEBUG (1): conn=1 DATA seq=882 len=11 accepted, stored=11
+0:18:44.438904052 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=893 len=0 wnd=117
+0:18:44.503021480 DEBUG (1): RX DATA from 4:10 to port 123 seq=893 ack=501 len=11 wnd=128
+0:18:44.503021480 DEBUG (1): conn=1 DATA seq=893 len=11 accepted, stored=22
+0:18:44.503021480 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=904 len=0 wnd=106
+0:18:44.511718903 DEBUG (1): Test server: conn=1 read 22 bytes [13..34], total 803, mismatches 0
+0:18:44.606125103 DEBUG (1): RX DATA from 4:10 to port 123 seq=904 ack=501 len=11 wnd=128
+0:18:44.606125103 DEBUG (1): conn=1 DATA seq=904 len=11 accepted, stored=11
+0:18:44.606125103 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=915 len=0 wnd=117
+0:18:44.711960618 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=893 len=0 wnd=117
+0:18:44.711960618 DEBUG (4): conn=0 ACK 893 accepted, in flight=33, peer wnd=117
+0:18:44.711960618 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=926 ack=501 len=11 wnd=128
+0:18:44.719085949 DEBUG (1): RX DATA from 4:10 to port 123 seq=915 ack=501 len=11 wnd=128
+0:18:44.719085949 DEBUG (1): conn=1 DATA seq=915 len=11 accepted, stored=22
+0:18:44.719085949 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=926 len=0 wnd=106
+0:18:45.000000153 DEBUG (1): Test server: conn=1 read 22 bytes [35..56], total 825, mismatches 0
+0:18:45.161941770 DEBUG (1): RX DATA from 4:10 to port 123 seq=926 ack=501 len=11 wnd=128
+0:18:45.161941770 DEBUG (1): conn=1 DATA seq=926 len=11 accepted, stored=11
+0:18:45.161941770 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=937 len=0 wnd=117
+0:18:45.400360870 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=904 len=0 wnd=106
+0:18:45.400360870 DEBUG (4): conn=0 ACK 904 accepted, in flight=33, peer wnd=106
+0:18:45.400360870 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=937 ack=501 len=11 wnd=128
+0:18:45.488281403 DEBUG (1): Test server: conn=1 read 11 bytes [57..67], total 836, mismatches 0
+0:18:45.643372374 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=915 len=0 wnd=117
+0:18:45.643372374 DEBUG (4): conn=0 ACK 915 accepted, in flight=33, peer wnd=117
+0:18:45.643372374 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=948 ack=501 len=11 wnd=128
+0:18:45.773590844 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=926 len=0 wnd=106
+0:18:45.773590844 DEBUG (4): conn=0 ACK 926 accepted, in flight=33, peer wnd=106
+0:18:45.773590844 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=959 ack=501 len=11 wnd=128
+0:18:45.928360234 DEBUG (1): RX DATA from 4:10 to port 123 seq=937 ack=501 len=11 wnd=128
+0:18:45.928360234 DEBUG (1): conn=1 DATA seq=937 len=11 accepted, stored=11
+0:18:45.928360234 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=948 len=0 wnd=117
+0:18:45.976562653 DEBUG (1): Test server: conn=1 read 11 bytes [68..78], total 847, mismatches 0
+0:18:46.062836459 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=937 len=0 wnd=117
+0:18:46.062836459 DEBUG (4): conn=0 ACK 937 accepted, in flight=33, peer wnd=117
+0:18:46.062836459 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=970 ack=501 len=11 wnd=128
+0:18:46.176223999 DEBUG (1): RX DATA from 4:10 to port 123 seq=948 ack=501 len=11 wnd=128
+0:18:46.176223999 DEBUG (1): conn=1 DATA seq=948 len=11 accepted, stored=11
+0:18:46.176223999 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=959 len=0 wnd=117
+0:18:46.464843903 DEBUG (1): Test server: conn=1 read 11 bytes [79..89], total 858, mismatches 0
+0:18:46.468307727 DEBUG (1): RX DATA from 4:10 to port 123 seq=959 ack=501 len=11 wnd=128
+0:18:46.468307727 DEBUG (1): conn=1 DATA seq=959 len=11 accepted, stored=11
+0:18:46.468307727 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=970 len=0 wnd=117
+0:18:46.595443956 DEBUG (1): RX DATA from 4:10 to port 123 seq=970 ack=501 len=11 wnd=128
+0:18:46.595443956 DEBUG (1): conn=1 DATA seq=970 len=11 accepted, stored=22
+0:18:46.595443956 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=981 len=0 wnd=106
+0:18:46.724518579 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=948 len=0 wnd=117
+0:18:46.724518579 DEBUG (4): conn=0 ACK 948 accepted, in flight=33, peer wnd=117
+0:18:46.724518579 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=981 ack=501 len=11 wnd=128
+0:18:46.832428733 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=959 len=0 wnd=117
+0:18:46.832428733 DEBUG (4): conn=0 ACK 959 accepted, in flight=33, peer wnd=117
+0:18:46.832428733 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=992 ack=501 len=11 wnd=128
+0:18:46.847855415 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=970 len=0 wnd=117
+0:18:46.847855415 DEBUG (4): conn=0 ACK 970 accepted, in flight=33, peer wnd=117
+0:18:46.847855415 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1003 ack=501 len=11 wnd=128
+0:18:46.953125153 DEBUG (1): Test server: conn=1 read 22 bytes [90..111], total 880, mismatches 0
+0:18:47.078628778 DEBUG (1): RX DATA from 4:10 to port 123 seq=981 ack=501 len=11 wnd=128
+0:18:47.078628778 DEBUG (1): conn=1 DATA seq=981 len=11 accepted, stored=11
+0:18:47.078628778 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=992 len=0 wnd=117
+0:18:47.268067189 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=981 len=0 wnd=106
+0:18:47.268067189 DEBUG (4): conn=0 ACK 981 accepted, in flight=33, peer wnd=106
+0:18:47.268067189 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1014 ack=501 len=11 wnd=128
+0:18:47.432709009 DEBUG (1): RX DATA from 4:10 to port 123 seq=992 ack=501 len=11 wnd=128
+0:18:47.432709009 DEBUG (1): conn=1 DATA seq=992 len=11 accepted, stored=22
+0:18:47.432709009 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1003 len=0 wnd=106
+0:18:47.441406403 DEBUG (1): Test server: conn=1 read 22 bytes [112..133], total 902, mismatches 0
+0:18:47.484696241 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=992 len=0 wnd=117
+0:18:47.484696241 DEBUG (4): conn=0 ACK 992 accepted, in flight=33, peer wnd=117
+0:18:47.484696241 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1025 ack=501 len=11 wnd=128
+0:18:47.656601185 DEBUG (1): RX DATA from 4:10 to port 123 seq=1003 ack=501 len=11 wnd=128
+0:18:47.656601185 DEBUG (1): conn=1 DATA seq=1003 len=11 accepted, stored=11
+0:18:47.656601185 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1014 len=0 wnd=117
+0:18:47.756988759 DEBUG (1): RX DATA from 4:10 to port 123 seq=1014 ack=501 len=11 wnd=128
+0:18:47.756988759 DEBUG (1): conn=1 DATA seq=1014 len=11 accepted, stored=22
+0:18:47.756988759 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1025 len=0 wnd=106
+0:18:47.767914068 DEBUG (1): RX DATA from 4:10 to port 123 seq=1025 ack=501 len=11 wnd=128
+0:18:47.767914068 DEBUG (1): conn=1 DATA seq=1025 len=11 accepted, stored=33
+0:18:47.767914068 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1036 len=0 wnd=95
+0:18:47.929687653 DEBUG (1): Test server: conn=1 read 33 bytes [134..166], total 935, mismatches 0
+0:18:48.062714413 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1003 len=0 wnd=106
+0:18:48.062714413 DEBUG (4): conn=0 ACK 1003 accepted, in flight=33, peer wnd=106
+0:18:48.062714413 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1036 ack=501 len=11 wnd=128
+0:18:48.334320874 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1014 len=0 wnd=117
+0:18:48.334320874 DEBUG (4): conn=0 ACK 1014 accepted, in flight=33, peer wnd=117
+0:18:48.334320874 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1047 ack=501 len=11 wnd=128
+0:18:48.346222190 DEBUG (1): RX DATA from 4:10 to port 123 seq=1036 ack=501 len=11 wnd=128
+0:18:48.346222190 DEBUG (1): conn=1 DATA seq=1036 len=11 accepted, stored=11
+0:18:48.346222190 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1047 len=0 wnd=117
+0:18:48.375580604 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1025 len=0 wnd=106
+0:18:48.375580604 DEBUG (4): conn=0 ACK 1025 accepted, in flight=33, peer wnd=106
+0:18:48.375580604 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1058 ack=501 len=11 wnd=128
+0:18:48.417968903 DEBUG (1): Test server: conn=1 read 11 bytes [167..177], total 946, mismatches 0
+0:18:48.417969303 DEBUG (4): Test client: conn=0 all 1030 bytes accepted, closing
+0:18:48.417969303 DEBUG (4): conn=0 close requested: FIN after queued data is ACKed
+0:18:48.574417382 DEBUG (1): RX DATA from 4:10 to port 123 seq=1047 ack=501 len=11 wnd=128
+0:18:48.574417382 DEBUG (1): conn=1 DATA seq=1047 len=11 accepted, stored=11
+0:18:48.574417382 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1058 len=0 wnd=117
+0:18:48.714218894 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1036 len=0 wnd=95
+0:18:48.714218894 DEBUG (4): conn=0 ACK 1036 accepted, in flight=33, peer wnd=95
+0:18:48.714218894 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1069 ack=501 len=11 wnd=128
+0:18:48.789933014 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1047 len=0 wnd=117
+0:18:48.789933014 DEBUG (4): conn=0 ACK 1047 accepted, in flight=33, peer wnd=117
+0:18:48.789933014 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1080 ack=501 len=11 wnd=128
+0:18:48.906250153 DEBUG (1): Test server: conn=1 read 11 bytes [178..188], total 957, mismatches 0
+0:18:48.953552467 DEBUG (1): RX DATA from 4:10 to port 123 seq=1058 ack=501 len=11 wnd=128
+0:18:48.953552467 DEBUG (1): conn=1 DATA seq=1058 len=11 accepted, stored=11
+0:18:48.953552467 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1069 len=0 wnd=117
+0:18:49.063950384 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1058 len=0 wnd=117
+0:18:49.063950384 DEBUG (4): conn=0 ACK 1058 accepted, in flight=33, peer wnd=117
+0:18:49.063950384 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1091 ack=501 len=11 wnd=128
+0:18:49.239425899 DEBUG (1): RX DATA from 4:10 to port 123 seq=1069 ack=501 len=11 wnd=128
+0:18:49.239425899 DEBUG (1): conn=1 DATA seq=1069 len=11 accepted, stored=22
+0:18:49.239425899 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1080 len=0 wnd=106
+0:18:49.279785950 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1069 len=0 wnd=117
+0:18:49.279785950 DEBUG (4): conn=0 ACK 1069 accepted, in flight=33, peer wnd=117
+0:18:49.279785950 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1102 ack=501 len=11 wnd=128
+0:18:49.394531403 DEBUG (1): Test server: conn=1 read 22 bytes [189..210], total 979, mismatches 0
+0:18:49.480026488 DEBUG (1): RX DATA from 4:10 to port 123 seq=1080 ack=501 len=11 wnd=128
+0:18:49.480026488 DEBUG (1): conn=1 DATA seq=1080 len=11 accepted, stored=11
+0:18:49.480026488 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1091 len=0 wnd=117
+0:18:49.565247368 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1080 len=0 wnd=106
+0:18:49.565247368 DEBUG (4): conn=0 ACK 1080 accepted, in flight=33, peer wnd=106
+0:18:49.565247368 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1113 ack=501 len=11 wnd=128
+0:18:49.716858173 DEBUG (1): RX DATA from 4:10 to port 123 seq=1091 ack=501 len=11 wnd=128
+0:18:49.716858173 DEBUG (1): conn=1 DATA seq=1091 len=11 accepted, stored=22
+0:18:49.716858173 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1102 len=0 wnd=106
+0:18:49.772553275 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1091 len=0 wnd=117
+0:18:49.772553275 DEBUG (4): conn=0 ACK 1091 accepted, in flight=33, peer wnd=117
+0:18:49.772553275 DEBUG (4): conn=0 4:10->1:123 TX DATA seq=1124 ack=501 len=7 wnd=128
+0:18:49.882812653 DEBUG (1): Test server: conn=1 read 22 bytes [211..232], total 1001, mismatches 0
+0:18:49.958709953 DEBUG (1): RX DATA from 4:10 to port 123 seq=1102 ack=501 len=11 wnd=128
+0:18:49.958709953 DEBUG (1): conn=1 DATA seq=1102 len=11 accepted, stored=11
+0:18:49.958709953 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1113 len=0 wnd=117
+0:18:50.044998420 DEBUG (1): RX DATA from 4:10 to port 123 seq=1113 ack=501 len=11 wnd=128
+0:18:50.044998420 DEBUG (1): conn=1 DATA seq=1113 len=11 accepted, stored=22
+0:18:50.044998420 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1124 len=0 wnd=106
+0:18:50.270523340 DEBUG (1): RX DATA from 4:10 to port 123 seq=1124 ack=501 len=7 wnd=128
+0:18:50.270523340 DEBUG (1): conn=1 DATA seq=1124 len=7 accepted, stored=29
+0:18:50.270523340 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1131 len=0 wnd=99
+0:18:50.274491141 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1102 len=0 wnd=106
+0:18:50.274491141 DEBUG (4): conn=0 ACK 1102 accepted, in flight=29, peer wnd=106
+0:18:50.371093903 DEBUG (1): Test server: conn=1 read 29 bytes [233..5], total 1030, mismatches 0
+0:18:50.451584645 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1113 len=0 wnd=117
+0:18:50.451584645 DEBUG (4): conn=0 ACK 1113 accepted, in flight=18, peer wnd=117
+0:18:50.476197071 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1124 len=0 wnd=106
+0:18:50.476197071 DEBUG (4): conn=0 ACK 1124 accepted, in flight=7, peer wnd=106
+0:18:50.709793848 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1131 len=0 wnd=99
+0:18:50.709793848 DEBUG (4): conn=0 ACK 1131 accepted, in flight=0, peer wnd=99
+0:18:50.709793848 DEBUG (4): conn=0 4:10->1:123 ESTABLISHED -> FIN_WAIT_1
+0:18:50.709793848 DEBUG (4): conn=0 4:10->1:123 TX FIN seq=1131 ack=501 len=0 wnd=128
+0:18:51.348572047 DEBUG (1): RX FIN from 4:10 to port 123 seq=1131 ack=501 len=0 wnd=128
+0:18:51.348572047 DEBUG (1): conn=1 1:123->4:10 TX ACK seq=501 ack=1132 len=0 wnd=128
+0:18:51.348572047 DEBUG (1): conn=1 1:123->4:10 ESTABLISHED -> CLOSE_WAIT
+0:18:51.348572047 DEBUG (1): conn=1 1:123->4:10 CLOSE_WAIT -> LAST_ACK
+0:18:51.348572047 DEBUG (1): conn=1 1:123->4:10 TX FIN seq=501 ack=1132 len=0 wnd=128
+0:18:51.819992835 DEBUG (4): RX ACK from 1:123 to port 10 seq=501 ack=1132 len=0 wnd=128
+0:18:51.819992835 DEBUG (4): conn=0 ACK 1132 accepted, in flight=0, peer wnd=128
+0:18:51.819992835 DEBUG (4): conn=0 4:10->1:123 FIN_WAIT_1 -> FIN_WAIT_2
+0:18:52.048676329 DEBUG (4): RX FIN from 1:123 to port 10 seq=501 ack=1132 len=0 wnd=128
+0:18:52.048676329 DEBUG (4): conn=0 4:10->1:123 TX ACK seq=1132 ack=502 len=0 wnd=128
+0:18:52.048676329 DEBUG (4): conn=0 4:10->1:123 FIN_WAIT_2 -> TIME_WAIT
+0:18:52.501373512 DEBUG (1): RX ACK from 4:10 to port 123 seq=1132 ack=502 len=0 wnd=128
+0:18:52.501373512 DEBUG (1): conn=1 ACK 502 accepted, in flight=0, peer wnd=128
+0:18:52.501373512 DEBUG (1): conn=1 closed cleanly, releasing record
+0:18:52.501373512 DEBUG (1): conn=1 1:123->4:10 LAST_ACK -> CLOSED
+0:18:52.501373512 DEBUG (1): Test server: conn=1 closed OK, consumed 1030 bytes, 0 mismatches
+0:19:3.798828668 DEBUG (4): conn=0 closed cleanly, releasing record
+0:19:3.798828668 DEBUG (4): conn=0 4:10->1:123 TIME_WAIT -> CLOSED
+0:19:3.798828668 DEBUG (4): Test client: conn=0 closed OK, 1030 of 1030 bytes accepted
